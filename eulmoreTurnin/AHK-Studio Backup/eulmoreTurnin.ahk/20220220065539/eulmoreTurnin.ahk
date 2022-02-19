@@ -1,6 +1,5 @@
 SetWorkingDir %A_ScriptDir%
 #include ..\..\lib\json\json.ahk
-#include ..\utility\utility.ahk
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
@@ -39,6 +38,10 @@ readItems()
 	handleExchangeNPC() ;buy items
 	sleep, 1000
 ;}
+
+log(text, clear:=0, lineBreak:=0, delay:=0, autoHide:=0, msgBox:=0){
+	DebugWindow(text,clear,lineBreak,delay,autoHide, msgBox)
+}
 
 
 handleCollectableAppraiser(){

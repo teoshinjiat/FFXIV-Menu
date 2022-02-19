@@ -1,6 +1,5 @@
 SetWorkingDir %A_ScriptDir%
 #include ..\..\lib\json\json.ahk
-#include ..\utility\utility.ahk
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
@@ -18,7 +17,8 @@ for n, param in A_Args  ; For each parameter:
 	DebugWindow("Parameter number " %n%  " is " %param% ,0,1,0,0)
 }
 
-log("logging", clear:=1)
+DebugWindow("-",0,1,0,0)	
+log("logging")
 ;global selectedItem:=%param%
 global selectedItem:="Craftsmans_Command_Materia_X"
 global matchedItemIndex:=""
@@ -34,11 +34,15 @@ global paths_filename:=""
 */
 
 readItems()
-;Loop {
+Loop {
 	;handleCollectableAppraiser() ;turn in items
 	handleExchangeNPC() ;buy items
 	sleep, 1000
-;}
+}
+
+log(text, clear:=0, lineBreak:=0, delay:=0, autoHide:=0, msgBox:=0){
+	DebugWindow(text,clear,lineBreak,delay,autoHide, msgBox)
+}
 
 
 handleCollectableAppraiser(){

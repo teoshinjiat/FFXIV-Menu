@@ -1,6 +1,5 @@
 SetWorkingDir %A_ScriptDir%
 #include ..\..\lib\json\json.ahk
-#include ..\utility\utility.ahk
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
@@ -18,7 +17,8 @@ for n, param in A_Args  ; For each parameter:
 	DebugWindow("Parameter number " %n%  " is " %param% ,0,1,0,0)
 }
 
-log("logging", clear:=1)
+DebugWindow("-",0,1,0,0)	
+
 ;global selectedItem:=%param%
 global selectedItem:="Craftsmans_Command_Materia_X"
 global matchedItemIndex:=""
@@ -34,12 +34,11 @@ global paths_filename:=""
 */
 
 readItems()
-;Loop {
+Loop {
 	;handleCollectableAppraiser() ;turn in items
 	handleExchangeNPC() ;buy items
 	sleep, 1000
-;}
-
+}
 
 handleCollectableAppraiser(){
 	sleep, 1000
@@ -65,7 +64,7 @@ exchange(){
 	;global paths_subcategory:=""
 	;global paths_filename:=""
 	SetKeyDelay, 100
-	;windowCheck()
+	windowCheck()
 	handleCategory()
 	handleSubCategory()
 	buyItem()
@@ -77,13 +76,6 @@ windowCheck(){ ;looping to ensure window is indeed opened
 	{
 		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\window\item_exchange_window.png
 		item_exchange_window:=ErrorLevel
-		if(item_exchange_window=0){
-			DebugWindow("Coordinates found at x:" %x% ", y:" %y%", 0,1,0,0)
-		} else if(ErrorLevel=1){
-			DebugWindow("Not found", 0,1,0,0)
-		} else {
-			DebugWindow("Could not conduct search", 0,1,0,0)	
-		}
 	}
 }
 

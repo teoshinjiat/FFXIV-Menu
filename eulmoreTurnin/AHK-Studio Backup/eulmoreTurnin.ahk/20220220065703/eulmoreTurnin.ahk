@@ -1,6 +1,6 @@
 SetWorkingDir %A_ScriptDir%
 #include ..\..\lib\json\json.ahk
-#include ..\utility\utility.ahk
+#include ..\utility
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
