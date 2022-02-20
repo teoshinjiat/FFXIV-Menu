@@ -7,7 +7,7 @@
 			"paths": {
 				"category": "crafters_scrip_materia",
 				"subcategory": "purple_scrip_exchange_materia",
-				"filename": "Craftmans_Command_Materia_X.png"
+				"filename": "craftmans_command_materia_x"
 			}
 		},
 		{
@@ -17,7 +17,7 @@
 			"paths": {
 				"category": "crafters_scrip_materia",
 				"subcategory": "white_scrip_exchange_materia",
-				"filename": "Craftmans_Competence_Materia_VIII.png"
+				"filename": "craftmans_competence_materia_viii"
 			}
 		}
 	]

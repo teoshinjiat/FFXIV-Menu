@@ -1,6 +1,6 @@
 SetWorkingDir %A_ScriptDir%
-#include ..\..\lib\json\json.ahk
-#include ..\utility\utility.ahk
+#include ..\lib\json\json.ahk
+#include utility\utility.ahk
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
@@ -11,35 +11,24 @@ SetMouseDelay, 5
 CoordMode, Pixel, Screen
 CoordMode, Mouse, Screen
 ;("done crafting",Clear:=1,LineBreak:=1,Sleep:=500,0)
-DebugWindow("Started Eulmore Turnin, no keys required to activate...",0,1,200,0)
+log("Eulmore Turnin", clear:=1)
 
-for n, param in A_Args  ; For each parameter:
-{
-	DebugWindow("Parameter number " %n%  " is " %param% ,0,1,0,0)
-}
-
-log("logging", clear:=1)
-;global selectedItem:=%param%
-global selectedItem:="Craftsmans_Command_Materia_X"
+global selectedItem:=A_Args[1]
+log("selectedItem: " selectedItem)
 global matchedItemIndex:=""
 global paths_category:=""
 global paths_subcategory:=""
 global paths_filename:=""
 
-/*
-	DebugWindow("selectedItem: "selectedItem,0,1,200,0)
-	MsgBox The value in the variable named Var is %1%. 
-	DebugWindow("%1%: "%1%,0,1,0,0)
-	DebugWindow("selectedItem: "selectedItem,0,1,0,0)
-*/
-
 readItems()
-;Loop {
-	;handleCollectableAppraiser() ;turn in items
+Loop {
+	SetKeyDelay, 8
+	handleCollectableAppraiser() ;turn in items
+	SetKeyDelay, 300
 	handleExchangeNPC() ;buy items
+	ControlSend, , {Esc}, ahk_class FFXIVGAME
 	sleep, 1000
-;}
-
+}
 
 handleCollectableAppraiser(){
 	sleep, 1000
@@ -61,11 +50,7 @@ handleExchangeNPC(){
 
 exchange(){
 	DebugWindow("exchange()",0,1,0,0)	
-	;global paths_category:=""
-	;global paths_subcategory:=""
-	;global paths_filename:=""
-	SetKeyDelay, 100
-	;windowCheck()
+	windowCheck()
 	handleCategory()
 	handleSubCategory()
 	buyItem()
@@ -73,36 +58,96 @@ exchange(){
 
 windowCheck(){ ;looping to ensure window is indeed opened
 	item_exchange_window:=""
-	While (item_exchange_window!=0)
-	{
+	log("windowChecwindowCheck()")
+	
+	While (item_exchange_window!=0){
 		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\window\item_exchange_window.png
 		item_exchange_window:=ErrorLevel
-		if(item_exchange_window=0){
-			DebugWindow("Coordinates found at x:" %x% ", y:" %y%", 0,1,0,0)
-		} else if(ErrorLevel=1){
-			DebugWindow("Not found", 0,1,0,0)
-		} else {
-			DebugWindow("Could not conduct search", 0,1,0,0)	
+		log("searching for window")
+	}
+	log("window found..")
+}
+
+handleCategory(){
+	log("handleCategory()")
+	log("paths_category : " paths_category)
+	if(paths_category="crafters_scrip_materia"){
+		sleep, 2000
+		ControlSend, , {Up}, ahk_class FFXIVGAME
+		ControlSend, , {Up}, ahk_class FFXIVGAME
+		
+		ControlSend, , {Up}, ahk_class FFXIVGAME
+		ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
+		processCategory()
+	}
+}
+
+processCategory(){
+	log("processCategory()")
+	
+	categoryHighlighted:=""
+	while(categoryHighlighted!=0){
+		ControlSend, , {Down}, ahk_class FFXIVGAME		
+		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\category\%paths_category%.png
+		categoryHighlighted:=ErrorLevel
+		if(categoryHighlighted=0){
+			ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
+			break ;selected category, handleSubCategory next
 		}
 	}
 }
 
-handleCategory(){
-	if(paths_category="crafters_scrip_materia"){
-		ControlSend, , {Up}, ahk_class FFXIVGAME
-		ControlSend, , ``, ahk_class FFXIVGAME		
-		ControlSend, , {Down}, ahk_class FFXIVGAME
-		ControlSend, , ``, ahk_class FFXIVGAME		
-	}
+handleSubCategory(){
+	log("handleSubCategory()")
 	
+	ControlSend, , {Down}, ahk_class FFXIVGAME
+	ControlSend, , ``, ahk_class FFXIVGAME ;subCategory is opened
+	processSubCategory()
 }
 
-handleSubCategory(){
+processSubCategory(){
+	log("processSubCategory()")
 	
+	subCategoryHighlighted:=""
+	while(subCategoryHighlighted!=0){
+		ControlSend, , {Down}, ahk_class FFXIVGAME		
+		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\subcategory\%paths_subcategory%.png
+		subCategoryHighlighted:=ErrorLevel
+		if(subCategoryHighlighted=0){
+			ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
+			break ;selected category, handleSubCategory next
+		}
+	}
 }
 
 buyItem(){
+	log("buyItem()")
 	
+	itemHighlighted:=""
+	while(itemHighlighted!=0){
+		ControlSend, , {Down}, ahk_class FFXIVGAME	
+		imageSearch, x, y, 0, 0, 2560, 1440, *1 images\item\%paths_filename%.png
+		itemHighlighted:=ErrorLevel
+		if(itemHighlighted=0){
+			setMaxQuantity()
+			confirm()
+			break ;selected category, handleSubCategory next
+		}
+	}
+}
+
+setMaxQuantity(){
+	log("setQuantity()")
+	ControlSend, , {Right}, ahk_class FFXIVGAME	
+	ControlSend, , {Insert}, ahk_class FFXIVGAME	
+	ControlSend, , {Left}, ahk_class FFXIVGAME		
+}
+
+confirm(){
+	log("confirm()")	
+	ControlSend, , ``, ahk_class FFXIVGAME	
+	ControlSend, , {Left}, ahk_class FFXIVGAME	
+	ControlSend, , ``, ahk_class FFXIVGAME		
 }
 
 handInItems(){
@@ -123,12 +168,24 @@ handInItems(){
 				
 				imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\dialogue\scrips_full.png
 				if(ErrorLevel=0){
+					DebugWindow("scrips full",0,1,200,0)
+					
 					ControlSend, , {Esc}, ahk_class FFXIVGAME
 					sleep, 100					
 					ControlSend, , {Esc}, ahk_class FFXIVGAME
 					Goto, ContinueHere
 					return
 				}
+				
+				imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\button\trade_disabled.png
+				if(ErrorLevel=0){	
+					DebugWindow("no more item to trade", 0,1,200,0)
+					
+					ControlSend, , {Esc}, ahk_class FFXIVGAME
+					Goto, ContinueHere
+					return
+				}
+				
 				sleep, 500
 			}
 		}
@@ -148,17 +205,22 @@ readItems(){
 		i:=A_Index
 		DebugWindow("id:" obj.items[i].id " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
 		
+		log("matching")		
 		if(selectedItem=obj.items[i].name){
-			setPaths(i)
+			log("matched...")
+			setPaths(obj.items[i])
 			break ;if found item, skip the rest of the search
 		}
 	}
 }
 
-setPaths(i){
-	paths_category:=obj.items[i].paths.category
-	paths_subcategory:=obj.items[i].paths.subcategory
-	paths_filename:=obj.items[i].paths.filename
+setPaths(obj){
+	paths_category:=obj.paths.category
+	paths_subcategory:=obj.paths.subcategory
+	paths_filename:=obj.paths.filename
+	log("paths_category : " + paths_category)
+	log("paths_subcategory : " + paths_subcategory)
+	log("paths_filename : " + paths_filename)
 }
 ^F4::ExitApp DebugWindow("All scripts terminated...",0,1,200,0)
 

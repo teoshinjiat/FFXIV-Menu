@@ -8,10 +8,7 @@ menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto S
 menuData[ 2 ] := {function:"gAutoQuickSynthesis", value:"vMainScript2", label:"Auto Quick Synthesis"}
 menuData[ 3 ] := {function:"gAutoGather", value:"vMainScript3", label:"Auto Gather"}
 menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
-
 menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[{value:"Disabled vMainScript5_SubItem1", label:"Craftsmans Command Materia X"}]}
-
-
 menuData[ 6 ] := {function:"gProfitCalculator", value:"vMainScript6", label:"Profit Calculator"}
 
 Gui, Color, 0x808080
@@ -65,7 +62,7 @@ if(checkedBoxIndex="1") {
 } else if(checkedBoxIndex="5") {
 	selectedItem:=MainScript5_SubItem1
 	selectedItem:=StrReplace(selectedItem, " ", "_") ;replace space in string for easier matching
-	Run eulmoreTurnin\eulmoreTurnin.ahk" %selectedItem%
+	Run eulmoreTurnin\eulmoreTurnin.ahk %selectedItem%
 } else if(checkedBoxIndex="6") {
 	Run "C:\Users\teosh\Desktop\ahk\profitCalculator\profitCalculator.ahk"
 }
