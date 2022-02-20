@@ -76,7 +76,7 @@ preHealthCheck(){
 	}
 	
 	if(eatFoodFlag=1){
-		gdip:=searchImage("food_refresh")
+		gdip:=searchImage("food_refresh", 519, 34, 761, 157, 10)
 		if(gdip>0){
 			DebugWindow("will eat food next",0,1,2000,0)
 			buttonToPress:=5
@@ -84,7 +84,7 @@ preHealthCheck(){
 	}
 	
 	if(eatMedicineFlag=1){
-		gdip:=searchImage("medicine_refresh")
+		gdip:=searchImage("medicine_refresh", 519, 34, 761, 157, 10)
 		if(gdip>0){
 			DebugWindow("will eat medicine next",0,1,2000,0)
 			buttonToPress:=6
@@ -201,40 +201,43 @@ autoSynthesis() {
 		if(gdip>0){ ; synthesis_button exist
 			DebugWindow("looping to send ``",0,1,1,0)
 			ControlSend, , ``, ahk_class FFXIVGAME
+			sleep, 300
+			ControlSend, , ``, ahk_class FFXIVGAME
 		}
-		
 	}
 }
 
-autoSynthesisFallback() {
-	DebugWindow("autoSynthesisFallback()",0,1,1,0)
-	processWindowImage() ;save current window image
-	gdip:=searchImage("synthesis_button")
-	
-	if(gdip>0){
+/*
+	autoSynthesisFallback() {
+		DebugWindow("autoSynthesisFallback()",0,1,1,0)
+		processWindowImage() ;save current window image
+		gdip:=searchImage("synthesis_button")
+		
+		if(gdip>0){
 		;MouseMove, %x%, %y%
 		;Mouseclick, left, %x%, %y%`
-		sleep, 500
-		ControlSend, , ``, ahk_class FFXIVGAME
-	}
-	
-	gdip:=searchImage("synthesis_button")
-	
-	if(gdip>0){
+			sleep, 500
+			ControlSend, , ``, ahk_class FFXIVGAME
+		}
+		
+		gdip:=searchImage("synthesis_button")
+		
+		if(gdip>0){
 		;MouseMove, %x%, %y%
 		;Mouseclick, left, %x%, %y%`
-		sleep, 500
-		ControlSend, , ``, ahk_class FFXIVGAME
-	}
-	
-	gdip:=searchImage("synthesis_button")
-	if(gdip>0){
+			sleep, 500
+			ControlSend, , ``, ahk_class FFXIVGAME
+		}
+		
+		gdip:=searchImage("synthesis_button")
+		if(gdip>0){
 		;MouseMove, %x%, %y%
 		;Mouseclick, left, %x%, %y%`
-		sleep, 500
-		ControlSend, , ``, ahk_class FFXIVGAME
+			sleep, 500
+			ControlSend, , ``, ahk_class FFXIVGAME
+		}
 	}
-}
+*/
 
 detectDurability(){
 	DebugWindow("detectDurability()",0,1,1,0)
@@ -264,7 +267,7 @@ detectDurability(){
 	return durability
 }
 
-searchImage(filename){
+searchImage(filename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1){
 	token := Gdip_Startup()
 	if !pBitmap := Gdip_BitmapFromHWND(gameId)
 	{
@@ -274,7 +277,7 @@ searchImage(filename){
 	
 	if Gdip_SaveBitmapToFile(pBitmap, img := A_ScriptDir "\screen.png")
 	{
-		log("Gdip_SaveBitmapToFile fail11")
+		log("Gdip_SaveBitmapToFile fail")
 		ExitApp
 	}
 	haystack:=Gdip_CreateBitmapFromFile("screen.png")
@@ -282,7 +285,7 @@ searchImage(filename){
 	needleFilename:=filename ".png"
 	needlePath:=A_ScriptDir "\" needleFilename
 	needle:=Gdip_CreateBitmapFromFile(needlePath)
-	result:=Gdip_ImageSearch(haystack,needle,LIST,,,,,1,0,1,0)
+	result:=Gdip_ImageSearch(haystack,needle,LIST,x1,x2,y1,y2,variance,0,1,0)
 	Gdip_DisposeImage(haystack)
 	Gdip_DisposeImage(needle)
 	Gdip_Shutdown(token)	
@@ -295,7 +298,7 @@ eatFoodFunc(){
 }
 
 processWindowImage(){
-
+	
 	;Gdip_DisposeImage(pBitmap) ; clearing for reassignation
 }
 

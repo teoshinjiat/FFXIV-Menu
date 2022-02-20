@@ -26,7 +26,7 @@ for i, obj in menuData{ ;mainBox mainscript boxes
 		value:=menuData[i].subOptions[key].value
 		label:=menuData[i].subOptions[key].label
 		subOptionGuiType:=menuData[i].subOptionGuiType
-		subOptionGuiStyle:=menuData[i].subOptionGuiStyle		
+		subOptionGuiStyle:=menuData[i].subOptionGuiStyle		n
 		Gui, Add, %subOptionGuiType%, %subOptionGuiStyle% %value%, %label%
 		;DebugWindow("Array: " i "`nKey: " key "`nAnimal: " animal,0,1,200,0)
 		;Gui, Add, Checkbox, x25 menuData[]i.function menuData[i].value, menuData[i].label
