@@ -161,17 +161,23 @@ spiritbondCheck(){
 	sleep, 1000
 	ControlSend, , 3, ahk_class FFXIVGAME
 	
+	
 	gdip:=1
 	While (gdip>0)
 	{
+		sleep, 1000
+		ControlSend, , {Up}, ahk_class FFXIVGAME
+		
+		log("below while()")
 		gdip:=searchImage("spiritbond_100percent")
 		if(gdip>0){
-			ControlSend, , {Right}, ahk_class FFXIVGAME
+			ControlSend, , {Down}, ahk_class FFXIVGAME
 			sleep, 1000
 			ControlSend, , ``, ahk_class FFXIVGAME
 			sleep, 1000
-			DebugWindow("EXTRACTING SPIRITBOND",0,1,1,0)
+			DebugWindow("Extracted one spiritbond",0,1,1,0)
 		} 
+		log("gdip: "gdip)
 	}
 	DebugWindow("FINISHED EXTRACTING SPIRITBOND",0,1,1,0)
 	sleep, 2000
