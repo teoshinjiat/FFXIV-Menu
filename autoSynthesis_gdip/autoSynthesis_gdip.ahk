@@ -35,7 +35,6 @@ Loop{
 	DebugWindow("it's still crafting",0,1,500,0)
 	While (gdip>0) ; when the crafting window is opened, means it's currently in busy mode
 	{
-		processWindowImage()
 		gdip:=searchImage("still-crafting")
 	}
 	DebugWindow("done crafting",0,1,200,0)
@@ -61,7 +60,6 @@ runMacro(durability){
 }
 
 preHealthCheck(){
-	processWindowImage() ;save current window image
 	buttonToPress:=""
 	gdip:=searchImage("spritbond_full")
 	if(gdip>0){
@@ -140,7 +138,6 @@ durabilityCheck(){
 	gdip:=""
 	While (gdip<1) ; ensure repair button is located
 	{
-		processWindowImage() ;save current window image
 		gdip:=searchImage("repair_button")
 	}
 	if(gdip>0){ ;positive value means located, then repair
@@ -164,11 +161,9 @@ spiritbondCheck(){
 	sleep, 1000
 	ControlSend, , 3, ahk_class FFXIVGAME
 	
-	gdip:=0
-	While (gdip = 0)
+	gdip:=1
+	While (gdip>0)
 	{
-		processWindowImage() ;save current window image
-		sleep, 1000
 		gdip:=searchImage("spiritbond_100percent")
 		if(gdip>0){
 			ControlSend, , {Right}, ahk_class FFXIVGAME
@@ -192,7 +187,6 @@ autoSynthesis() {
 	gdip:=1
 	While (gdip>0)
 	{
-		processWindowImage() ;save current window image
 		gdip:=searchImage("synthesis_button")
 		if(gdip<1){ ; synthesis_button not exist
 			DebugWindow("breaking while loop",0,1,1,0)
@@ -207,43 +201,10 @@ autoSynthesis() {
 	}
 }
 
-/*
-	autoSynthesisFallback() {
-		DebugWindow("autoSynthesisFallback()",0,1,1,0)
-		processWindowImage() ;save current window image
-		gdip:=searchImage("synthesis_button")
-		
-		if(gdip>0){
-		;MouseMove, %x%, %y%
-		;Mouseclick, left, %x%, %y%`
-			sleep, 500
-			ControlSend, , ``, ahk_class FFXIVGAME
-		}
-		
-		gdip:=searchImage("synthesis_button")
-		
-		if(gdip>0){
-		;MouseMove, %x%, %y%
-		;Mouseclick, left, %x%, %y%`
-			sleep, 500
-			ControlSend, , ``, ahk_class FFXIVGAME
-		}
-		
-		gdip:=searchImage("synthesis_button")
-		if(gdip>0){
-		;MouseMove, %x%, %y%
-		;Mouseclick, left, %x%, %y%`
-			sleep, 500
-			ControlSend, , ``, ahk_class FFXIVGAME
-		}
-	}
-*/
-
 detectDurability(){
 	DebugWindow("detectDurability()",0,1,1,0)
 	durability := ""
-	while(durability=""){
-		processWindowImage()		
+	while(durability=""){	
 		gdip:=searchImage(35)
 		if(gdip>0){
 			durability="35"
@@ -295,11 +256,6 @@ searchImage(filename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1){
 
 eatFoodFunc(){
 	eatFoodFlag:="1"
-}
-
-processWindowImage(){
-	
-	;Gdip_DisposeImage(pBitmap) ; clearing for reassignation
 }
 
 KillGDIP() {
