@@ -156,10 +156,12 @@ durabilityCheck(){
 
 spiritbondCheck(){
 	DebugWindow("spiritbondCheck()",0,1,200,0)
+	sleep, 1000
 	
 	ControlSend, , {Esc}, ahk_class FFXIVGAME
 	sleep, 1000
 	ControlSend, , 3, ahk_class FFXIVGAME
+	sleep, 1000
 	
 	
 	gdip:=1
@@ -167,7 +169,7 @@ spiritbondCheck(){
 	{
 		sleep, 1000
 		ControlSend, , {Up}, ahk_class FFXIVGAME
-		
+		sleep, 1000		
 		log("below while()")
 		gdip:=searchImage("spiritbond_100percent")
 		if(gdip>0){
@@ -193,7 +195,7 @@ autoSynthesis() {
 	gdip:=1
 	While (gdip>0)
 	{
-		gdip:=searchImage("synthesis_button")
+		gdip:=searchImage("synthesis_button",727,671,932,741,30)
 		if(gdip<1){ ; synthesis_button not exist
 			DebugWindow("breaking while loop",0,1,1,0)
 			break
