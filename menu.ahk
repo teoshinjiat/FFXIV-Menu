@@ -12,7 +12,7 @@ menuData[ 6 ] := {function:"gProfitCalculator", value:"vMainScript6", label:"Pro
 
 
 ^F3::
-
+Gui,+AlwaysOnTop
 Gui,Add,Picture, x0 y0 w720 h188,gui.png
 Gui, Color, 0x808080
 Gui, Font, s10, Verdana
@@ -35,18 +35,15 @@ for i, obj in menuData{ ;mainBox mainscript boxes
 	}
 }
 
-
 Gui, Add, Button, default, OK  ; The label ButtonOK (if it exists) will be run when the button is pressed.
 Gui, Show, w720 h500, FFXIV Menu
 return  ; End of auto-execute section. The script is idle until the user does something.
-
 
 ButtonCancel:
 GuiClose:
 GuiEscape:
 Gui, Destroy
 Return   
-
 
 ButtonOK:
 Gui, Submit
