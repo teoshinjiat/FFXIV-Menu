@@ -1,7 +1,6 @@
 #SingleInstance, Force
 SetWorkingDir %A_ScriptDir%
 DebugWindow("Started script.",1,1,200,0)
-MainScriptArray := ["Auto Synthesis", "Auto Gather", "Auto Fish"]
 
 global menuData := []
 menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}, {value:"Disabled vMainScript1_SubItem3", label:"Collectable"}]}
@@ -10,6 +9,9 @@ menuData[ 3 ] := {function:"gAutoGather", value:"vMainScript3", label:"Auto Gath
 menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
 menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[{value:"Disabled vMainScript5_SubItem1", label:"Craftsmans Command Materia X"}]}
 menuData[ 6 ] := {function:"gProfitCalculator", value:"vMainScript6", label:"Profit Calculator"}
+
+
+^F3::
 
 Gui,Add,Picture, x0 y0 w720 h188,gui.png
 Gui, Color, 0x808080
@@ -142,7 +144,7 @@ uncheckMainScriptBoxes(selectedIndex){
 	}
 }
 
-^F4::ExitApp DebugWindow("All scripts terminated...",1,1,200,0)
+^F4::Reload DebugWindow("All scripts terminated...",1,1,200,0)
 
 Pause::Pause
 PostMessage, 0x111, 65306,,, autoSynthesis.ahk  ;sending pause to other running scripts, press hotkey again to resume
