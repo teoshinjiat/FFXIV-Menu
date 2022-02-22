@@ -5,7 +5,6 @@ SetWorkingDir %A_ScriptDir%
 #include ..\lib\Functions\Gdip_ImageSearch\Gdip_ImageSearch.ahk
 OnExit("KillGDIP")
 WinGet, GameID, ID, ahk_class FFXIVGAME
-#Persistent
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 #SingleInstance, Force
 SetMouseDelay, 5
@@ -273,4 +272,4 @@ KillGDIP() {
 	Gdip_Shutdown(pToken)
 }
 
-^F4::ExitApp DebugWindow("All scripts terminated...",0,1,200,0)
+^F4::ExitApp DebugWindow("Terminated Auto Synthesis",1,1,200,0)

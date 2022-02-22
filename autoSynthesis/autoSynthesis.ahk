@@ -1,7 +1,6 @@
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
 #MaxThreadsPerHotkey, 2
-#Persistent
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 #SingleInstance, Force
 SetMouseDelay, 5
@@ -48,7 +47,7 @@ Loop{
 }
 
 runMacro(durability){
-	ifequal durability,"35", ControlSend, , {Numpad1}, ahk_class FFXIVGAME
+	ifequal durability,"35", ControlSend, , {Numpad3}, ahk_class FFXIVGAME
 	ifequal durability,"40", ControlSend, , {Numpad3}, ahk_class FFXIVGAME
 	ifequal durability,"70", ControlSend, , {Numpad4}, ahk_class FFXIVGAME
 	ifequal durability,"80", ControlSend, , {Numpad7}, ahk_class FFXIVGAME
@@ -269,4 +268,4 @@ eatFoodFunc(){
 	eatFoodFlag:="1"
 }
 
-^F4::ExitApp DebugWindow("All scripts terminated...",1,1,200,0)
+^F4::ExitApp DebugWindow("Terminated Auto Synthesis",1,1,200,0)

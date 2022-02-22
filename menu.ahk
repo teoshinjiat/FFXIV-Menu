@@ -1,6 +1,7 @@
 #SingleInstance, Force
+#Persistent
 SetWorkingDir %A_ScriptDir%
-DebugWindow("Started script.",1,1,200,0)
+DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
 global menuData := []
 menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}, {value:"Disabled vMainScript1_SubItem3", label:"Collectable"}]}
@@ -12,6 +13,7 @@ menuData[ 6 ] := {function:"gProfitCalculator", value:"vMainScript6", label:"Pro
 
 
 ^F3::
+Gui, Destroy
 Gui,+AlwaysOnTop
 Gui,Add,Picture, x0 y0 w720 h188,gui.png
 Gui, Color, 0x808080
@@ -141,7 +143,7 @@ uncheckMainScriptBoxes(selectedIndex){
 	}
 }
 
-^F4::Reload DebugWindow("All scripts terminated...",1,1,200,0)
+;^F4::ExitApp DebugWindow("Terminated Menu",1,1,200,0)
 
 Pause::Pause
 PostMessage, 0x111, 65306,,, autoSynthesis.ahk  ;sending pause to other running scripts, press hotkey again to resume

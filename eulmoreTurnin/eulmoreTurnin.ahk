@@ -4,13 +4,11 @@ SetWorkingDir %A_ScriptDir%
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
-#Persistent
 #NoEnv
 #SingleInstance, Force
 SetMouseDelay, 5
 CoordMode, Pixel, Screen
 CoordMode, Mouse, Screen
-;("done crafting",Clear:=1,LineBreak:=1,Sleep:=500,0)
 log("Eulmore Turnin", clear:=1)
 
 global selectedItem:=A_Args[1]
@@ -61,7 +59,7 @@ windowCheck(){ ;looping to ensure window is indeed opened
 	log("windowChecwindowCheck()")
 	
 	While (item_exchange_window!=0){
-		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\window\item_exchange_window.png
+		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\window\item_exchange_window.png
 		item_exchange_window:=ErrorLevel
 		log("searching for window")
 	}
@@ -88,9 +86,12 @@ processCategory(){
 	categoryHighlighted:=""
 	while(categoryHighlighted!=0){
 		ControlSend, , {Down}, ahk_class FFXIVGAME		
-		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\category\%paths_category%.png
+		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\category\%paths_category%.png
 		categoryHighlighted:=ErrorLevel
+		log("subCategoryHighlighted ErrorLevel :" subCategoryHighlighted)
+		
 		if(categoryHighlighted=0){
+			log("categoryHighlighted : found")
 			ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
 			break ;selected category, handleSubCategory next
 		}
@@ -111,9 +112,14 @@ processSubCategory(){
 	subCategoryHighlighted:=""
 	while(subCategoryHighlighted!=0){
 		ControlSend, , {Down}, ahk_class FFXIVGAME		
-		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\subcategory\%paths_subcategory%.png
+		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\subcategory\%paths_subcategory%.png
+		
 		subCategoryHighlighted:=ErrorLevel
+		log("subCategoryHighlighted filename: " paths_subcategory ".png")		
+		log("subCategoryHighlighted ErrorLevel: " subCategoryHighlighted)
+		
 		if(subCategoryHighlighted=0){
+			log("subCategoryHighlighted: found")
 			ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
 			break ;selected category, handleSubCategory next
 		}
@@ -155,7 +161,7 @@ handInItems(){
 	ErrorLevel:=""
 	While (tradeButtonErrorLevel!=0)
 	{
-		imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\button\trade.png
+		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\button\trade.png
 		tradeButtonErrorLevel:=ErrorLevel
 		if(tradeButtonErrorLevel=0){
 			ControlSend, , {Right}, ahk_class FFXIVGAME
@@ -166,7 +172,7 @@ handInItems(){
 				ControlSend, , ``, ahk_class FFXIVGAME
 				sleep, 200													
 				
-				imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\dialogue\scrips_full.png
+				imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\dialogue\scrips_full.png
 				if(ErrorLevel=0){
 					DebugWindow("scrips full",0,1,200,0)
 					
@@ -177,7 +183,7 @@ handInItems(){
 					return
 				}
 				
-				imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, images\button\trade_disabled.png
+				imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\button\trade_disabled.png
 				if(ErrorLevel=0){	
 					DebugWindow("no more item to trade", 0,1,200,0)
 					
@@ -222,58 +228,5 @@ setPaths(obj){
 	log("paths_subcategory : " + paths_subcategory)
 	log("paths_filename : " + paths_filename)
 }
-^F4::ExitApp DebugWindow("All scripts terminated...",0,1,200,0)
 
-/*
-	
-	
-	
-	
-	
-	handleCollectableAppraiser(){
-		sleep, 1000
-		ControlSend, , {e}, ahk_class FFXIVGAME
-		sleep, 1000
-		ControlSend, , ``, ahk_class FFXIVGAME
-		sleep, 1000
-		turnIn()
-	}
-	
-	turnIn(){
-		DebugWindow("turnIn()",0,1,200,0)
-		
-		ErrorLevel:=""
-		While (tradeButtonErrorLevel!=0)
-		{
-			imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, %A_ScriptDir%\trade.png
-			tradeButtonErrorLevel:=ErrorLevel
-			if(tradeButtonErrorLevel=0){
-				ControlSend, , {Right}, ahk_class FFXIVGAME
-				ControlSend, , {Right}, ahk_class FFXIVGAME			
-				ControlSend, , ``, ahk_class FFXIVGAME
-				ControlSend, , ``, ahk_class FFXIVGAME			
-				Loop {
-					ControlSend, , ``, ahk_class FFXIVGAME
-					sleep, 200													
-					
-					imageSearch, x, y, 0, 0, 2560, 1440, *30, *TransBlack, %A_ScriptDir%\purple_scrips_full.png
-					if(ErrorLevel=0){
-						ControlSend, , {Esc}, ahk_class FFXIVGAME
-						sleep, 100					
-						ControlSend, , {Esc}, ahk_class FFXIVGAME
-						Goto, ContinueHere
-						return
-					}
-					sleep, 500
-				}
-			}
-		}
-		
-		ContinueHere:
-		sleep, 200
-		sleep, 1500
-		handleExchange()
-	}
-	
-	
-	
+^F4::ExitApp DebugWindow("Terminated EulmoreTurnin",1,1,200,0)
