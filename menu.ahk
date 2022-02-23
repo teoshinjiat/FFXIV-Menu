@@ -54,8 +54,7 @@ if(checkedBoxIndex="1") {
 	foodRefresh:=MainScript1_SubItem1
 	medicineRefresh:=MainScript1_SubItem2
 	collectableFlag:=MainScript1_SubItem3
-	;Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh% %collectableFlag%
-	Run autoSynthesis_gdip\autoSynthesis_gdip.ahk %foodRefresh% %medicineRefresh% %collectableFlag%
+	Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh% %collectableFlag%
 } else if(checkedBoxIndex="2") {
 	Run "C:\Users\teosh\Desktop\ahk\autoQuickSynthesis\autoQuickSynthesis.ahk"
 } else if(checkedBoxIndex="3") {
@@ -64,7 +63,7 @@ if(checkedBoxIndex="1") {
 	Run "C:\Users\teosh\Desktop\ahk\fish\fish.ahk"
 } else if(checkedBoxIndex="5") {
 	selectedItem:=MainScript5_SubItem1
-	selectedItem:=StrReplace(selectedItem, " ", "_") ;replace space in string for easier matching
+	selectedItem:=StrReplace(selectedItem, " ", "_") ;replace space in string for easier matching in the subscript
 	Run eulmoreTurnin\eulmoreTurnin.ahk %selectedItem%
 } else if(checkedBoxIndex="6") {
 	Run "C:\Users\teosh\Desktop\ahk\profitCalculator\profitCalculator.ahk"
