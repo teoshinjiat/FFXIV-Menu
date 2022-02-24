@@ -216,25 +216,18 @@ detectDurability(){
 	durability := ""
 	durabilityFlag:=false
 	while(durability=""){	
-		log("35")
 		durabilityFlag:=searchImage("35",,,,,1, GameID)
 		if(durabilityFlag){
 			durability="35"
-		} else{
-			log("40")
-			
+		} else{			
 			durabilityFlag:=searchImage("40",,,,,1, GameID)
 			if(durabilityFlag){
 				durability="40"
 			} else{
-				log("70")
-				
 				durabilityFlag:=searchImage("70",,,,,1, GameID)
 				if(durabilityFlag){
 					durability="70"
-				} else {
-					log("80")
-					
+				} else {					
 					durabilityFlag:=searchImage("80",,,,,1, GameID)
 					if(durabilityFlag){
 						durability="80"
@@ -243,37 +236,9 @@ detectDurability(){
 			}
 		}
 	}
-	log("durability : " durability)
+	log("durability detected : " durability)
 	return durability
 }
-
-/*
-	searchImage(filename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1){
-		token := Gdip_Startup()
-		if !pBitmap := Gdip_BitmapFromHWND(gameId)
-		{
-			log("Gdip_BitmapFromHWND fail")
-			ExitApp
-		}
-		
-		if Gdip_SaveBitmapToFile(pBitmap, img := A_ScriptDir "\screen.png")
-		{
-			log("Gdip_SaveBitmapToFile fail")
-			ExitApp
-		}
-		haystack:=Gdip_CreateBitmapFromFile("screen.png")
-		
-		needleFilename:=filename ".png"
-		needlePath:=A_ScriptDir "\" needleFilename
-		needle:=Gdip_CreateBitmapFromFile(needlePath)
-		result:=Gdip_ImageSearch(haystack,needle,LIST,x1,x2,y1,y2,variance,0,1,0)
-		Gdip_DisposeImage(haystack)
-		Gdip_DisposeImage(needle)
-		Gdip_Shutdown(token)	
-		log("result for filename, " filename ".png : " result)
-		return result
-	}
-*/
 
 eatFoodFunc(){
 	eatFoodFlag:="1"

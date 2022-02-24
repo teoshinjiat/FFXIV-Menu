@@ -3,7 +3,6 @@ log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0){
 }
 
 searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, GameID:="", log:=true){
-	log("utility_searchImage()")
 	token := Gdip_Startup()
 	if !pBitmap := Gdip_BitmapFromHWND(GameID)
 	{
@@ -30,9 +29,7 @@ searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, Game
 	; log true if found, otherwise its original error value, shown below
 	
 	if(log) {
-		log("here")
-		log("Result from imageSearch for filename, " pathAndFilename ".png : " result) 		
-		log("Result from imageSearch for filename, " pathAndFilename ".png : " result > 0 ? true : result) 
+		log("searchImage() Result for filename, " pathAndFilename ".png : " result) 		
 	}
 ; ++ RETURN VALUES ++
 ;
