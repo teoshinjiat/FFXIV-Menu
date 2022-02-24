@@ -1,8 +1,9 @@
 SetWorkingDir %A_ScriptDir%
-#include ..\lib\json\json.ahk
-#include utility\utility.ahk
+#include lib\json\json.ahk
+#include lib\utility\tsj_utility.ahk
 #include lib\gdip\Gdip_All.ahk
-#include ..\lib\Functions\Gdip_ImageSearch\Gdip_ImageSearch.ahk
+#include lib\gip\Gdip_ImageSearch.ahk
+
 OnExit("KillGDIP")
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
