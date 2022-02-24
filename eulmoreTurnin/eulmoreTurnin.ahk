@@ -1,6 +1,9 @@
 SetWorkingDir %A_ScriptDir%
-#include ..\lib\json\json.ahk
-#include utility\utility.ahk
+#include lib\json\json.ahk
+#include lib\utility\utility.ahk
+#include lib\gdip\Gdip_All.ahk
+#include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
+
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoTrayIcon
@@ -11,12 +14,15 @@ CoordMode, Pixel, Screen
 CoordMode, Mouse, Screen
 log("Eulmore Turnin", clear:=1)
 
+global GameID:=GameID
 global selectedItem:=A_Args[1]
-log("selectedItem: " selectedItem)
 global matchedItemIndex:=""
 global paths_category:=""
 global paths_subcategory:=""
 global paths_filename:=""
+
+log("selectedItem: " selectedItem)
+
 
 readItems()
 Loop {

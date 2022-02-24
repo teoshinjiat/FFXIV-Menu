@@ -1,8 +1,8 @@
 SetWorkingDir %A_ScriptDir%
 #include lib\json\json.ahk
-#include lib\utility\tsj_utility.ahk
+#include lib\utility\utility.ahk
 #include lib\gdip\Gdip_All.ahk
-#include lib\gip\Gdip_ImageSearch.ahk
+#include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 
 OnExit("KillGDIP")
 WinGet, GameID, ID, ahk_class FFXIVGAME
@@ -15,7 +15,7 @@ DebugWindow("Started GDIP playground",1,1,200,0)
 DebugWindow("GameID:"GameID,0,1,200,0)
 
 
-global gameId:=GameID
+global GameID:=GameID
 global haystack:=""
 global needle:=""
 global eatFoodFlag:=%1%
@@ -30,15 +30,16 @@ Loop{
 	repairMe:=""
 	runMacro(durability)
 	buttonToPress:=preHealthCheck()
-	gdip:= 1
 	sleep, 2000
+	craftingWindow:=true
 	DebugWindow("it's still crafting",0,1,500,0)
-	While (gdip>0) ; when the crafting window is opened, means it's currently in busy mode
+	While (craftingWindow) ; when the crafting window is opened, means it's currently in busy mode, so keep looping until window is missing from game client
 	{
-		gdip:=searchImage("still-crafting")
+		craftingWindow:=searchImage("still-crafting",,,,,1, GameID, false) ; pop, check for window
 	}
 	DebugWindow("done crafting",0,1,200,0)
-	if(gdip<1){ ; if less than 1, means not found, which means not busy anymore, proceed next
+	
+	if(!craftingWindow){ ; if less than 1, means not found, which means not busy anymore, proceed next
 		if(buttonToPress!=""){
 			sleep, 1000
 			healthCheck(buttonToPress)
@@ -61,40 +62,42 @@ runMacro(durability){
 
 preHealthCheck(){
 	buttonToPress:=""
-	gdip:=searchImage("spritbond_full")
-	if(gdip>0){
-		DebugWindow("will extract materia next",0,1,2000,0)		
+	
+	spritbond_full:=searchImage("spritbond_full",,,,,1, GameID)
+	if(spritbond_full){
+		log("will extract materia next")		
 		buttonToPress:=3
 	}
 	
-	gdip:=searchImage("durability_yellow")
-	if(gdip>0){
-		DebugWindow("will repair next",0,1,2000,0)
+	
+	durability_yellow:=searchImage("durability_yellow",,,,,1, GameID)
+	if(durability_yellow){
+		log("will repair next")
 		buttonToPress:=4
 	}
 	
 	if(eatFoodFlag=1){
-		gdip:=searchImage("food_refresh", 519, 34, 761, 157, 10)
-		if(gdip>0){
-			DebugWindow("will eat food next",0,1,2000,0)
+		food_refresh:=searchImage("food_refresh",,,,,1, GameID)
+		if(food_refresh){
+			log("will eat food next")
 			buttonToPress:=5
 		}
 	}
 	
 	if(eatMedicineFlag=1){
-		gdip:=searchImage("medicine_refresh", 519, 34, 761, 157, 10)
-		if(gdip>0){
-			DebugWindow("will eat medicine next",0,1,2000,0)
+		medicine_refresh:=searchImage("medicine_refresh",,,,,1, GameID)
+		if(medicine_refresh>0){
+			log("will eat medicine next")
 			buttonToPress:=6
 		}
 	}
 	
-	DebugWindow("preHealthCheck() buttonToPress:" + buttonToPress,0,1,2000,0)
+	log("preHealthCheck() buttonToPress:" + buttonToPress)
 	return buttonToPress
 }
 
 healthCheck(buttonToPress){
-	DebugWindow("healthCheck() buttonToPress:" buttonToPress,0,1,200,0)
+	log("healthCheck() buttonToPress:" buttonToPress)
 	if(buttonToPress=3){
 		spiritbondCheck()
 	} else if(buttonToPress=4){
@@ -107,41 +110,39 @@ healthCheck(buttonToPress){
 }
 
 eatFood(){
-	DebugWindow("eatFood",0,1,200,0)
-	gdip:=""
+	log("eatFood()")
 	ControlSend, , {Esc}, ahk_class FFXIVGAME
 	sleep, 5000
 	ControlSend, , =, ahk_class FFXIVGAME
 	sleep, 5000
-	DebugWindow("opening craft item",0,1,200,0)
+	log("opening craft item")
 	ControlSend, , 2, ahk_class FFXIVGAME
 }
 
 eatMedicine(){
-	DebugWindow("eatMedicine",0,1,200,0)
-	gdip:=""
+	log("eatMedicine()")
 	ControlSend, , {Esc}, ahk_class FFXIVGAME
 	sleep, 5000
 	ControlSend, , -, ahk_class FFXIVGAME
 	sleep, 5000
-	DebugWindow("opening craft item",0,1,200,0)
+	log("opening craft item")
 	ControlSend, , 2, ahk_class FFXIVGAME
 }
 
 durabilityCheck(){
-	DebugWindow("durabilityCheck",0,1,200,0)
+	log("durabilityCheck()")
 	ControlSend, , {Esc}, ahk_class FFXIVGAME
 	sleep, 2000
-	DebugWindow("opening repair window",0,1,200,0)
+	log("opening repair window")
 	ControlSend, , 4, ahk_class FFXIVGAME
 	
-	gdip:=""
-	While (gdip<1) ; ensure repair button is located
+	repair_button:=false
+	While (repair_button = false) ; ensure repair button is located
 	{
-		gdip:=searchImage("repair_button")
+		repair_button:=searchImage("repair_button",,,,,1, GameID)
 	}
-	if(gdip>0){ ;positive value means located, then repair
-		DebugWindow("repairing all",0,1,200,0)
+	if(repair_button){
+		log("repairing all")
 		sleep, 500
 		ControlSend, , {Right}, ahk_class FFXIVGAME
 		sleep, 500
@@ -149,59 +150,60 @@ durabilityCheck(){
 		sleep, 500
 		ControlSend, , 4, ahk_class FFXIVGAME
 		sleep, 3000
-		DebugWindow("opening craft item",0,1,200,0)
+		log("opening craft item")
 		ControlSend, , 2, ahk_class FFXIVGAME
 	}
 }
 
 spiritbondCheck(){
-	DebugWindow("spiritbondCheck()",0,1,200,0)
+	log("spiritbondCheck()")
 	sleep, 1000
-	
 	ControlSend, , {Esc}, ahk_class FFXIVGAME
 	sleep, 1000
 	ControlSend, , 3, ahk_class FFXIVGAME
 	sleep, 1000
 	
 	
-	gdip:=1
-	While (gdip>0)
+	spiritbond_100percent:=true
+	While (spiritbond_100percent)
 	{
 		sleep, 1000
 		ControlSend, , {Up}, ahk_class FFXIVGAME
 		sleep, 1000		
 		log("below while()")
-		gdip:=searchImage("spiritbond_100percent")
-		if(gdip>0){
+		
+		spiritbond_100percent:=searchImage("spiritbond_100percent",,,,,1, GameID)
+		if(spiritbond_100percent){
 			ControlSend, , {Down}, ahk_class FFXIVGAME
 			sleep, 1000
 			ControlSend, , ``, ahk_class FFXIVGAME
 			sleep, 1000
-			DebugWindow("Extracted one spiritbond",0,1,1,0)
+			log("extracted one spiritbond")
 		} 
-		log("gdip: "gdip)
 	}
-	DebugWindow("FINISHED EXTRACTING SPIRITBOND",0,1,1,0)
+	
+	log("FINISHED EXTRACTING SPIRITBOND")
 	sleep, 2000
 	ControlSend, , 3, ahk_class FFXIVGAME
 	sleep, 3000
-	DebugWindow("opening craft item",0,1,1,0)
+	log("opening craft item")
 	ControlSend, , 2, ahk_class FFXIVGAME
-	DebugWindow("exiting spiritbond",0,1,1,0)
+	log("exiting spiritbond")
 }
 
 autoSynthesis() {
-	DebugWindow("autoSynthesis()",0,1,1,0)
-	gdip:=1
-	While (gdip>0)
+	log("autoSynthesis()")
+	
+	synthesis_button:=true
+	While (synthesis_button>0)
 	{
-		gdip:=searchImage("synthesis_button",727,671,932,741,30)
-		if(gdip<1){ ; synthesis_button not exist
-			DebugWindow("breaking while loop",0,1,1,0)
+		synthesis_button:=searchImage("synthesis_button",,,,,1, GameID)
+		if(!synthesis_button){ ; synthesis_button not exist
+			log("breaking while loop")
 			break
 		}
-		if(gdip>0){ ; synthesis_button exist
-			DebugWindow("looping to send ``",0,1,1,0)
+		if(synthesis_button){ ; synthesis_button exist
+			log("looping to send ``")
 			ControlSend, , ``, ahk_class FFXIVGAME
 			sleep, 300
 			ControlSend, , ``, ahk_class FFXIVGAME
@@ -210,57 +212,68 @@ autoSynthesis() {
 }
 
 detectDurability(){
-	DebugWindow("detectDurability()",0,1,1,0)
+	log("detectDurability()")
 	durability := ""
+	durabilityFlag:=false
 	while(durability=""){	
-		gdip:=searchImage(35)
-		if(gdip>0){
+		log("35")
+		durabilityFlag:=searchImage("35",,,,,1, GameID)
+		if(durabilityFlag){
 			durability="35"
 		} else{
-			gdip:=searchImage(40)
-			if(gdip>0){
+			log("40")
+			
+			durabilityFlag:=searchImage("40",,,,,1, GameID)
+			if(durabilityFlag){
 				durability="40"
 			} else{
-				gdip:=searchImage(70)
-				if(gdip>0){
+				log("70")
+				
+				durabilityFlag:=searchImage("70",,,,,1, GameID)
+				if(durabilityFlag){
 					durability="70"
 				} else {
-					gdip:=searchImage(80)
-					if(gdip>0){
+					log("80")
+					
+					durabilityFlag:=searchImage("80",,,,,1, GameID)
+					if(durabilityFlag){
 						durability="80"
 					}
 				}
 			}
 		}
 	}
+	log("durability : " durability)
 	return durability
 }
 
-searchImage(filename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1){
-	token := Gdip_Startup()
-	if !pBitmap := Gdip_BitmapFromHWND(gameId)
-	{
-		log("Gdip_BitmapFromHWND fail")
-		ExitApp
+/*
+	searchImage(filename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1){
+		token := Gdip_Startup()
+		if !pBitmap := Gdip_BitmapFromHWND(gameId)
+		{
+			log("Gdip_BitmapFromHWND fail")
+			ExitApp
+		}
+		
+		if Gdip_SaveBitmapToFile(pBitmap, img := A_ScriptDir "\screen.png")
+		{
+			log("Gdip_SaveBitmapToFile fail")
+			ExitApp
+		}
+		haystack:=Gdip_CreateBitmapFromFile("screen.png")
+		
+		needleFilename:=filename ".png"
+		needlePath:=A_ScriptDir "\" needleFilename
+		needle:=Gdip_CreateBitmapFromFile(needlePath)
+		result:=Gdip_ImageSearch(haystack,needle,LIST,x1,x2,y1,y2,variance,0,1,0)
+		Gdip_DisposeImage(haystack)
+		Gdip_DisposeImage(needle)
+		Gdip_Shutdown(token)	
+		log("result for filename, " filename ".png : " result)
+		return result
 	}
-	
-	if Gdip_SaveBitmapToFile(pBitmap, img := A_ScriptDir "\screen.png")
-	{
-		log("Gdip_SaveBitmapToFile fail")
-		ExitApp
-	}
-	haystack:=Gdip_CreateBitmapFromFile("screen.png")
-	
-	needleFilename:=filename ".png"
-	needlePath:=A_ScriptDir "\" needleFilename
-	needle:=Gdip_CreateBitmapFromFile(needlePath)
-	result:=Gdip_ImageSearch(haystack,needle,LIST,x1,x2,y1,y2,variance,0,1,0)
-	Gdip_DisposeImage(haystack)
-	Gdip_DisposeImage(needle)
-	Gdip_Shutdown(token)	
-	log("result for filename, " filename ".png : " result)
-	return result
-}
+*/
 
 eatFoodFunc(){
 	eatFoodFlag:="1"
@@ -273,4 +286,4 @@ KillGDIP() {
 	Gdip_Shutdown(pToken)
 }
 
-^F4::ExitApp DebugWindow("Terminated Auto Synthesis",1,1,200,0)
+^F4::ExitApp log("Terminated Auto Synthesis",0,1)
