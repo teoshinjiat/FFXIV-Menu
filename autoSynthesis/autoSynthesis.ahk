@@ -47,6 +47,7 @@ Loop{
 		}
 		sleep, 1000
 		autoSynthesis()
+		sleep, 1000		
 		autoSynthesis()
 		;sleep, 2000
 		;autoSynthesisFallback()
@@ -86,7 +87,7 @@ preHealthCheck(){
 	
 	if(eatMedicineFlag=1){
 		medicine_refresh:=searchImage("medicine_refresh",,,,,1, GameID)
-		if(medicine_refresh>0){
+		if(medicine_refresh){
 			log("will eat medicine next")
 			buttonToPress:=6
 		}
@@ -195,19 +196,38 @@ autoSynthesis() {
 	log("autoSynthesis()")
 	
 	synthesis_button:=true
-	While (synthesis_button>0)
+	While (synthesis_button)
 	{
-		synthesis_button:=searchImage("synthesis_button",,,,,1, GameID)
+		synthesis_button:=searchImage("synthesis_button",,,,,80, GameID)
 		if(!synthesis_button){ ; synthesis_button not exist
 			log("breaking while loop")
+			autoSynthesisFallback()
 			break
 		}
 		if(synthesis_button){ ; synthesis_button exist
 			log("looping to send ``")
 			ControlSend, , ``, ahk_class FFXIVGAME
-			sleep, 300
-			ControlSend, , ``, ahk_class FFXIVGAME
 		}
+	}
+}
+
+autoSynthesisFallback() { ; only run this when synthesis button is found
+	log("autoSynthesisFallback()")
+	
+	synthesis_button:=searchImage("synthesis_button",,,,,80, GameID)
+	
+	if(synthesis_button){
+		log("synthesis button variance of 80 is found")
+		sleep, 300	
+		ControlSend, , 2, ahk_class FFXIVGAME ; close window
+		sleep, 2000 ; animation locked when closing craft window
+		ControlSend, , 2, ahk_class FFXIVGAME ; reopen window
+		sleep, 300	
+		ControlSend, , ``, ahk_class FFXIVGAME
+		sleep, 300
+		ControlSend, , ``, ahk_class FFXIVGAME
+		sleep, 300
+		ControlSend, , ``, ahk_class FFXIVGAME
 	}
 }
 

@@ -11,6 +11,7 @@ menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
 menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[{value:"Disabled vMainScript5_SubItem1", label:"Craftsmans Command Materia X"}]}
 menuData[ 6 ] := {function:"gProfitCalculator", value:"vMainScript6", label:"Profit Calculator"}
 
+Goto, ^F3
 
 ^F3::
 Gui, Destroy
