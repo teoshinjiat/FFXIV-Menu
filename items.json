@@ -1,7 +1,7 @@
 {
 	"items": [
 		{
-			"id": "33940",
+			"itemID": "33940",
 			"name": "Craftsmans_Command_Materia_X",
 			"description": "Control +18",
 			"paths": {
@@ -11,7 +11,7 @@
 			}
 		},
 		{
-			"id": "toFindOut",
+			"itemID": "26735",
 			"name": "Craftsmans_Competence_Materia_VIII",
 			"description": "Craftmanship +21",
 			"paths": {
@@ -21,7 +21,7 @@
 			}
 		},
 		{
-			"id": "33938",
+			"itemID": "33938",
 			"name": "Craftsmans_Competence_Materia_X",
 			"description": "Craftmanship +27",
 			"paths": {
@@ -31,7 +31,7 @@
 			}
 		},
 		{
-			"id": "33939",
+			"itemID": "33939",
 			"name": "Craftsmans_Cunning_Materia_X",
 			"description": "CP +10",
 			"paths": {

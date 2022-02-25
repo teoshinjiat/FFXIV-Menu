@@ -235,4 +235,4 @@ setPaths(obj){
 	log("paths_filename : " + paths_filename)
 }
 
-^F4::ExitApp DebugWindow("Terminated EulmoreTurnin",1,1,200,0)
+^F4::ExitApp DebugWindow("Terminated EulmoreTurnin",0,1,200,0)
