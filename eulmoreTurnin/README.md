@@ -1,6 +1,6 @@
 ###### 25/Feb/2022
-Added price check feature
-Allow me to know which is the best selling item, the last sold price and the number of sales in the past 3 days
+- Added price check feature
+- Show me which is the best selling item, the last sold price and the number of sales in the past 3 days
 
 API used - https://universalis.app/docs/index.html?urls.primaryName=Universalis%20v2
 eg: https://universalis.app/api/v2/history/ravana/21823?entriesToReturn=800&entriesWithin=300000 number of entries in the past 3 days
