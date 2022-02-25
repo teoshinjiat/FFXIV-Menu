@@ -1,7 +1,7 @@
 {
 	"items": [
 		{
-			"id": "1",
+			"id": "33940",
 			"name": "Craftsmans_Command_Materia_X",
 			"description": "Control +18",
 			"paths": {
@@ -11,13 +11,33 @@
 			}
 		},
 		{
-			"id": "2",
+			"id": "toFindOut",
 			"name": "Craftsmans_Competence_Materia_VIII",
 			"description": "Craftmanship +21",
 			"paths": {
 				"category": "crafters_scrip_materia",
 				"subcategory": "white_scrip_exchange_materia",
 				"filename": "craftmans_competence_materia_viii"
+			}
+		},
+		{
+			"id": "33938",
+			"name": "Craftsmans_Competence_Materia_X",
+			"description": "Craftmanship +27",
+			"paths": {
+				"category": "crafters_scrip_materia",
+				"subcategory": "purple_scrip_exchange_materia",
+				"filename": "craftmans_competence_materia_x"
+			}
+		},
+		{
+			"id": "33939",
+			"name": "Craftsmans_Cunning_Materia_X",
+			"description": "CP +10",
+			"paths": {
+				"category": "crafters_scrip_materia",
+				"subcategory": "purple_scrip_exchange_materia",
+				"filename": "craftmans_cunning_materia_x"
 			}
 		}
 	]

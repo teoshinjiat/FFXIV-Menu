@@ -196,6 +196,7 @@ autoSynthesis() {
 	log("autoSynthesis()")
 	
 	synthesis_button:=true
+	index:=0
 	While (synthesis_button)
 	{
 		synthesis_button:=searchImage("synthesis_button",,,,,80, GameID)
@@ -207,7 +208,21 @@ autoSynthesis() {
 		if(synthesis_button){ ; synthesis_button exist
 			log("looping to send ``")
 			ControlSend, , ``, ahk_class FFXIVGAME
+			index++
+			if(index>5) {
+				checkForFullInventory()
+			}
 		}
+	}
+}
+
+checkForFullInventory(){
+	log("checkForFullInventory()")
+	inventory_full:=searchImage("inventory_full",,,,,1, GameID)
+	if(inventory_full){
+		ControlSend, , 2, ahk_class FFXIVGAME ; close window
+		log("inventory full, script is terminated")
+		ExitApp
 	}
 }
 

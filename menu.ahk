@@ -1,6 +1,9 @@
 #SingleInstance, Force
 #Persistent
 SetWorkingDir %A_ScriptDir%
+#include lib\utility\utility.ahk
+#include lib\gdip\Gdip_All.ahk
+#include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
 global menuData := []
@@ -8,7 +11,7 @@ menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto S
 menuData[ 2 ] := {function:"gAutoQuickSynthesis", value:"vMainScript2", label:"Auto Quick Synthesis"}
 menuData[ 3 ] := {function:"gAutoGather", value:"vMainScript3", label:"Auto Gather"}
 menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
-menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[{value:"Disabled vMainScript5_SubItem1", label:"Craftsmans Command Materia X"}]}
+menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[{value:"Disabled vMainScript5_SubItem1", label:"Craftsmans Competence Materia X"}, {value:"Disabled vMainScript5_SubItem1", label:"Craftsmans Cunning Materia X"}, {value:"Disabled vMainScript5_SubItem1", label:"Craftsmans Command Materia X"}]}
 menuData[ 6 ] := {function:"gProfitCalculator", value:"vMainScript6", label:"Profit Calculator"}
 
 Goto, ^F3
@@ -27,14 +30,41 @@ for i, obj in menuData{ ;mainBox mainscript boxes
 	value:=menuData[i].value
 	label:=menuData[i].label
 	Gui, Add, Checkbox, x25 %function% %value%, %label%
+	
+	listBoxOptions:=[]
+	value:=""
+	label:=""
+	subOptionGuiType:=""
+	subOptionGuiStyle:=""
+	
 	for key, field in menuData[i].subOptions{ ;subBox options(parameters)
 		value:=menuData[i].subOptions[key].value
 		label:=menuData[i].subOptions[key].label
 		subOptionGuiType:=menuData[i].subOptionGuiType
-		subOptionGuiStyle:=menuData[i].subOptionGuiStyle		
-		Gui, Add, %subOptionGuiType%, %subOptionGuiStyle% %value%, %label%
+		subOptionGuiStyle:=menuData[i].subOptionGuiStyle
+		if(subOptionGuiType="Checkbox"){
+			Gui, Add, %subOptionGuiType%, %subOptionGuiStyle% %value%, %label%			
+		} else { ; for ListBox, add outside of subLoop
+			listBoxOptions[key]:=label
+		}
 		;DebugWindow("Array: " i "`nKey: " key "`nAnimal: " animal,0,1,200,0)
 		;Gui, Add, Checkbox, x25 menuData[]i.function menuData[i].value, menuData[i].label
+	}
+	if(subOptionGuiType="ListBox"){
+		log("listBoxOptions : " + listBoxOptions)
+		options:=""
+		for i, obj in listBoxOptions {
+			log("options : " + options)
+			;log("listBoxOptions[i] : " + listBoxOptions[i])
+			options:=options . listBoxOptions[i]
+			log("after add options : " + options)
+			if(listBoxOptions.length()!=i){
+				log("adding |")
+				options:=options . "|"
+			}
+		}
+		log("options : " + options)
+		Gui, Add, %subOptionGuiType%, %subOptionGuiStyle% %value%, %options%					
 	}
 }
 

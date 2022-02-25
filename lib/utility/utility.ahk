@@ -2,6 +2,8 @@ log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0){
 	DebugWindow(text,clear,lineBreak,sleep,autoHide, msgBox)
 }
 
+; TODO split non dependent functions, otherwise menu will have to import stuff that it dont needle
+; for example searchImage
 searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, GameID:="", log:=true){
 	token := Gdip_Startup()
 	if !pBitmap := Gdip_BitmapFromHWND(GameID)
