@@ -6,7 +6,6 @@ SetWorkingDir %A_ScriptDir%
 
 
 WinGet, GameID, ID, ahk_class FFXIVGAME
-#NoTrayIcon
 #NoEnv
 #SingleInstance, Force
 SetMouseDelay, 5
@@ -30,6 +29,7 @@ Loop {
 	handleCollectableAppraiser() ;turn in items
 	SetKeyDelay, 300
 	handleExchangeNPC() ;buy items
+	sleep, 1000
 	ControlSend, , {Esc}, ahk_class FFXIVGAME
 	sleep, 1000
 }

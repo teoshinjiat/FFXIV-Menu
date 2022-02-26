@@ -11,25 +11,26 @@ WinGet, GameID, ID, ahk_class FFXIVGAME
 SetMouseDelay, 5
 CoordMode, Pixel, Screen
 CoordMode, Mouse, Screen
-DebugWindow("Started GDIP playground",1,1,200,0)
+DebugWindow("Started GDIP playground",0,1,200,0)
 DebugWindow("GameID:"GameID,0,1,200,0)
 
 
 global GameID:=GameID
 global haystack:=""
 global needle:=""
-global eatFoodFlag:=%1%
-global eatMedicineFlag:=%2%
-global collectableFlag:=%3%
+
+global eatFoodFlag:=A_Args[1]
+global eatMedicineFlag:=A_Args[2]
+log("eatFoodFlag : " + eatFoodFlag)
+log("eatMedicineFlag : " + eatMedicineFlag)
 
 DebugWindow("Started script",0,1,200,0)
-Loop{	
+Loop{
 	sleep, 500 ;after spamming `, give it some time to rest
 	buttonToPress:=""
 	durability:=detectDurability()
 	repairMe:=""
 	runMacro(durability)
-	buttonToPress:=preHealthCheck()
 	sleep, 2000
 	craftingWindow:=true
 	DebugWindow("it's still crafting",0,1,500,0)

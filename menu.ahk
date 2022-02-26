@@ -8,7 +8,7 @@ SetWorkingDir %A_ScriptDir%
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
 global menuData := []
-menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}, {value:"Disabled vMainScript1_SubItem3", label:"Collectable"}]}
+menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
 menuData[ 2 ] := {function:"gAutoQuickSynthesis", value:"vMainScript2", label:"Auto Quick Synthesis"}
 menuData[ 3 ] := {function:"gAutoGather", value:"vMainScript3", label:"Auto Gather"}
 menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
@@ -98,7 +98,10 @@ if(checkedBoxIndex="1") {
 	foodRefresh:=MainScript1_SubItem1
 	medicineRefresh:=MainScript1_SubItem2
 	collectableFlag:=MainScript1_SubItem3
-	Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh% %collectableFlag%
+	log("foodRefresh : " + foodRefresh)
+	log("medicineRefresh : " + medicineRefresh)
+	
+	Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh%
 } else if(checkedBoxIndex="2") {
 	Run "C:\Users\teosh\Desktop\ahk\autoQuickSynthesis\autoQuickSynthesis.ahk"
 } else if(checkedBoxIndex="3") {
@@ -167,7 +170,7 @@ uncheckMainScriptBoxes(selectedIndex){
 					GuiControl, Enable, MainScript%mainScriptLoopIndex%_SubItem%A_Index%
 				} 
 				Else 
-				{
+				{ 
 					GuiControl, Disabled, MainScript%mainScriptLoopIndex%_SubItem%A_Index%
 					
 					if(menuData[i].subOptionGuiType="Checkbox"){
