@@ -54,7 +54,7 @@ Rnd(a=0.0,b=1) {
 		Return r
 }
 
-getPriceForItemApiFromRavana(itemID){ ;current world only
+getLastHistoryPriceForItemFromRavana(itemID){ ;current world only
 	;log("getPriceForItemApi()")
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 	endpoint:="https://universalis.app/api/history/ravana/" itemID "?entriesToReturn=800&entriesWithin=300000"
@@ -65,11 +65,10 @@ getPriceForItemApiFromRavana(itemID){ ;current world only
 	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
 	oWhr.Send()
 	obj := JSON.load(oWhr.ResponseText)	
-	return getLastKnownPrice(obj)
+	return getLastHistoryPrice(obj)
 }
 
-; call api
-getPriceForItemApiFromDC(itemID){ ;DataCenter = all connected worlds
+getLastHistoryPriceForItemFromDC(itemID){ ;DataCenter = all connected worlds
 	;log("getPriceForItemApi()")
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 	endpoint:="https://universalis.app/api/history/materia/" itemID "?entriesWithin=100000"
@@ -80,12 +79,11 @@ getPriceForItemApiFromDC(itemID){ ;DataCenter = all connected worlds
 	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
 	oWhr.Send()
 	obj := JSON.load(oWhr.ResponseText)	
-	return getLastKnownPrice(obj)
+	return getLastHistoryPrice(obj)
 }
 
 
-
-getLastKnownPrice(obj){
+getLastHistoryPrice(obj){
 	lastSoldPrice:=""
 	itemId:=""
 	numberOfSales:=""
@@ -97,4 +95,45 @@ getLastKnownPrice(obj){
 		}
 	}
 	return lastSoldPrice
+}
+
+; when crafting items, should buy mats from other worlds if they are cheaper
+getFirstListingPriceForItemFromDC(itemID){
+	;log("getPriceForItemApi()")
+	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+	endpoint:="https://universalis.app/api/materia/" itemID "?listings=1&entries=0"
+	;log("")	
+	;log("endpoint: " endpoint)
+	oWhr.Open("GET", endpoint, false)
+	oWhr.SetRequestHeader("Content-Type", "application/json")
+	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
+	oWhr.Send()
+	obj := JSON.load(oWhr.ResponseText)	
+	log("itemID : " + itemID)
+	return getFirstListingPrice(obj)
+}
+
+; when selling item, should look for the first item price on listing instead of history
+getFirstListingPriceForHQItemFromRavana(itemID){
+	;log("getPriceForItemApi()")
+	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+	endpoint:="https://universalis.app/api/ravana/" itemID "?listings=1&entries=0&hq=true"
+	;log("")	
+	;log("endpoint: " endpoint)
+	oWhr.Open("GET", endpoint, false)
+	oWhr.SetRequestHeader("Content-Type", "application/json")
+	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
+	oWhr.Send()
+	obj := JSON.load(oWhr.ResponseText)	
+	log("itemID : " + itemID)
+	return getFirstListingPrice(obj)
+}
+
+getFirstListingPrice(obj){
+	log("@@@@@ obj.listings[1].pricePerUnit : " + obj.listings[1].pricePerUnit)
+	return obj.listings[1].pricePerUnit
+}
+
+thousandsSeparator(x, s=",") {
+	return RegExReplace(x, "\G\d+?(?=(\d{3})+(?:\D|$))", "$0" s)
 }

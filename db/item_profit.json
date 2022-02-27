@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "category": "medicine",
+      "category": "Medicine",
       "itemID": "36109",
       "name": "Grade 6 Tincture of Strength",
       "description": "Strength +8% for NQ, 10% for HQ",
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "category": "medicine",
+      "category": "Medicine",
       "itemID": "36110",
       "name": "Grade 6 Tincture of Dexterity",
       "description": "Dexterity +8% for NQ, 10% for HQ",
@@ -82,6 +82,16 @@
               "itemID": "36258",
               "quantity": "1",
               "name": "Lunatender Blossom"
+            },
+            {
+              "itemID": "27785",
+              "quantity": "2",
+              "name": "Light Gerbera"
+            },
+            {
+              "itemID": "13",
+              "quantity": "8",
+              "name": "Water Crystal"
             }
           ]
         },
