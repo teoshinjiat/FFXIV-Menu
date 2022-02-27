@@ -9,8 +9,10 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/eulmoreTurnin">Eulmore Turnin</a> 
 
 
+## 27/Feb/2022 Barebone rework of the layout
+![2](https://user-images.githubusercontent.com/21898084/155870681-6ace85e1-9a3c-4f7f-b109-a44d0f846692.gif)
 
-## 27/Feb/2022
+## 22/Feb/2022
 ![image](https://user-images.githubusercontent.com/21898084/155863876-83188728-8f9f-44eb-b7b4-4ee93c9970ab.png)
 
 
