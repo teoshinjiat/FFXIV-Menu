@@ -7,6 +7,7 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 
 1) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/autoSynthesis">Auto Synthesis</a> 
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/eulmoreTurnin">Eulmore Turnin</a> 
+2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/profitHelper">Profit Helper</a> 
 
 
 ## 27/Feb/2022 Barebone rework of the layout
