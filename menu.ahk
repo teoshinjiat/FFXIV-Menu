@@ -1,4 +1,4 @@
-#SingleInstance, Force
+﻿#SingleInstance, Force
 #Persistent
 SetWorkingDir %A_ScriptDir%
 #include lib\json\json.ahk
@@ -6,13 +6,14 @@ SetWorkingDir %A_ScriptDir%
 #include lib\gdip\Gdip_All.ahk
 #include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
+
+global selectedTabIndex:="1"
 global menuData := [] ; can be refactor to object with key for better verbose reading
 menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
-menuData[ 2 ] := {function:"gAutoQuickSynthesis", value:"vMainScript2", label:"Auto Quick Synthesis"}
-menuData[ 3 ] := {function:"gAutoGather", value:"vMainScript3", label:"Auto Gather"}
-menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
-menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[]}
-menuData[ 6 ] := {function:"gProfitHelper", value:"vMainScript6", label:"Profit Helper"}
+menuData[ 2 ] := {function:"gAutoGather", value:"vMainScript2", label:"Auto Gather"}
+menuData[ 3 ] := {function:"gAutoFish", value:"vMainScript3", label:"Auto Fish"}
+menuData[ 4 ] := {function:"gEulmore", value:"vMainScript4", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[]}
+menuData[ 5 ] := {function:"gProfitHelper", value:"vMainScript5", label:"Profit Helper"}
 
 assignDataIntoEulmoreSubOptions(){
 	FileRead, var, items.json
@@ -24,11 +25,9 @@ assignDataIntoEulmoreSubOptions(){
 		i:=A_Index
 		DebugWindow("itemID:" obj.items[i].itemID " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
 		nameWithSpace:=obj.items[i].name:=StrReplace(obj.items[i].name, "_", " ")
-		;log("nameWithSpace : " + nameWithSpace)
-		menuData[5].subOptions[i]:= {itemID: obj.items[i].itemID, label: nameWithSpace, description: obj.items[i].description, price: "N/A", numberOfSalesPast1Day: "N/A", numberOfSalesPast2Day: "N/A", numberOfSalesPast3Day: "N/A", value: "Disabled vMainScript5_SubItem1"}
-		;log("subOptions[i].name : " + menuData[5].subOptions[i].name)
-		;log("menuData[5].subOptions[i] : " +menuData[5].subOptions[i])
-		
+		log("nameWithSpace : " + nameWithSpace)
+		menuData[4].subOptions[i]:= {itemID: obj.items[i].itemID, label: nameWithSpace, description: obj.items[i].description, price: "N/A", numberOfSalesPast1Day: "N/A", numberOfSalesPast2Day: "N/A", numberOfSalesPast3Day: "N/A", value: "Disabled vMainScript5_SubItem1"}
+		log("subOptions[i].label : " + menuData[4].subOptions[i].label)
 	}
 }
 
@@ -36,115 +35,153 @@ assignDataIntoEulmoreSubOptions(){
 assignDataIntoEulmoreSubOptions()
 ;getPriceList()
 Goto, ^F3
-;callAPI()
+
 ^F3::
 Gui, Menu:Destroy
-Gui, Menu:+AlwaysOnTop
-Gui, Menu:Add,Picture, x0 y0 w720 h188,gui.png
+;Gui, Menu:+AlwaysOnTop
+;Gui, Menu:Add,Picture, x0 y0 w720 h188,gui.png
 Gui, Menu:Color, 0x808080
+Gui, Menu:Font, s18, Verdana
+Gui, Menu:Add, Tab2, AltSubmit vTabNum gLoadTabIndex x15 y15 h1000 w2560, Auto Synthesis  |Auto Gather |Auto Fishing  |Eulmore  |Profit Helper  
 Gui, Menu:Font, s10, Verdana
 Gui, Menu:Font, bold
 
 ;populating GUI menu
-for i, obj in menuData{ ;mainBox mainscript boxes
-	function:=menuData[i].function
-	value:=menuData[i].value
-	label:=menuData[i].label
-	Gui, Menu:Add, Checkbox, x25 %function% %value%, %label%
-	if(function="gEulmore"){
-		Gui, Menu:Add, Button, yp x+25 Disabled gPriceListWindow vPriceListWindow, Check Price List  ; todo: disabled attribute	
-	}
+initialX:=40
+initialY:=65
+
+;https://www.autohotkey.com/boards/viewtopic.php?p=273253#p273253
+; cant use function to draw gui because when function exits, variables are cleared, therefore, this is one big chunk of code to draw the GUI
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawAutoSynthesis
+Gui, Menu:Tab, 1 ;switching tab for Gui Add
+function:=menuData[1].function
+value:=menuData[1].value
+label:=menuData[1].label
+
+Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
+
+for key, field in menuData[1].subOptions{ ;subBox options(parameters)
 	
-	listBoxOptions:=[]
-	value:=""
-	label:=""
-	subOptionGuiType:=""
-	subOptionGuiStyle:=""
-	
-	for key, field in menuData[i].subOptions{ ;subBox options(parameters)
-		value:=menuData[i].subOptions[key].value
-		label:=menuData[i].subOptions[key].label
-		subOptionGuiType:=menuData[i].subOptionGuiType
-		subOptionGuiStyle:=menuData[i].subOptionGuiStyle
-		if(subOptionGuiType="Checkbox"){
-			Gui, Menu:Add, %subOptionGuiType%, %subOptionGuiStyle% %value%, %label%			
-		} else { ; for ListBox, add outside of subLoop
-			listBoxOptions[key]:=label
-		}
-		;DebugWindow("Array: " i "`nKey: " key "`nAnimal: " animal,0,1,200,0)
-		;Gui, Add, Checkbox, x25 menuData[]i.function menuData[i].value, menuData[i].label
-	}
-	if(subOptionGuiType="ListBox"){
-		options:=""
-		for i, obj in listBoxOptions {
-			;log("listBoxOptions[i] : " + listBoxOptions[i])
-			options:=options . listBoxOptions[i]
-			if(listBoxOptions.length()!=i){
-				options:=options . "|"
-			}
-		}
-		Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height	
+	value:=menuData[1].subOptions[key].value
+	label:=menuData[1].subOptions[key].label
+	subOptionGuiType:=menuData[1].subOptionGuiType
+	subOptionGuiStyle:=menuData[1].subOptionGuiStyle
+	if(subOptionGuiType="Checkbox"){
+		subInitialX=initialX+25
+		subInitialY=initialY+25
+		Gui, Menu:Tab, 1
+		Gui, Menu:Add, %subOptionGuiType%, x+subInitialX y+subInitialY %subOptionGuiStyle% %value%, %label%			
+	} else { ; for ListBox, add outside of subLoop
+		listBoxOptions[key]:=label
 	}
 }
-Gui, Menu:Add, Button, gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawAutoGather
+Gui, Menu:Tab, 2 ;switching tab for Gui Add
+function:=menuData[2].function
+value:=menuData[2].value
+label:=menuData[2].label
+
+Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawAutoFish
+Gui, Menu:Tab, 3 ;switching tab for Gui Add
+function:=menuData[3].function
+value:=menuData[3].value
+label:=menuData[3].label
+
+Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawEulmore
+Gui, Menu:Tab, 4 ;switching tab for Gui Add
+function:=menuData[4].function
+value:=menuData[4].value
+label:=menuData[4].label
+
+Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
+Gui, Menu:Add, Button, yp x+initialX+25 Disabled gPriceListWindow vPriceListWindow, Check Price List  ; todo: disabled attribute	
+
+
+listBoxOptions:=[]
+log("menuData[4].subOptions[key].label : " menuData[4].subOptions[1].label)
+
+for key, field in menuData[4].subOptions{ ;subBox options(parameters)
+	value:=menuData[4].subOptions[key].value
+	label:=menuData[4].subOptions[key].label
+	subOptionGuiType:=menuData[4].subOptionGuiType
+	subOptionGuiStyle:=menuData[4].subOptionGuiStyle
+	listBoxOptions[key]:=label
+}
+
+options:=""
+for i, obj in listBoxOptions {
+	options:=options . listBoxOptions[i]
+	if(listBoxOptions.length()!=i){
+		options:=options . "|"
+	}
+}
+Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height	
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+Gui, Menu:Tab ; exiting tab edit
+Gui, Menu:Add, Button, x15 y1020 w500 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
 
 Gui, Menu:Add, Text, vStatusTitle Hidden, Status
 Gui, Menu:Add, Text, vStatusText Hidden w800, 0
 
 Gui, Menu:Add, Progress, w450 h20 cGreen vMyProgress Hidden, 75
 
-Gui, Menu:Show, w720 h600, FFXIV Menu
+Gui, Menu:Show, w2560 h1440, FFXIV Menu
+Gui, Menu:+Resize
+Gui, Menu:Show, Maximize
 return
 
 
-ButtonCancel:
-GuiClose:
-GuiEscape:
-Gui, Destroy
-Return
+LoadTabIndex:
+Gui, Menu:Submit, NoHide
+selectedTabIndex:=TabNum
+return
+
+MenuButtonCancel:
+MenuGuiClose:
+MenuGuiEscape:
+Gui, Menu:Destroy
+ExitApp
 
 ButtonOK:
+Gui, Submit, NoHide ;retrieve control values
+
 GuiControl, Show, StatusTitle
 GuiControl, Show, StatusText
 GuiControl, Show, MyProgress
 
-log("ButtonOK:")
-;GuiControl,, MyProgress, +10  ; Move the bar upward by 10 percent. Omit the + to set an absolute position.
-
-/* ;*[menu]
-Progress, b w200, My SubText, My MainText, My Title
-Progress, 50 ; Set the position of the bar to 50%.
-Sleep, 4000
-Progress, Off
-*/
-; Gui, Submit
-checkedBoxIndex:=getCheckedBox()
-if(checkedBoxIndex="1") {
+if(selectedTabIndex="1") {
 	updateStatusText("autoSynthesis")
 	foodRefresh:=MainScript1_SubItem1
 	medicineRefresh:=MainScript1_SubItem2
 	collectableFlag:=MainScript1_SubItem3
 	log("foodRefresh : " + foodRefresh)
 	log("medicineRefresh : " + medicineRefresh)
-	
 	Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh%
-} else if(checkedBoxIndex="2") {
-	updateStatusText("autoQuickSynthesis")
-	Run "C:\Users\teosh\Desktop\ahk\autoQuickSynthesis\autoQuickSynthesis.ahk"
-} else if(checkedBoxIndex="3") {
+} else if(selectedTabIndex="2") {
 	updateStatusText("gather")
 	Run "C:\Users\teosh\Desktop\ahk\gather\gather.ahk"
-} else if(checkedBoxIndex="4") {
+} else if(selectedTabIndex="3") {
 	updateStatusText("fish")
 	Run "C:\Users\teosh\Desktop\ahk\fish\fish.ahk"
-} else if(checkedBoxIndex="5") {
+} else if(selectedTabIndex="4") {
 	updateStatusText("eulmoreTurnin")
 	selectedItem:=MainScript5_SubItem1
 	selectedItem:=StrReplace(selectedItem, " ", "_") ;replace space in string for easier matching in the subscript
 	Run eulmoreTurnin\eulmoreTurnin.ahk %selectedItem%
 	log("selectedItem : " + selectedItem)
-} else if(checkedBoxIndex="6") {
+} else if(selectedTabIndex="5") {
 	updateStatusText("profitHelper")
 	Run "C:\Users\teosh\Desktop\ahk\profitHelper\profitHelper.ahk"
 }
@@ -155,38 +192,41 @@ updateStatusText(scriptName) {
 	GuiControl,,StatusText, Currently running %scriptname%.ahk
 }
 getCheckedBox(){
-	for i in menuData{ ;mainBox mainscript boxes
-		GuiControlGet, CheckBoxState,, MainScript%A_Index%
-		if(CheckBoxState=1){
-			return %A_Index%
+	/*
+		for i in menuData{ ;mainBox mainscript boxes
+			GuiControlGet, CheckBoxState,, MainScript%A_Index%
+			if(CheckBoxState=1){
+				return %A_Index%
+			}
 		}
-	}
+	*/
+	Gui, Menu:submit, nohide
+	log("TabNum : " + TabNum)
+	log("%TabNum% : " + %TabNum%)
+	Msgbox %TabNum%
+	
+	return %TabNum%
 }
 
 ;hardcoded because g-label doesnt support parameter passing
 AutoSynthesis(){ ;1
-	
 	uncheckMainScriptBoxes(1)
 }
 
-AutoQuickSynthesis(){ ;2
+AutoGather(){ ;2
 	uncheckMainScriptBoxes(2)
 }
 
-AutoGather(){ ;3
+AutoFish(){ ;3
 	uncheckMainScriptBoxes(3)
 }
 
-AutoFish(){ ;4
+Eulmore(){ ;4
 	uncheckMainScriptBoxes(4)
 }
 
-Eulmore(){ ;5
+ProfitHelper(){ ;5
 	uncheckMainScriptBoxes(5)
-}
-
-ProfitHelper(){ ;6
-	uncheckMainScriptBoxes(6)
 	GuiControlGet, CheckBoxState,, MainScript6
 	if(CheckBoxState=1){
 		log("ProfitHelper checked")
@@ -195,7 +235,8 @@ ProfitHelper(){ ;6
 
 ; UIUX enhancement
 uncheckMainScriptBoxes(selectedIndex){
-	for i, obj in menuData{
+	log("uncheckMainScriptBoxes())")
+	for i, obj in menuData {
 		mainScriptLoopIndex := i
 		GuiControlGet, CheckBoxState,, MainScript%mainScriptLoopIndex%
 		If (mainScriptLoopIndex = selectedIndex) ;to enable the disabled fields for the matched mainBox(ScriptBoxes)
@@ -204,7 +245,7 @@ uncheckMainScriptBoxes(selectedIndex){
 				
 				If (CheckBoxState = 1)
 				{ 
-					if(mainScriptLoopIndex=5){ ;dirty fix for eulmore check price window
+					if(mainScriptLoopIndex=4){ ;dirty fix for eulmore check price window
 						GuiControl, Enable, PriceListWindow
 					}
 					GuiControl, Enable, MainScript%mainScriptLoopIndex%_SubItem%A_Index%
@@ -221,9 +262,9 @@ uncheckMainScriptBoxes(selectedIndex){
 			}
 		}
 		
-		If (mainScriptLoopIndex != selectedIndex)
+		If (mainScriptLoopIndex != selectedIndex) ;to uncheck other mainBoxes
 		{ 
-			GuiControl,, MainScript%A_Index%, 0 ;to uncheck other mainBoxes
+			GuiControl,, MainScript%A_Index%, 0
 			for key, field in menuData[i].subOptions{ ;to uncheck and disable other subBoxes
 				GuiControl, Disabled, MainScript%mainScriptLoopIndex%_SubItem%A_Index%
 				if(menuData[i].subOptionGuiType="Checkbox"){
@@ -232,7 +273,7 @@ uncheckMainScriptBoxes(selectedIndex){
 					GuiControl, Choose, MainScript%mainScriptLoopIndex%_SubItem%A_Index%, 0
 				}
 			}
-			if(mainScriptLoopIndex=5){ ;dirty fix for eulmore check price window
+			if(mainScriptLoopIndex=4){ ;dirty fix for eulmore check price window
 				GuiControl, Disabled, PriceListWindow
 			}
 		} 
