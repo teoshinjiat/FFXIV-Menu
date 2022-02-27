@@ -6,14 +6,13 @@ SetWorkingDir %A_ScriptDir%
 #include lib\gdip\Gdip_All.ahk
 #include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
-
 global menuData := [] ; can be refactor to object with key for better verbose reading
 menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
 menuData[ 2 ] := {function:"gAutoQuickSynthesis", value:"vMainScript2", label:"Auto Quick Synthesis"}
 menuData[ 3 ] := {function:"gAutoGather", value:"vMainScript3", label:"Auto Gather"}
 menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
 menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[]}
-menuData[ 6 ] := {function:"gProfitHelper", value:"vMainScript6", label:"Profits Helper"}
+menuData[ 6 ] := {function:"gProfitHelper", value:"vMainScript6", label:"Profit Helper"}
 
 assignDataIntoEulmoreSubOptions(){
 	FileRead, var, items.json
@@ -35,7 +34,7 @@ assignDataIntoEulmoreSubOptions(){
 
 
 assignDataIntoEulmoreSubOptions()
-getPriceList()
+;getPriceList()
 Goto, ^F3
 ;callAPI()
 ^F3::
@@ -87,14 +86,42 @@ for i, obj in menuData{ ;mainBox mainscript boxes
 		Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height	
 	}
 }
-Gui, Menu:Add, Button, gButtonOK Default, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+Gui, Menu:Add, Button, gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+
+
+Gui, Menu:Add, Text, vStatusTitle Hidden, Status
+Gui, Menu:Add, Text, vStatusText Hidden w800, 0
+
+Gui, Menu:Add, Progress, w450 h20 cGreen vMyProgress Hidden, 75
+
 Gui, Menu:Show, w720 h600, FFXIV Menu
 return
 
+
+ButtonCancel:
+GuiClose:
+GuiEscape:
+Gui, Destroy
+Return
+
 ButtonOK:
-Gui, Submit
+GuiControl, Show, StatusTitle
+GuiControl, Show, StatusText
+GuiControl, Show, MyProgress
+
+log("ButtonOK:")
+;GuiControl,, MyProgress, +10  ; Move the bar upward by 10 percent. Omit the + to set an absolute position.
+
+/* ;*[menu]
+Progress, b w200, My SubText, My MainText, My Title
+Progress, 50 ; Set the position of the bar to 50%.
+Sleep, 4000
+Progress, Off
+*/
+; Gui, Submit
 checkedBoxIndex:=getCheckedBox()
 if(checkedBoxIndex="1") {
+	updateStatusText("autoSynthesis")
 	foodRefresh:=MainScript1_SubItem1
 	medicineRefresh:=MainScript1_SubItem2
 	collectableFlag:=MainScript1_SubItem3
@@ -103,21 +130,30 @@ if(checkedBoxIndex="1") {
 	
 	Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh%
 } else if(checkedBoxIndex="2") {
+	updateStatusText("autoQuickSynthesis")
 	Run "C:\Users\teosh\Desktop\ahk\autoQuickSynthesis\autoQuickSynthesis.ahk"
 } else if(checkedBoxIndex="3") {
+	updateStatusText("gather")
 	Run "C:\Users\teosh\Desktop\ahk\gather\gather.ahk"
 } else if(checkedBoxIndex="4") {
+	updateStatusText("fish")
 	Run "C:\Users\teosh\Desktop\ahk\fish\fish.ahk"
 } else if(checkedBoxIndex="5") {
+	updateStatusText("eulmoreTurnin")
 	selectedItem:=MainScript5_SubItem1
 	selectedItem:=StrReplace(selectedItem, " ", "_") ;replace space in string for easier matching in the subscript
 	Run eulmoreTurnin\eulmoreTurnin.ahk %selectedItem%
 	log("selectedItem : " + selectedItem)
 } else if(checkedBoxIndex="6") {
-	Run "C:\Users\teosh\Desktop\ahk\profitCalculator\profitCalculator.ahk"
+	updateStatusText("profitHelper")
+	Run "C:\Users\teosh\Desktop\ahk\profitHelper\profitHelper.ahk"
 }
 return
 
+updateStatusText(scriptName) {
+	log("scriptName : " + scriptName)
+	GuiControl,,StatusText, Currently running %scriptname%.ahk
+}
 getCheckedBox(){
 	for i in menuData{ ;mainBox mainscript boxes
 		GuiControlGet, CheckBoxState,, MainScript%A_Index%
@@ -239,12 +275,6 @@ assignKnownPriceIntoEulmoreSubOptions(itemID, lastPrice, numberOfSales){
 		}
 	}
 }
-
-ButtonCancel:
-GuiClose:
-GuiEscape:
-Gui, Destroy
-Return
 
 
 
