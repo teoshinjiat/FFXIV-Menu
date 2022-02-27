@@ -50,3 +50,16 @@ Rnd(a=0.0,b=1) {
 	Else Random,r,a,b
 		Return r
 }
+
+getPriceForItemApi(itemID){
+	log("getPriceForItemApi()")
+	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+	endpoint:="https://universalis.app/api/history/ravana/" itemID "?entriesToReturn=800&entriesWithin=300000"
+	log("")	
+	log("endpoint: " endpoint)
+	oWhr.Open("GET", endpoint, false)
+	oWhr.SetRequestHeader("Content-Type", "application/json")
+	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
+	oWhr.Send()
+	return oWhr.ResponseText
+}

@@ -7,13 +7,13 @@ SetWorkingDir %A_ScriptDir%
 #include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
-global menuData := []
+global menuData := [] ; can be refactor to object with key for better verbose reading
 menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
 menuData[ 2 ] := {function:"gAutoQuickSynthesis", value:"vMainScript2", label:"Auto Quick Synthesis"}
 menuData[ 3 ] := {function:"gAutoGather", value:"vMainScript3", label:"Auto Gather"}
 menuData[ 4 ] := {function:"gAutoFish", value:"vMainScript4", label:"Auto Fish"}
 menuData[ 5 ] := {function:"gEulmore", value:"vMainScript5", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[]}
-menuData[ 6 ] := {function:"gProfitCalculator", value:"vMainScript6", label:"Profit Calculator"}
+menuData[ 6 ] := {function:"gProfitHelper", value:"vMainScript6", label:"Profits Helper"}
 
 assignDataIntoEulmoreSubOptions(){
 	FileRead, var, items.json
@@ -87,7 +87,7 @@ for i, obj in menuData{ ;mainBox mainscript boxes
 		Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height	
 	}
 }
-Gui, Menu:Add, Button, gButtonOK Default, OK  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+Gui, Menu:Add, Button, gButtonOK Default, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
 Gui, Menu:Show, w720 h600, FFXIV Menu
 return
 
@@ -119,7 +119,7 @@ if(checkedBoxIndex="1") {
 return
 
 getCheckedBox(){
-	Loop, 7{
+	for i in menuData{ ;mainBox mainscript boxes
 		GuiControlGet, CheckBoxState,, MainScript%A_Index%
 		if(CheckBoxState=1){
 			return %A_Index%
@@ -149,8 +149,12 @@ Eulmore(){ ;5
 	uncheckMainScriptBoxes(5)
 }
 
-ProfitCalculator(){ ;6
+ProfitHelper(){ ;6
 	uncheckMainScriptBoxes(6)
+	GuiControlGet, CheckBoxState,, MainScript6
+	if(CheckBoxState=1){
+		log("ProfitHelper checked")
+	}
 }
 
 ; UIUX enhancement
@@ -207,19 +211,6 @@ getPriceList(){
 		obj := JSON.load(response)	
 		getLastKnownPrice(obj)
 	}
-}
-
-getPriceForItemApi(itemID){
-	log("getPriceForItemApi()")
-	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-	endpoint:="https://universalis.app/api/history/ravana/" itemID "?entriesToReturn=800&entriesWithin=300000"
-	log("")	
-	log("endpoint: " endpoint)
-	oWhr.Open("GET", endpoint, false)
-	oWhr.SetRequestHeader("Content-Type", "application/json")
-	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
-	oWhr.Send()
-	return oWhr.ResponseText
 }
 
 getLastKnownPrice(obj){

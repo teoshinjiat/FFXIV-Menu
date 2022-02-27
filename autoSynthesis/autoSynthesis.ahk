@@ -31,6 +31,7 @@ Loop{
 	durability:=detectDurability()
 	repairMe:=""
 	runMacro(durability)
+	buttonToPress:=preHealthCheck()
 	sleep, 2000
 	craftingWindow:=true
 	DebugWindow("it's still crafting",0,1,500,0)
@@ -79,7 +80,7 @@ preHealthCheck(){
 	}
 	
 	if(eatFoodFlag=1){
-		food_refresh:=searchImage("food_refresh",,,,,1, GameID)
+		food_refresh:=searchImage("food_refresh",,,,,50, GameID)
 		if(food_refresh){
 			log("will eat food next")
 			buttonToPress:=5
@@ -87,7 +88,7 @@ preHealthCheck(){
 	}
 	
 	if(eatMedicineFlag=1){
-		medicine_refresh:=searchImage("medicine_refresh",,,,,1, GameID)
+		medicine_refresh:=searchImage("medicine_refresh",,,,,50, GameID)
 		if(medicine_refresh){
 			log("will eat medicine next")
 			buttonToPress:=6
