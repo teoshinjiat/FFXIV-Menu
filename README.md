@@ -10,8 +10,7 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 
 
 
-##27/Feb/2022
-
+## 27/Feb/2022
 ![image](https://user-images.githubusercontent.com/21898084/155863876-83188728-8f9f-44eb-b7b4-4ee93c9970ab.png)
 
 
