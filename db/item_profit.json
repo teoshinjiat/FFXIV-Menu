@@ -1,0 +1,106 @@
+{
+  "items": [
+    {
+      "category": "medicine",
+      "itemID": "36109",
+      "name": "Grade 6 Tincture of Strength",
+      "description": "Strength +8% for NQ, 10% for HQ",
+      "mainRecipeMaterials": [
+        {
+          "itemID": "36215",
+          "quantity": "1",
+          "name": "Stonehard Water"
+        },
+        {
+          "itemID": "36227",
+          "quantity": "1",
+          "name": "Grade 5 Strength Alkahest",
+          "isCraftable": true,
+          "subRecipeMaterials": [
+            {
+              "itemID": "27782",
+              "quantity": "2",
+              "name": "Underground Spring Water"
+            },
+            {
+              "itemID": "36258",
+              "quantity": "1",
+              "name": "Lunatender Blossom"
+            },
+            {
+              "itemID": "27779",
+              "quantity": "2",
+              "name": "Sweet Alyssum"
+            },
+            {
+              "itemID": "13",
+              "quantity": "8",
+              "name": "Water Crystal"
+            }
+          ]
+        },
+        {
+          "itemID": "36223",
+          "quantity": "1",
+          "name": "Moonlight Aethersand"
+        },
+        {
+          "itemID": "19",
+          "quantity": "3",
+          "name": "Water Cluster"
+        },
+        {
+          "itemID": "18",
+          "quantity": "3",
+          "name": "Lightning Cluster"
+        }
+      ]
+    },
+    {
+      "category": "medicine",
+      "itemID": "36110",
+      "name": "Grade 6 Tincture of Dexterity",
+      "description": "Dexterity +8% for NQ, 10% for HQ",
+      "mainRecipeMaterials": [
+        {
+          "itemID": "36215",
+          "quantity": "1",
+          "name": "Stonehard Water"
+        },
+        {
+          "itemID": "36228",
+          "quantity": "1",
+          "name": "Grade 5 Dexterity Alkahest",
+          "isCraftable": true,
+          "subRecipeMaterials": [
+            {
+              "itemID": "27782",
+              "quantity": "2",
+              "name": "Underground Spring Water"
+            },
+            {
+              "itemID": "36258",
+              "quantity": "1",
+              "name": "Lunatender Blossom"
+            }
+          ]
+        },
+        {
+          "itemID": "36223",
+          "quantity": "1",
+          "name": "Moonlight Aethersand"
+        },
+        {
+          "itemID": "19",
+          "quantity": "3",
+          "name": "Water Cluster"
+        },
+        {
+          "itemID": "18",
+          "quantity": "3",
+          "name": "Lightning Cluster"
+        }
+      ]
+    }
+  ]
+}

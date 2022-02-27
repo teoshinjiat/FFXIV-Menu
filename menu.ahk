@@ -7,6 +7,7 @@ SetWorkingDir %A_ScriptDir%
 #include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
+global DND:=false ;this is a flag to prevent the log from disturbing me when im developing other script, used in logging function
 global selectedTabIndex:="1"
 global menuData := [] ; can be refactor to object with key for better verbose reading
 menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
@@ -124,8 +125,6 @@ for i, obj in listBoxOptions {
 }
 Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height	
 
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -141,7 +140,6 @@ Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
 Gui, Menu:Show, Maximize
 return
-
 
 LoadTabIndex:
 Gui, Menu:Submit, NoHide
@@ -161,7 +159,7 @@ GuiControl, Show, StatusTitle
 GuiControl, Show, StatusText
 GuiControl, Show, MyProgress
 
-if(selectedTabIndex="1") {
+if(selectedTabIndex="1") { 
 	updateStatusText("autoSynthesis")
 	foodRefresh:=MainScript1_SubItem1
 	medicineRefresh:=MainScript1_SubItem2

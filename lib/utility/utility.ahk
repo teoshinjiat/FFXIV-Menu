@@ -1,5 +1,8 @@
+global log:=true
 log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0){
-	DebugWindow(text,clear,lineBreak,sleep,autoHide, msgBox)
+	if(log){
+		DebugWindow(text,clear,lineBreak,sleep,autoHide, msgBox)
+	}
 }
 
 ; TODO split non dependent functions, otherwise menu will have to import stuff that it dont needle
@@ -51,15 +54,47 @@ Rnd(a=0.0,b=1) {
 		Return r
 }
 
-getPriceForItemApi(itemID){
-	log("getPriceForItemApi()")
+getPriceForItemApiFromRavana(itemID){ ;current world only
+	;log("getPriceForItemApi()")
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 	endpoint:="https://universalis.app/api/history/ravana/" itemID "?entriesToReturn=800&entriesWithin=300000"
-	log("")	
-	log("endpoint: " endpoint)
+;	log("")	
+	;log("endpoint: " endpoint)
 	oWhr.Open("GET", endpoint, false)
 	oWhr.SetRequestHeader("Content-Type", "application/json")
 	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
 	oWhr.Send()
-	return oWhr.ResponseText
+	obj := JSON.load(oWhr.ResponseText)	
+	return getLastKnownPrice(obj)
+}
+
+; call api
+getPriceForItemApiFromDC(itemID){ ;DataCenter = all connected worlds
+	;log("getPriceForItemApi()")
+	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+	endpoint:="https://universalis.app/api/history/materia/" itemID "?entriesWithin=100000"
+	;log("")	
+	;log("endpoint: " endpoint)
+	oWhr.Open("GET", endpoint, false)
+	oWhr.SetRequestHeader("Content-Type", "application/json")
+	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
+	oWhr.Send()
+	obj := JSON.load(oWhr.ResponseText)	
+	return getLastKnownPrice(obj)
+}
+
+
+
+getLastKnownPrice(obj){
+	lastSoldPrice:=""
+	itemId:=""
+	numberOfSales:=""
+	for i, entries in obj.entries{ ;mainBox mainscript boxes
+		if(i=1){
+			itemID:= obj.itemID
+			lastSoldPrice:=obj.entries[i].pricePerUnit
+			numberOfSales:=obj.entries.length()
+		}
+	}
+	return lastSoldPrice
 }

@@ -11,8 +11,7 @@ WinGet, GameID, ID, ahk_class FFXIVGAME
 SetMouseDelay, 5
 CoordMode, Pixel, Screen
 CoordMode, Mouse, Screen
-DebugWindow("Started GDIP playground",0,1,200,0)
-DebugWindow("GameID:"GameID,0,1,200,0)
+log("Started Auto Synthesis")
 
 
 global GameID:=GameID
@@ -24,7 +23,6 @@ global eatMedicineFlag:=A_Args[2]
 log("eatFoodFlag : " + eatFoodFlag)
 log("eatMedicineFlag : " + eatMedicineFlag)
 
-DebugWindow("Started script",0,1,200,0)
 Loop{
 	sleep, 500 ;after spamming `, give it some time to rest
 	buttonToPress:=""
@@ -34,12 +32,12 @@ Loop{
 	buttonToPress:=preHealthCheck()
 	sleep, 2000
 	craftingWindow:=true
-	DebugWindow("it's still crafting",0,1,500,0)
+	log("it's still crafting")
 	While (craftingWindow) ; when the crafting window is opened, means it's currently in busy mode, so keep looping until window is missing from game client
 	{
 		craftingWindow:=searchImage("still-crafting",,,,,1, GameID, false) ; pop, check for window
 	}
-	DebugWindow("done crafting",0,1,200,0)
+	log("done crafting")
 	
 	if(!craftingWindow){ ; if less than 1, means not found, which means not busy anymore, proceed next
 		if(buttonToPress!=""){

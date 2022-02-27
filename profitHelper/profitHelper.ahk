@@ -1,238 +1,197 @@
 SetWorkingDir %A_ScriptDir%
-#include lib\json\json.ahk
-#include lib\utility\utility.ahk
-#include lib\gdip\Gdip_All.ahk
-#include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
+#include ..\lib\json\json.ahk
+#include ..\lib\utility\utility.ahk
+#include ..\lib\gdip\Gdip_All.ahk
+#include ..\lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 
-
-WinGet, GameID, ID, ahk_class FFXIVGAME
-#NoEnv
 #SingleInstance, Force
-SetMouseDelay, 5
-CoordMode, Pixel, Screen
-CoordMode, Mouse, Screen
+
 log("Eulmore Turnin", clear:=1)
 
-global GameID:=GameID
-global selectedItem:=A_Args[1]
-global matchedItemIndex:=""
-global paths_category:=""
-global paths_subcategory:=""
-global paths_filename:=""
+; 1) retrieve the item's last known price in my dc
+; 2) 
 
-log("selectedItem: " selectedItem)
+;global items:=[{"itemID":"", "itemCraftable":"", "itemName":"", "itemLastKnownPrice":"", "materials":[]}] ;materials to store all itemId including parent id and child id
+global itemsStruct:=[] ;materials to store all itemId including parent id and child id
+global medicineStruct:=[]
 
+;a, b, c(craftable)(show final product price, and show total craft cost), d , total cost, total craft cost including c
 
-readItems()
-Loop {
-	SetKeyDelay, 8
-	handleCollectableAppraiser() ;turn in items
-	SetKeyDelay, 300
-	handleExchangeNPC() ;buy items
-	sleep, 1000
-	ControlSend, , {Esc}, ahk_class FFXIVGAME
-	sleep, 1000
-}
+readItemsFromDB()
 
-handleCollectableAppraiser(){
-	sleep, 1000
-	ControlSend, , {e}, ahk_class FFXIVGAME
-	sleep, 1000
-	ControlSend, , ``, ahk_class FFXIVGAME
-	sleep, 1000
-	handInItems()
-}
-
-handleExchangeNPC(){
-	DebugWindow("handleExchangeNPC()",0,1,0,0)	
-	ControlSend, , {q}, ahk_class FFXIVGAME
-	sleep, 500
-	ControlSend, , ``, ahk_class FFXIVGAME
-	sleep, 1000
-	exchange()
-}
-
-exchange(){
-	DebugWindow("exchange()",0,1,0,0)	
-	windowCheck()
-	handleCategory()
-	handleSubCategory()
-	buyItem()
-}
-
-windowCheck(){ ;looping to ensure window is indeed opened
-	item_exchange_window:=""
-	log("windowChecwindowCheck()")
+readItemsFromDB(){
+	FileRead, var, ..\db\item_profit.json
+	obj := JSON.load(var)
+	;log(obj)
 	
-	While (item_exchange_window!=0){
-		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\window\item_exchange_window.png
-		item_exchange_window:=ErrorLevel
-		log("searching for window")
-	}
-	log("window found..")
-}
-
-handleCategory(){
-	log("handleCategory()")
-	log("paths_category : " paths_category)
-	if(paths_category="crafters_scrip_materia"){
-		sleep, 2000
-		ControlSend, , {Up}, ahk_class FFXIVGAME
-		ControlSend, , {Up}, ahk_class FFXIVGAME
+	for i, items in obj.items{ ;mainBox mainscript boxes
+		log("----------------------------------------------------------------------------------------------------------------------------------------------------")		
+		i:=A_Index
+		log("itemID:" obj.items[i].itemID  " | isCraftable:" obj.items[i].isCraftable " | name:" obj.items[i].name " | description:" obj.items[i].description)
+		itemsStruct[i]:= {category: obj.items[i].category, itemID: obj.items[i].itemID, name: obj.items[i].name, itemCraftable: obj.items[i].isCraftable, mainRecipeMaterials:[], subRecipeMaterials:[], lastKnownPrice:"", totalCraftingCostMainOnly:"", totalCraftingCostIncludingSub:"", profitExpectedPerCraft:""}
+		;log("size of array recipeMaterials: " + obj.items[i].recipeMaterials.length())
 		
-		ControlSend, , {Up}, ahk_class FFXIVGAME
-		ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
-		processCategory()
-	}
-}
-
-processCategory(){
-	log("processCategory()")
-	
-	categoryHighlighted:=""
-	while(categoryHighlighted!=0){
-		ControlSend, , {Down}, ahk_class FFXIVGAME		
-		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\category\%paths_category%.png
-		categoryHighlighted:=ErrorLevel
-		log("subCategoryHighlighted ErrorLevel :" subCategoryHighlighted)
-		
-		if(categoryHighlighted=0){
-			log("categoryHighlighted : found")
-			ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
-			break ;selected category, handleSubCategory next
-		}
-	}
-}
-
-handleSubCategory(){
-	log("handleSubCategory()")
-	
-	ControlSend, , {Down}, ahk_class FFXIVGAME
-	ControlSend, , ``, ahk_class FFXIVGAME ;subCategory is opened
-	processSubCategory()
-}
-
-processSubCategory(){
-	log("processSubCategory()")
-	
-	subCategoryHighlighted:=""
-	while(subCategoryHighlighted!=0){
-		ControlSend, , {Down}, ahk_class FFXIVGAME		
-		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\subcategory\%paths_subcategory%.png
-		
-		subCategoryHighlighted:=ErrorLevel
-		log("subCategoryHighlighted filename: " paths_subcategory ".png")		
-		log("subCategoryHighlighted ErrorLevel: " subCategoryHighlighted)
-		
-		if(subCategoryHighlighted=0){
-			log("subCategoryHighlighted: found")
-			ControlSend, , ``, ahk_class FFXIVGAME ;category is opened
-			break ;selected category, handleSubCategory next
-		}
-	}
-}
-
-buyItem(){
-	log("buyItem()")
-	
-	itemHighlighted:=""
-	while(itemHighlighted!=0){
-		ControlSend, , {Down}, ahk_class FFXIVGAME	
-		imageSearch, x, y, 0, 0, 2560, 1440, *1 images\item\%paths_filename%.png
-		itemHighlighted:=ErrorLevel
-		if(itemHighlighted=0){
-			setMaxQuantity()
-			confirm()
-			break ;selected category, handleSubCategory next
-		}
-	}
-}
-
-setMaxQuantity(){
-	log("setQuantity()")
-	ControlSend, , {Right}, ahk_class FFXIVGAME	
-	ControlSend, , {Insert}, ahk_class FFXIVGAME	
-	ControlSend, , {Left}, ahk_class FFXIVGAME		
-}
-
-confirm(){
-	log("confirm()")	
-	ControlSend, , ``, ahk_class FFXIVGAME	
-	ControlSend, , {Left}, ahk_class FFXIVGAME	
-	ControlSend, , ``, ahk_class FFXIVGAME		
-}
-
-handInItems(){
-	DebugWindow("handInItems()",0,1,200,0)
-	ErrorLevel:=""
-	While (tradeButtonErrorLevel!=0)
-	{
-		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\button\trade.png
-		tradeButtonErrorLevel:=ErrorLevel
-		if(tradeButtonErrorLevel=0){
-			ControlSend, , {Right}, ahk_class FFXIVGAME
-			ControlSend, , {Right}, ahk_class FFXIVGAME			
-			ControlSend, , ``, ahk_class FFXIVGAME
-			ControlSend, , ``, ahk_class FFXIVGAME			
-			Loop {
-				ControlSend, , ``, ahk_class FFXIVGAME
-				sleep, 200													
-				
-				imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\dialogue\scrips_full.png
-				if(ErrorLevel=0){
-					DebugWindow("scrips full",0,1,200,0)
+		for j, recipeMaterials in obj.items[i].mainRecipeMaterials{ ; main recipe materials
+			j:=A_Index
+		;	log("recipe materials : itemID:" obj.items[i].recipeMaterials[j].itemID " | quantity:" obj.items[i].recipeMaterials[j].quantity " | name:" obj.items[i].recipeMaterials[j].name " | isCraftable:" obj.items[i].recipeMaterials[j].isCraftable)
+			;log("obj.items[i].mainRecipeMaterials[j].itemID : " + obj.items[i].mainRecipeMaterials[j].itemID)
+			itemsStruct[i].mainRecipeMaterials[j]:={itemID:obj.items[i].mainRecipeMaterials[j].itemID, quantity:obj.items[i].mainRecipeMaterials[j].quantity, isCraftable:obj.items[i].mainRecipeMaterials[j].isCraftable}
+			;log("items[i].mainRecipeMaterials size : " + items[i].mainRecipeMaterials.length())
+			;log("items[" i "] main recipe materia : " + items[i].mainRecipeMaterials[j])
+			if(obj.items[i].mainRecipeMaterials[j].isCraftable=1){ ; this is sub recipe materials
+				;log("size of array subRecipeMaterials: " + obj.items[i].recipeMaterials[j].subRecipeMaterials.length())
+				for k, subRecipeMaterials in obj.items[i].mainRecipeMaterials[j].subRecipeMaterials{	
+					k:=A_Index
+					itemsStruct[i].subRecipeMaterials[k]:= {itemID:obj.items[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID, quantity:obj.items[i].mainRecipeMaterials[j].subRecipeMaterials[k].quantity}
 					
-					ControlSend, , {Esc}, ahk_class FFXIVGAME
-					sleep, 100					
-					ControlSend, , {Esc}, ahk_class FFXIVGAME
-					Goto, ContinueHere
-					return
+					;log("items[i] sub recipe materia : " + items[i].subRecipeMaterials[k])
+					;log("--SUB recipe materials : itemID:" obj.items[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID " | quantity:" obj.items[i].mainRecipeMaterials[j].subRecipeMaterials[k].quantity " | name:" obj.items[i].mainRecipeMaterials[j].subRecipeMaterials[k].name)				
 				}
+			}
+			
+		}
+	}
+	
+	showData()
+	;splitDataIntoCategories()
+	;getSellingPriceFromRavana()
+	;getTotalCraftingCost()
+	
+	/*
+	for i in itemsStruct{
+		log(itemsStruct[i].name " crafting cost main only is, " itemsStruct[i].totalCraftingCostMainOnly " gils")
+		log(itemsStruct[i].name " crafting cost including sub is, " itemsStruct[i].totalCraftingCostIncludingSub " gils")
+	}
+	*/
+}
+
+getSellingPriceFromRavana(){
+	for i in itemsStruct{ 
+		i:=A_Index
+		lastKnownPrice:=getPriceForItemApiFromRavana(itemsStruct[i].itemID)
+		itemsStruct[i].lastKnownPrice:=lastKnownPrice
+		if(itemsStruct[i].category="medicine"){
+			itemsStruct[i].profitExpectedPerCraft:=lastKnownPrice*3			
+		} else {
+			itemsStruct[i].profitExpectedPerCraft:=lastKnownPrice			
+		}
+		
+		log("profitExpectedPerCraft(): Ravana profitExpectedPerCraft * 3 : " + itemsStruct[i].profitExpectedPerCraft " gils")
+	}
+}
+
+getTotalCraftingCost() {
+	for i in itemsStruct{
+		mainCost:=0
+		subCost:=0
+		
+		i:=A_Index
+		;log("ravana finalProductPrice : " + itemsStruct[i].lastKnownPrice " gils")
+		for j, itemID in itemsStruct[i].mainRecipeMaterials{ 
+			j:=A_Index
+			lastSoldPriceWithQuantity:=(getPriceForItemApiFromDC(itemsStruct[i].mainRecipeMaterials[j].itemID) * itemsStruct[i].mainRecipeMaterials[j].quantity)
+			mainCost:=mainCost + lastSoldPriceWithQuantity
+			subCost:=subCost + lastSoldPriceWithQuantity
+			;log(itemsStruct[i].name "'s mainCost : " + mainCost " gils")
+			;log("itemsStruct[i].mainRecipeMaterials[j].isCraftable : " + itemsStruct[i].mainRecipeMaterials[j].isCraftable)
+			log(itemsStruct[i].name "'s subCost : " + subCost)
+			if(itemsStruct[i].mainRecipeMaterials[j].isCraftable){
+				log("isCraftable?")
+				subCost:=subCost-lastSoldPriceWithQuantity ; delete the craftable item for this variable
+				log("lastSoldPriceWithQuantity : " + lastSoldPriceWithQuantity)
+				log(itemsStruct[i].name "'s subCost : " + subCost)
 				
-				imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\button\trade_disabled.png
-				if(ErrorLevel=0){	
-					DebugWindow("no more item to trade", 0,1,200,0)
-					
-					ControlSend, , {Esc}, ahk_class FFXIVGAME
-					Goto, ContinueHere
-					return
+				for k, itemID in itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials{ 
+					log("should log 4 and 2 times")
+					k:=A_Index
+					;log("itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID) : " + itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID)
+					lastSoldPriceWithQuantity:=(getPriceForItemApiFromDC(itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID) * itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].quantity)
+					subCost:=subCost + lastSoldPriceWithQuantity
 				}
-				
-				sleep, 500
+			}
+		}
+		itemsStruct[i].totalCraftingCostMainOnly:=mainCost
+		itemsStruct[i].totalCraftingCostIncludingSub:=subCost
+		
+	}
+}
+
+splitDataIntoCategories(){
+	for i in itemsStruct{ 
+		i:=A_Index
+		if(itemsStruct[i].category="medicine"){
+			medicineStruct.push(itemsStruct[i])
+		}
+	}
+}
+
+showData(){
+	for i in itemsStruct{ 
+		i:=A_Index
+		for j, itemID in itemsStruct[i].mainRecipeMaterials{ 
+			j:=A_Index
+			log("main:" itemsStruct[i].name " : " itemsStruct[i].mainRecipeMaterials[j].itemID " | quantity : " itemsStruct[i].mainRecipeMaterials[j].quantity)
+			if(itemsStruct[i].mainRecipeMaterials[k].isCraftable){
+				log("isCraftable true")
 			}
 		}
 	}
-	ContinueHere:
-	sleep, 200
-	sleep, 1500
-}
-
-
-readItems(){
-	FileRead, var, ..\items.json
-	obj := JSON.load(var)
 	
-	for i, items in obj.items{ ;mainBox mainscript boxes
-		DebugWindow("----------------------------------------------------------------------------------------------------------------------------------------------------",0,1,0,0)		
+	for i in itemsStruct{ 
 		i:=A_Index
-		DebugWindow("id:" obj.items[i].id " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
-		
-		log("matching")		
-		if(selectedItem=obj.items[i].name){
-			log("matched...")
-			setPaths(obj.items[i])
-			break ;if found item, skip the rest of the search
+		for j, itemID in itemsStruct[i].subRecipeMaterials{ 
+			j:=A_Index
+			;log("sub:" itemsStruct[i].name " : " itemsStruct[i].subRecipeMaterials[j].itemID " | quantity : " itemsStruct[i].subRecipeMaterials[j].quantity)
 		}
 	}
+	
 }
 
-setPaths(obj){
-	paths_category:=obj.paths.category
-	paths_subcategory:=obj.paths.subcategory
-	paths_filename:=obj.paths.filename
-	log("paths_category : " + paths_category)
-	log("paths_subcategory : " + paths_subcategory)
-	log("paths_filename : " + paths_filename)
-}
-
-^F4::ExitApp DebugWindow("Terminated EulmoreTurnin",0,1,200,0)
+/*
+	PriceListWindow:
+	Gui, PriceListWindow:Default
+	Gui, PriceListWindow:+AlwaysOnTop
+	Gui, PriceListWindow:+resize
+	Gui, PriceListWindow:Color, 0x808080
+	Gui, PriceListWindow:Font, s10, Verdana
+	Gui, PriceListWindow:Font, bold
+	Gui, PriceListWindow:Add, ListView, r20 w1800 LV0x400000 gOnDoubleClick, Item Name| Last Known Price | Total Crafting Cost
+	
+	Gui, PriceListWindow:Add, Button, gGetMoreData, Show number of sales in the past 3 days ; will make 2 more api calls	
+	
+	for i, subOptions in menuData[5].subOptions{
+		log("priceListWindow menuData[5].subOptions[i].itemID : " + menuData[5].subOptions[i].itemID)
+		LV_Add("", menuData[5].subOptions[i].itemID, menuData[5].subOptions[i].label, menuData[5].subOptions[i].price, menuData[5].subOptions[i].numberOfSalesPast1Day)
+	}
+	
+; https://www.autohotkey.com/docs/commands/ListView.htm#LV_ModifyCol for future reference
+	LV_ModifyCol(1,"AutoHdr")
+	LV_ModifyCol(2,"AutoHdr")
+	LV_ModifyCol(3,"AutoHdr")
+	LV_ModifyCol(3,"Integer")
+	LV_ModifyCol(3,"SortDesc") ; sort by price
+	LV_ModifyCol(4,"AutoHdr")
+	
+	Gui, PriceListWindow:Show
+	return
+	
+	GetMoreData:
+	return
+	
+; to select the listbox in the first gui window
+	OnDoubleClick:
+	if (A_GuiEvent = "DoubleClick")
+	{
+		LV_GetText(ItemID, A_EventInfo)
+		selectedItemID:=ItemID
+		log("double clicked row number " %A_EventInfo% ", ItemID: " %ItemID%)
+		Gui, Destroy
+	}
+	return
+	
+	PriceListWindowButtonCancel:
+	PriceListWindowGuiClose:
+	PriceListWindowGuiEscape:
+	Gui, Menu:Destroy
+	ExitApp
+*/
