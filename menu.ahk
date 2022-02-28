@@ -30,7 +30,6 @@ menuData[ 5 ] := {function:"gProfitHelper", value:"vMainScript5", label:"Profit 
 
 ;
 
-loadInitialLog()
 
 assignDataIntoEulmoreSubOptions()
 getPriceList()
@@ -150,6 +149,9 @@ LV_ModifyCol(2)
 Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
 Gui, Menu:Show, Maximize
+
+loadInitialLog()
+
 Settimer, LoggingTask, 500 ; remember to delete
 return
 
@@ -446,13 +448,11 @@ loadNewLogs(){
 			lineArray.push(line)
 		}
 		currentLineNumber++
-		;log("currentLineNumber : " +currentLineNumber)
 	}
 	processLines(lineArray)
 }
 
 processLines(lines){
-	
 	for i in lines{
 		haystack:=lines[i]
 		obj:=splitLogByColumn(lines[i])
@@ -460,6 +460,8 @@ processLines(lines){
 		log.verbose.push(obj)
 	}
 	currentLineNumber:= log.verbose.length() + log.error.length() + log.error.length() ; will be used in index file read for resuming at new changes
+	log("currentLineNumber : " +currentLineNumber)
+	
 }
 
 splitLogByColumn(log){
@@ -468,9 +470,12 @@ splitLogByColumn(log){
 }
 
 updateGuiLog(obj){
+	log("obj.logType : " + obj.logType)
 	Gui, Menu:Default
+	
 	if(obj.logType=verbose){
-		Gui, Menu:ListView, Verbose
+		log("entered")
+		Gui, Menu:ListView, LogVerbose
 		LV_Add("", "aa", "ggg") 
 	}
 }
