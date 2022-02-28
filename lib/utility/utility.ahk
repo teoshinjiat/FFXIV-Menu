@@ -1,29 +1,29 @@
 SetWorkingDir %A_ScriptDir%
-#include CLogTailer.ahk
 
-global log:=true
+global log:=true ; dont log to AHK Studio Log Window
 global lineNumber:=1
+
  ; default log is verbose log, should log as much as i can about events
 log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0, tag:="Verbose"){
 	if(log){
 		DebugWindow(text,clear,lineBreak,sleep,autoHide)
+		;logToFile(text, tag) ;logToFile regardless of logFlag			
 	}
-	;logToFile(text, tag) ;logToFile regardless of logFlag	
 }
 
 ; important log is unhideable log such as ERROR and DEBUG, therefore no checking like the base log()
 logTag(text, tag){
 	DebugWindow(text)
-	;logToFile(text, tag)
+	logToFile(text, tag)
 }
 
 logToFile(text, tag){
 	file := FileOpen("C:\ahk\FFXIV\ffxiv.log","a") ; https://www.autohotkey.com/docs/commands/FileOpen.htm#Access_modes
 	file.write("[")		
 	file.write(currentTimestamp())
-	file.write("] (")	
+	file.write("]|(")	
 	file.write(tag)
-	file.write(")  ")	
+	file.write(")|")	
 	file.write(text)
 	file.write("`r`n") ;CR+LF
 	file.close()
@@ -34,18 +34,7 @@ archieveLogFile(){ ;used when terminating a script
 	FileMove, C:\ahk\FFXIV\ffxiv.log, C:\ahk\FFXIV\ffxiv.log.old, 1
 }
 
-readFile(filePath){
-	
-}
 
-readFromTail(filePath){
-	lt := new CLogTailer(filePath, Func("NewLine"))
-	return
-	
-	NewLine(text){
-		log("New line added @ " A_TickCount ": " text)
-	}
-}
 
 ; TODO split non dependent functions, otherwise menu will have to import stuff that it dont needle
 ; for example searchImage

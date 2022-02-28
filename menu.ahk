@@ -3,31 +3,40 @@
 SetWorkingDir %A_ScriptDir%
 #include lib\json\json.ahk
 #include lib\utility\utility.ahk
+#include lib\utility\CLogTailer.ahk
 #include lib\gdip\Gdip_All.ahk
 #include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
+#include lib\constants\chat.ahk
+#include lib\Class_LV_Colors\Class_LV_Colors.ahk
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
 global DND:=false ;this is a flag to prevent the log from disturbing me when im developing other script, used in logging function
 global selectedTabIndex:="1"
-global lineNumber:=1
+global selectedLogTabIndex:="1"
+global logFilePath:="C:\ahk\FFXIV\ffxiv.log"
+global currentLineNumber:=""
+global previousFileSize:=0
+global lineArray:=[]
+global verbose:="(Verbose)"
+global error:="(Error)"
+global debug:="(Debug)"
 global menuData := [] ; can be refactor to object with key for better verbose reading
+global log := {verbose:[], error:[], debug:[]}
 menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
 menuData[ 2 ] := {function:"gAutoGather", value:"vMainScript2", label:"Auto Gather"}
 menuData[ 3 ] := {function:"gAutoFish", value:"vMainScript3", label:"Auto Fish"}
 menuData[ 4 ] := {function:"gEulmore", value:"vMainScript4", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[]}
 menuData[ 5 ] := {function:"gProfitHelper", value:"vMainScript5", label:"Profit Helper"}
 
+;
+
+loadInitialLog()
 
 assignDataIntoEulmoreSubOptions()
-;getPriceList()
+getPriceList()
 Goto, ^F3
-Loop{
-	processLog()
-}
 
-processLog(){
-	
-}
+
 ^F3::
 Gui, Menu:Destroy
 ;Gui, Menu:+AlwaysOnTop
@@ -118,22 +127,44 @@ Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; 
 
 
 Gui, Menu:Tab ; exiting tab edit
-Gui, Menu:Add, Button, x15 y463 w300 h50 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+Gui, Menu:Add, Button, x18 y450 w300 h50 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+Gui, Menu:Add, Checkbox, x350 y460 w300 vLog gLog, Enable Logging  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+
+
 Gui, Menu:Add, Text, x400 y463 vStatusTitle Hidden, Status
 Gui, Menu:Add, Text, x400 y480 vStatusText Hidden w800, 0
 Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
-Gui, Menu:Add, Edit, Readonly x15 y510 w2500 h800 vLogWindow
 
+Gui, Menu:Add, Tab2, AltSubmit vLogNum gLoadLogTabIndex x15 y550 h800 w2500, Verbose  |Debug |Error  
 
-Gui, Menu:Show, w2560 h1440, FFXIV Menu
+Gui, Menu:Tab, Verbose
+Gui, Menu:Add, ListView, y580 xp h750 w2500 vLogVerbose LVS_REPORT, Timestamp | Log
+Gui, Menu:Tab, Debug
+Gui, Menu:Add, ListView, yp xp w2500 h750 vLogDebug LVS_REPORT, Timestamp | Log
+Gui, Menu:Tab, Error
+Gui, Menu:Add, ListView, yp xp w2500 h750 vLogError LVS_REPORT, Timestamp | Log
+
+LV_ModifyCol(1)
+LV_ModifyCol(2)
+
+;Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
-Gui, Menu:Show, Maximize
+;Gui, Menu:Show, Maximize
+Settimer, LoggingTask, 500 ; remember to delete
 return
 
 LoadTabIndex:
+log("LoadTabIndex:")
 Gui, Menu:Submit, NoHide
 selectedTabIndex:=TabNum
 log("selectedTabIndex : " + selectedTabIndex)
+return
+
+LoadLogTabIndex:
+log("LoadLogTabIndex:")
+Gui, Menu:Submit, NoHide
+selectedLogTabIndex:=LogNum
+log("selectedLogTabIndex : " + selectedLogTabIndex)
 return
 
 MenuButtonCancel:
@@ -172,6 +203,16 @@ if(selectedTabIndex="1") {
 } else if(selectedTabIndex="5") {
 	updateStatusText("profitHelper")
 	Run "C:\Users\teosh\Desktop\ahk\profitHelper\profitHelper.ahk"
+	
+	GuiControlGet, LogState,, Log
+	
+	
+	if(LogState=1){
+		; loop to get new logs, this is a workaround because multithreading does not support AHK_L
+		log("LogState is checked")
+		previousFileSize:=getCurrentLogFileSize() ; initialize the log file size
+		SetTimer, LoggingTask, 5000
+	}
 }
 return
 
@@ -194,22 +235,6 @@ assignDataIntoEulmoreSubOptions(){
 updateStatusText(scriptName) {
 	log("scriptName : " + scriptName)
 	GuiControl,,StatusText, Currently running %scriptname%.ahk
-}
-getCheckedBox(){
-	/*
-		for i in menuData{ ;mainBox mainscript boxes
-			GuiControlGet, CheckBoxState,, MainScript%A_Index%
-			if(CheckBoxState=1){
-				return %A_Index%
-			}
-		}
-	*/
-	Gui, Menu:submit, nohide
-	log("TabNum : " + TabNum)
-	log("%TabNum% : " + %TabNum%)
-	Msgbox %TabNum%
-	
-	return %TabNum%
 }
 
 ;hardcoded because g-label doesnt support parameter passing
@@ -366,14 +391,11 @@ if (A_GuiEvent = "DoubleClick")
 return
 
 getSelectedRow(selectedItemID){
-	log("getSelectedRow()")
 	guiIndex:=eulmoreArrayFindById(selectedItemID)
-	log("guiIndex : " + guiIndex)
 	highlightSelectedRow(guiIndex)
 }
 
 eulmoreArrayFindById(selectedItemID){ ; find by itemID, return the matched index in the array
-	log("eulmoreArrayFind()")
 	for i, subOptions in menuData[5].subOptions{
 		log("selectedItemID : " + selectedItemID)
 		log("menuData[5].subOptions[i].itemID : " + menuData[5].subOptions[i].itemID)
@@ -387,6 +409,98 @@ eulmoreArrayFindById(selectedItemID){ ; find by itemID, return the matched index
 highlightSelectedRow(guiIndex) {
 	GuiControl, Menu:Choose, MainScript5_SubItem1, %guiIndex%
 }
+
+LoggingTask:
+detectNewLogs()
+return
+
+detectNewLogs() {
+	currentFileSize:=getCurrentLogFileSize()
+	if(previousFileSize < currentFileSize){
+		lineArray:=[]
+		previousFileSize:=currentFileSize
+		loadNewLogs()
+		updateLog()
+	}
+}
+
+getCurrentLogFileSize(){
+	FileGetSize, currentFileSize, %logFilePath%	
+	return currentFileSize
+}
+
+loadInitialLog(){
+	FileRead, fileContent, %logFilePath%
+	lines := StrSplit(fileContent, "`r`n")
+	processLines(lines)
+}
+
+loadNewLogs(){
+	Loop
+	{  
+		FileReadLine, fileContent, %logFilePath%, %currentLineNumber%
+		if(ErrorLevel){
+			break
+		} else { 
+			;MsgBox, % fileContent
+			line:=fileContent
+			lineArray.push(line)
+		}
+		currentLineNumber++
+		;log("currentLineNumber : " +currentLineNumber)
+	}
+	processLines(lineArray)
+}
+
+processLines(lines){
+	
+	for i in lines{
+		haystack:=lines[i]
+		;log("haystack : " + haystack)
+		IfInString, haystack, %verbose%
+		{
+			log.verbose.push(splitLogByColumn(lines[i]))
+			Goto, SkipIf
+		}
+		IfInString, haystack, %debug%
+		{
+			log.debug.push(splitLogByColumn(lines[i]))
+			Goto, SkipIf
+		}
+		IfInString, haystack, %error%
+		{
+			log.error.push(splitLogByColumn(lines[i]))
+			Goto, SkipIf			
+		}
+		SkipIf:
+	}
+	currentLineNumber:= log.verbose.length() + log.error.length() + log.error.length() ; will be used in index file read for resuming at new changes
+}
+
+splitLogByColumn(log){
+	logArray:=StrSplit(log, "|",,3) ;only split by 3 times, because log message might contain a delimiter
+	return {logTimestamp:logArray[1], logType:logArray[2], logMessage:logArray[3]}
+}
+
+updateLog(){
+	for i in log{
+		log("log[i].verbose.logType : " + log.verbose[i].logType)
+	}
+	log("updateLog()")
+	if(selectedLogTabIndex=1){
+		log("refresh verbose log")
+	} else if(selectedLogTabIndex=2){
+		log("refresh debug log")
+	} else {
+		log("refresh error log")
+	}
+	global Logbox
+	rownumber := LV_Add("", A_Now, LogString) 
+	LV_Modify(rownumber, "Vis") 
+}
+
+
+
 ;^F4::ExitApp DebugWindow("Terminated Menu",1,1,200,0)
 
 Pause::Pause
