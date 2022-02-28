@@ -137,14 +137,13 @@ Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
 Gui, Menu:Add, Tab2, AltSubmit vLogNum gLoadLogTabIndex x15 y550 h800 w2500, Verbose  |Debug |Error  
 
 Gui, Menu:Tab, Verbose
-Gui, Menu:Add, ListView, y580 xp h750 w2500 vLogVerbose LVS_REPORT, Timestamp | Log
+Gui, Menu:Add, ListView, y580 xp h750 w2500 vLogVerbose LVS_REPORT, Timestamp        | Type         | Log |
 Gui, Menu:Tab, Debug
-Gui, Menu:Add, ListView, yp xp w2500 h750 vLogDebug LVS_REPORT, Timestamp | Log
+Gui, Menu:Add, ListView, yp xp w2500 h750 vLogDebug LVS_REPORT, Timestamp           | Type         | Log
 Gui, Menu:Tab, Error
-Gui, Menu:Add, ListView, yp xp w2500 h750 vLogError LVS_REPORT, Timestamp | Log
+Gui, Menu:Add, ListView, yp xp w2500 h750 vLogError LVS_REPORT, Timestamp           | Type         | Log
 
-LV_ModifyCol(1)
-LV_ModifyCol(2)
+LV_ModifyCol()
 
 Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
@@ -461,7 +460,6 @@ processLines(lines){
 	}
 	currentLineNumber:= log.verbose.length() + log.error.length() + log.error.length() ; will be used in index file read for resuming at new changes
 	log("currentLineNumber : " +currentLineNumber)
-	
 }
 
 splitLogByColumn(log){
@@ -476,7 +474,7 @@ updateGuiLog(obj){
 	if(obj.logType=verbose){
 		log("entered")
 		Gui, Menu:ListView, LogVerbose
-		LV_Add("", "aa", "ggg") 
+		LV_Add("", obj.logTimestamp, obj.logType, obj.logMessage) 
 	}
 }
 
