@@ -7,7 +7,7 @@ global lineNumber:=1
 log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0, tag:="Verbose"){
 	if(log){
 		DebugWindow(text,clear,lineBreak,sleep,autoHide)
-		;logToFile(text, tag) ;logToFile regardless of logFlag			
+		logToFile(text, tag) ;logToFile regardless of logFlag			
 	}
 }
 
@@ -148,7 +148,7 @@ getFirstListingPriceForItemFromDC(itemID){
 getFirstListingPriceForHQItemFromRavana(itemID){
 	;log("getPriceForItemApi()")
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-	endpoint:="https://universalis.app/api/ravana/" itemID "?listings=1&entries=0&hq=true"
+	endpoint:="https://universalis.app/api/ravana/" itemID "?listings=1&entries=0&noGst=1&hq=true"
 	;log("")	
 	;log("endpoint: " endpoint)
 	oWhr.Open("GET", endpoint, false)

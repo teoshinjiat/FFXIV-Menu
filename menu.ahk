@@ -459,7 +459,7 @@ processLines(lines){
 		log.verbose.push(obj)
 	}
 	currentLineNumber:= log.verbose.length() + log.error.length() + log.error.length() ; will be used in index file read for resuming at new changes
-	log("currentLineNumber : " +currentLineNumber)
+	;log("currentLineNumber : " +currentLineNumber)
 }
 
 splitLogByColumn(log){
@@ -468,13 +468,11 @@ splitLogByColumn(log){
 }
 
 updateGuiLog(obj){
-	log("obj.logType : " + obj.logType)
 	Gui, Menu:Default
-	
 	if(obj.logType=verbose){
-		log("entered")
 		Gui, Menu:ListView, LogVerbose
 		LV_Add("", obj.logTimestamp, obj.logType, obj.logMessage) 
+		LV_Modify(LV_GetCount(), "Vis") ; https://www.autohotkey.com/docs/commands/ListView.htm#LV_Modify auto scroll to bottom
 	}
 }
 

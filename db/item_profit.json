@@ -2,6 +2,57 @@
   "items": [
     {
       "category": "Medicine",
+      "itemID": "36060",
+      "name": "Tsai tou Vounou",
+      "description": "CP+26%",
+      "mainRecipeMaterials": [
+        {
+          "itemID": "36094",
+          "quantity": "2",
+          "name": "Sideritis Leaves"
+        },
+        {
+          "itemID": "36263",
+          "quantity": "2",
+          "name": "Ambrosial Water"
+        },
+        {
+          "itemID": "36080",
+          "quantity": "1",
+          "name": "Palm Sugar",
+          "isCraftable": true,
+          "subRecipeMaterials": [
+            {
+              "itemID": "36086",
+              "quantity": "6",
+              "name": "Palm Syrup"
+            },
+            {
+              "itemID": "8",
+              "quantity": "8",
+              "name": "Fire Crystal"
+            }
+          ]
+        },
+        {
+          "itemID": "27835",
+          "quantity": "1",
+          "name": "Lemonette"
+        },
+        {
+          "itemID": "8",
+          "quantity": "8",
+          "name": "Fire Crystal"
+        },
+        {
+          "itemID": "13",
+          "quantity": "8",
+          "name": "Water Crystal"
+        }
+      ]
+    },
+    {
+      "category": "Medicine",
       "itemID": "36109",
       "name": "Grade 6 Tincture of Strength",
       "description": "Strength +8% for NQ, 10% for HQ",
