@@ -147,9 +147,9 @@ Gui, Menu:Add, ListView, yp xp w2500 h750 vLogError LVS_REPORT, Timestamp | Log
 LV_ModifyCol(1)
 LV_ModifyCol(2)
 
-;Gui, Menu:Show, w2560 h1440, FFXIV Menu
+Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
-;Gui, Menu:Show, Maximize
+Gui, Menu:Show, Maximize
 Settimer, LoggingTask, 500 ; remember to delete
 return
 
@@ -420,7 +420,6 @@ detectNewLogs() {
 		lineArray:=[]
 		previousFileSize:=currentFileSize
 		loadNewLogs()
-		updateLog()
 	}
 }
 
@@ -456,23 +455,9 @@ processLines(lines){
 	
 	for i in lines{
 		haystack:=lines[i]
-		;log("haystack : " + haystack)
-		IfInString, haystack, %verbose%
-		{
-			log.verbose.push(splitLogByColumn(lines[i]))
-			Goto, SkipIf
-		}
-		IfInString, haystack, %debug%
-		{
-			log.debug.push(splitLogByColumn(lines[i]))
-			Goto, SkipIf
-		}
-		IfInString, haystack, %error%
-		{
-			log.error.push(splitLogByColumn(lines[i]))
-			Goto, SkipIf			
-		}
-		SkipIf:
+		obj:=splitLogByColumn(lines[i])
+		updateGuiLog(obj)
+		log.verbose.push(obj)
 	}
 	currentLineNumber:= log.verbose.length() + log.error.length() + log.error.length() ; will be used in index file read for resuming at new changes
 }
@@ -482,21 +467,12 @@ splitLogByColumn(log){
 	return {logTimestamp:logArray[1], logType:logArray[2], logMessage:logArray[3]}
 }
 
-updateLog(){
-	for i in log{
-		log("log[i].verbose.logType : " + log.verbose[i].logType)
+updateGuiLog(obj){
+	Gui, Menu:Default
+	if(obj.logType=verbose){
+		Gui, Menu:ListView, Verbose
+		LV_Add("", "aa", "ggg") 
 	}
-	log("updateLog()")
-	if(selectedLogTabIndex=1){
-		log("refresh verbose log")
-	} else if(selectedLogTabIndex=2){
-		log("refresh debug log")
-	} else {
-		log("refresh error log")
-	}
-	global Logbox
-	rownumber := LV_Add("", A_Now, LogString) 
-	LV_Modify(rownumber, "Vis") 
 }
 
 

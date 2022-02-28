@@ -6,8 +6,8 @@ global lineNumber:=1
  ; default log is verbose log, should log as much as i can about events
 log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0, tag:="Verbose"){
 	if(log){
-		DebugWindow(text,clear,lineBreak,sleep,autoHide)
-		;logToFile(text, tag) ;logToFile regardless of logFlag			
+		;DebugWindow(text,clear,lineBreak,sleep,autoHide)
+		logToFile(text, tag) ;logToFile regardless of logFlag			
 	}
 }
 
