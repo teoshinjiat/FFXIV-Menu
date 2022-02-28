@@ -20,8 +20,9 @@ global needle:=""
 
 global eatFoodFlag:=A_Args[1]
 global eatMedicineFlag:=A_Args[2]
-log("eatFoodFlag : " + eatFoodFlag)
-log("eatMedicineFlag : " + eatMedicineFlag)
+global craftCount:=0
+log("Param, eatFoodFlag : " + eatFoodFlag)
+log("Param, eatMedicineFlag : " + eatMedicineFlag)
 
 Loop{
 	sleep, 500 ;after spamming `, give it some time to rest
@@ -29,6 +30,7 @@ Loop{
 	durability:=detectDurability()
 	repairMe:=""
 	runMacro(durability)
+	startTime := A_TickCount
 	buttonToPress:=preHealthCheck()
 	sleep, 2000
 	craftingWindow:=true
@@ -37,8 +39,10 @@ Loop{
 	{
 		craftingWindow:=searchImage("still-crafting",,,,,1, GameID, false) ; pop, check for window
 	}
-	log("done crafting")
-	
+	craftCount++
+	log("Finished crafting, craft count is " craftCount)
+	EndTime := A_TickCount
+	log("Time taken for the craft is " Ceil((EndTime - StartTime)/1000.0) " seconds")
 	if(!craftingWindow){ ; if less than 1, means not found, which means not busy anymore, proceed next
 		if(buttonToPress!=""){
 			sleep, 1000
@@ -286,4 +290,7 @@ KillGDIP() {
 	Gdip_Shutdown(pToken)
 }
 
-^F4::ExitApp log("Terminated Auto Synthesis",0,1)
+^F4::
+log("Terminated Auto Synthesis",0,1)
+archieveLogFile()
+ExitApp 

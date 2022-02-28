@@ -1,0 +1,320 @@
+[01:41:41 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:41:41 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:41:43 PM] (Verbose)  it's still crafting
+[01:42:44 PM] (Verbose)  Finished crafting, craft count is 9
+[01:42:44 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:42:45 PM] (Verbose)  autoSynthesis()
+[01:42:45 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:42:45 PM] (Verbose)  looping to send `
+[01:42:45 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:42:45 PM] (Verbose)  looping to send `
+[01:42:46 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:42:46 PM] (Verbose)  looping to send `
+[01:42:46 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:42:46 PM] (Verbose)  looping to send `
+[01:42:47 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:42:47 PM] (Verbose)  breaking while loop
+[01:42:47 PM] (Verbose)  autoSynthesisFallback()
+[01:42:47 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:42:48 PM] (Verbose)  autoSynthesis()
+[01:42:48 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:42:48 PM] (Verbose)  breaking while loop
+[01:42:48 PM] (Verbose)  autoSynthesisFallback()
+[01:42:49 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:42:49 PM] (Verbose)  detectDurability()
+[01:42:50 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:42:50 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:42:50 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:42:50 PM] (Verbose)  durability detected : "70"
+[01:42:51 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:42:51 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:42:51 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:42:52 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:42:52 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:42:54 PM] (Verbose)  it's still crafting
+[01:43:54 PM] (Verbose)  Finished crafting, craft count is 10
+[01:43:54 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:43:55 PM] (Verbose)  autoSynthesis()
+[01:43:56 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:43:56 PM] (Verbose)  looping to send `
+[01:43:56 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:43:56 PM] (Verbose)  looping to send `
+[01:43:57 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:43:57 PM] (Verbose)  looping to send `
+[01:43:57 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:43:57 PM] (Verbose)  looping to send `
+[01:43:58 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:43:58 PM] (Verbose)  breaking while loop
+[01:43:58 PM] (Verbose)  autoSynthesisFallback()
+[01:43:58 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:43:59 PM] (Verbose)  autoSynthesis()
+[01:43:59 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:43:59 PM] (Verbose)  breaking while loop
+[01:43:59 PM] (Verbose)  autoSynthesisFallback()
+[01:44:00 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:44:00 PM] (Verbose)  detectDurability()
+[01:44:01 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:44:01 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:44:01 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:44:01 PM] (Verbose)  durability detected : "70"
+[01:44:02 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:44:02 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:44:02 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:44:03 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:44:03 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:44:05 PM] (Verbose)  it's still crafting
+[01:45:06 PM] (Verbose)  Finished crafting, craft count is 11
+[01:45:06 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:45:07 PM] (Verbose)  autoSynthesis()
+[01:45:07 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:45:07 PM] (Verbose)  looping to send `
+[01:45:08 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:45:08 PM] (Verbose)  looping to send `
+[01:45:08 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:45:08 PM] (Verbose)  looping to send `
+[01:45:08 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:45:08 PM] (Verbose)  looping to send `
+[01:45:09 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:45:09 PM] (Verbose)  breaking while loop
+[01:45:09 PM] (Verbose)  autoSynthesisFallback()
+[01:45:09 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:45:10 PM] (Verbose)  autoSynthesis()
+[01:45:11 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:45:11 PM] (Verbose)  breaking while loop
+[01:45:11 PM] (Verbose)  autoSynthesisFallback()
+[01:45:11 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:45:12 PM] (Verbose)  detectDurability()
+[01:45:12 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:45:12 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:45:13 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:45:13 PM] (Verbose)  durability detected : "70"
+[01:45:13 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:45:13 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:45:14 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:45:14 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:45:14 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:45:16 PM] (Verbose)  it's still crafting
+[01:46:17 PM] (Verbose)  Finished crafting, craft count is 12
+[01:46:17 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:46:18 PM] (Verbose)  autoSynthesis()
+[01:46:18 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:18 PM] (Verbose)  looping to send `
+[01:46:19 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:19 PM] (Verbose)  looping to send `
+[01:46:19 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:19 PM] (Verbose)  looping to send `
+[01:46:19 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:19 PM] (Verbose)  looping to send `
+[01:46:20 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:20 PM] (Verbose)  looping to send `
+[01:46:20 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:20 PM] (Verbose)  looping to send `
+[01:46:20 PM] (Verbose)  checkForFullInventory()
+[01:46:21 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:21 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:21 PM] (Verbose)  looping to send `
+[01:46:21 PM] (Verbose)  checkForFullInventory()
+[01:46:22 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:22 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:22 PM] (Verbose)  looping to send `
+[01:46:22 PM] (Verbose)  checkForFullInventory()
+[01:46:22 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:23 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:23 PM] (Verbose)  looping to send `
+[01:46:23 PM] (Verbose)  checkForFullInventory()
+[01:46:23 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:24 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:24 PM] (Verbose)  looping to send `
+[01:46:24 PM] (Verbose)  checkForFullInventory()
+[01:46:24 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:24 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:24 PM] (Verbose)  looping to send `
+[01:46:24 PM] (Verbose)  checkForFullInventory()
+[01:46:25 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:25 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:25 PM] (Verbose)  looping to send `
+[01:46:25 PM] (Verbose)  checkForFullInventory()
+[01:46:26 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:26 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:46:26 PM] (Verbose)  looping to send `
+[01:46:26 PM] (Verbose)  checkForFullInventory()
+[01:46:26 PM] (Verbose)  searchImage() Result for filename, inventory_full.png : 0
+[01:46:27 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:46:27 PM] (Verbose)  breaking while loop
+[01:46:27 PM] (Verbose)  autoSynthesisFallback()
+[01:46:27 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:46:28 PM] (Verbose)  autoSynthesis()
+[01:46:29 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:46:29 PM] (Verbose)  breaking while loop
+[01:46:29 PM] (Verbose)  autoSynthesisFallback()
+[01:46:29 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:46:30 PM] (Verbose)  detectDurability()
+[01:46:30 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:46:30 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:46:31 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:46:31 PM] (Verbose)  durability detected : "70"
+[01:46:31 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:46:31 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:46:32 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:46:32 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:46:32 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:46:34 PM] (Verbose)  it's still crafting
+[01:47:35 PM] (Verbose)  Finished crafting, craft count is 13
+[01:47:35 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:47:36 PM] (Verbose)  autoSynthesis()
+[01:47:36 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:47:36 PM] (Verbose)  looping to send `
+[01:47:37 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:47:37 PM] (Verbose)  looping to send `
+[01:47:37 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:47:37 PM] (Verbose)  looping to send `
+[01:47:37 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:47:38 PM] (Verbose)  looping to send `
+[01:47:38 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:47:38 PM] (Verbose)  breaking while loop
+[01:47:38 PM] (Verbose)  autoSynthesisFallback()
+[01:47:38 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:47:39 PM] (Verbose)  autoSynthesis()
+[01:47:40 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:47:40 PM] (Verbose)  breaking while loop
+[01:47:40 PM] (Verbose)  autoSynthesisFallback()
+[01:47:40 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:47:41 PM] (Verbose)  detectDurability()
+[01:47:41 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:47:41 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:47:42 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:47:42 PM] (Verbose)  durability detected : "70"
+[01:47:42 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:47:42 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:47:43 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:47:43 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:47:43 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:47:45 PM] (Verbose)  it's still crafting
+[01:48:46 PM] (Verbose)  Finished crafting, craft count is 14
+[01:48:46 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:48:47 PM] (Verbose)  autoSynthesis()
+[01:48:47 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:48:47 PM] (Verbose)  looping to send `
+[01:48:48 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:48:48 PM] (Verbose)  looping to send `
+[01:48:48 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:48:48 PM] (Verbose)  looping to send `
+[01:48:49 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:48:49 PM] (Verbose)  looping to send `
+[01:48:49 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:48:49 PM] (Verbose)  looping to send `
+[01:48:50 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:48:50 PM] (Verbose)  breaking while loop
+[01:48:50 PM] (Verbose)  autoSynthesisFallback()
+[01:48:50 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:48:51 PM] (Verbose)  autoSynthesis()
+[01:48:51 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:48:51 PM] (Verbose)  breaking while loop
+[01:48:51 PM] (Verbose)  autoSynthesisFallback()
+[01:48:52 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:48:52 PM] (Verbose)  detectDurability()
+[01:48:53 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:48:53 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:48:53 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:48:53 PM] (Verbose)  durability detected : "70"
+[01:48:54 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:48:54 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:48:54 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:48:55 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:48:55 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:48:57 PM] (Verbose)  it's still crafting
+[01:49:58 PM] (Verbose)  Finished crafting, craft count is 15
+[01:49:58 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:49:59 PM] (Verbose)  autoSynthesis()
+[01:49:59 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:49:59 PM] (Verbose)  looping to send `
+[01:50:00 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:50:00 PM] (Verbose)  looping to send `
+[01:50:00 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:50:00 PM] (Verbose)  looping to send `
+[01:50:00 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:50:00 PM] (Verbose)  looping to send `
+[01:50:01 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:50:01 PM] (Verbose)  breaking while loop
+[01:50:01 PM] (Verbose)  autoSynthesisFallback()
+[01:50:01 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:50:02 PM] (Verbose)  autoSynthesis()
+[01:50:03 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:50:03 PM] (Verbose)  breaking while loop
+[01:50:03 PM] (Verbose)  autoSynthesisFallback()
+[01:50:03 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:50:04 PM] (Verbose)  detectDurability()
+[01:50:04 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:50:04 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:50:05 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:50:05 PM] (Verbose)  durability detected : "70"
+[01:50:05 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:50:05 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:50:06 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:50:06 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:50:06 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:50:08 PM] (Verbose)  it's still crafting
+[01:51:09 PM] (Verbose)  Finished crafting, craft count is 16
+[01:51:09 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:51:10 PM] (Verbose)  autoSynthesis()
+[01:51:10 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:51:10 PM] (Verbose)  looping to send `
+[01:51:11 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:51:11 PM] (Verbose)  looping to send `
+[01:51:11 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:51:11 PM] (Verbose)  looping to send `
+[01:51:12 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:51:12 PM] (Verbose)  looping to send `
+[01:51:12 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:51:12 PM] (Verbose)  breaking while loop
+[01:51:12 PM] (Verbose)  autoSynthesisFallback()
+[01:51:12 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:51:13 PM] (Verbose)  autoSynthesis()
+[01:51:14 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:51:14 PM] (Verbose)  breaking while loop
+[01:51:14 PM] (Verbose)  autoSynthesisFallback()
+[01:51:14 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:51:15 PM] (Verbose)  detectDurability()
+[01:51:15 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:51:15 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:51:16 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:51:16 PM] (Verbose)  durability detected : "70"
+[01:51:16 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:51:16 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:51:17 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:51:17 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:51:17 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:51:19 PM] (Verbose)  it's still crafting
+[01:52:20 PM] (Verbose)  Finished crafting, craft count is 17
+[01:52:20 PM] (Verbose)  Time taken for the craft is 65 seconds
+[01:52:21 PM] (Verbose)  autoSynthesis()
+[01:52:21 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:52:21 PM] (Verbose)  looping to send `
+[01:52:22 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:52:22 PM] (Verbose)  looping to send `
+[01:52:22 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:52:22 PM] (Verbose)  looping to send `
+[01:52:23 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 1
+[01:52:23 PM] (Verbose)  looping to send `
+[01:52:23 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:52:23 PM] (Verbose)  breaking while loop
+[01:52:23 PM] (Verbose)  autoSynthesisFallback()
+[01:52:24 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:52:24 PM] (Verbose)  autoSynthesis()
+[01:52:25 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:52:25 PM] (Verbose)  breaking while loop
+[01:52:25 PM] (Verbose)  autoSynthesisFallback()
+[01:52:25 PM] (Verbose)  searchImage() Result for filename, synthesis_button.png : 0
+[01:52:26 PM] (Verbose)  detectDurability()
+[01:52:26 PM] (Verbose)  searchImage() Result for filename, 35.png : 0
+[01:52:26 PM] (Verbose)  searchImage() Result for filename, 40.png : 0
+[01:52:27 PM] (Verbose)  searchImage() Result for filename, 70.png : 1
+[01:52:27 PM] (Verbose)  durability detected : "70"
+[01:52:27 PM] (Verbose)  searchImage() Result for filename, spritbond_full.png : 0
+[01:52:28 PM] (Verbose)  searchImage() Result for filename, durability_yellow.png : 0
+[01:52:28 PM] (Verbose)  searchImage() Result for filename, food_refresh.png : 0
+[01:52:28 PM] (Verbose)  searchImage() Result for filename, medicine_refresh.png : 0
+[01:52:28 PM] (Verbose)  preHealthCheck() buttonToPress:
+[01:52:30 PM] (Verbose)  it's still crafting
+[01:53:31 PM] (Verbose)  Finished crafting, craft count is 18
+[01:53:31 PM] (Verbose)  Time taken for the craft is 65 seconds

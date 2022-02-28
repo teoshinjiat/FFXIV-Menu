@@ -85,6 +85,7 @@ getTotalCraftingCost() { ; crafting cost will take listing instead of history
 	for i in itemsStruct{
 		mainCost:=0
 		subCost:=0
+		totalSubCostPrice:=0
 		
 		i:=A_Index
 		;log("ravana finalProductPrice : " + itemsStruct[i].currentSellingPrice " gils")
@@ -102,18 +103,25 @@ getTotalCraftingCost() { ; crafting cost will take listing instead of history
 				subCost:=subCost-lastSoldPriceWithQuantity ; delete the craftable item for this variable
 				log("lastSoldPriceWithQuantity : " + lastSoldPriceWithQuantity)
 				log(itemsStruct[i].name "'s subCost : " + subCost)
-				
-				for k, itemID in itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials{ 
+				for k, itemID in itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials{
 					k:=A_Index
 					lastSubItemPrice:=getFirstListingPriceForItemFromDC(itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID)
 					log("lastSubItemPrice : " + lastSubItemPrice " | itemID : " itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID)
 					log("itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].quantity : " + itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].quantity)
 					;log("itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID) : " + itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].itemID)
 					lastSoldPriceWithQuantity:=(lastSubItemPrice * itemsStruct[i].mainRecipeMaterials[j].subRecipeMaterials[k].quantity)
-					subCost:=subCost + lastSoldPriceWithQuantity
+					totalSubCostPrice:=totalSubCostPrice+lastSoldPriceWithQuantity
 				}
+				
 			}
+			
 		}
+		if(itemsStruct[i].category="Medicine"){
+			subCost:=subCost + (totalSubCostPrice/3)
+		} else {
+			subCost:=subCost + totalSubCostPrice
+		}
+		
 		itemsStruct[i].totalCraftingCostMainOnly:=mainCost
 		itemsStruct[i].totalCraftingCostIncludingSub:=subCost
 	}

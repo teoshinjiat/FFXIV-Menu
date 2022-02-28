@@ -9,41 +9,32 @@ DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
 global DND:=false ;this is a flag to prevent the log from disturbing me when im developing other script, used in logging function
 global selectedTabIndex:="1"
+global lineNumber:=1
 global menuData := [] ; can be refactor to object with key for better verbose reading
-menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"Disabled vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"Disabled vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
+menuData[ 1 ] := {function:"gAutoSynthesis", value:"vMainScript1", label:"Auto Synthesis", subOptionGuiType:"Checkbox", subOptionGuiStyle:"x60", subOptions:[{value:"vMainScript1_SubItem1", label:"Auto refresh food"}, {value:"vMainScript1_SubItem2", label:"Auto refresh medicine"}]}
 menuData[ 2 ] := {function:"gAutoGather", value:"vMainScript2", label:"Auto Gather"}
 menuData[ 3 ] := {function:"gAutoFish", value:"vMainScript3", label:"Auto Fish"}
 menuData[ 4 ] := {function:"gEulmore", value:"vMainScript4", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[]}
 menuData[ 5 ] := {function:"gProfitHelper", value:"vMainScript5", label:"Profit Helper"}
 
-assignDataIntoEulmoreSubOptions(){
-	FileRead, var, items.json
-	obj := JSON.load(var)
-	;log(obj)
-	
-	for i, items in obj.items{ ;mainBox mainscript boxes
-		DebugWindow("----------------------------------------------------------------------------------------------------------------------------------------------------",0,1,0,0)		
-		i:=A_Index
-		DebugWindow("itemID:" obj.items[i].itemID " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
-		nameWithSpace:=obj.items[i].name:=StrReplace(obj.items[i].name, "_", " ")
-		log("nameWithSpace : " + nameWithSpace)
-		menuData[4].subOptions[i]:= {itemID: obj.items[i].itemID, label: nameWithSpace, description: obj.items[i].description, price: "N/A", numberOfSalesPast1Day: "N/A", numberOfSalesPast2Day: "N/A", numberOfSalesPast3Day: "N/A", value: "Disabled vMainScript5_SubItem1"}
-		log("subOptions[i].label : " + menuData[4].subOptions[i].label)
-	}
-}
-
 
 assignDataIntoEulmoreSubOptions()
 ;getPriceList()
 Goto, ^F3
+Loop{
+	processLog()
+}
 
+processLog(){
+	
+}
 ^F3::
 Gui, Menu:Destroy
 ;Gui, Menu:+AlwaysOnTop
 ;Gui, Menu:Add,Picture, x0 y0 w720 h188,gui.png
 Gui, Menu:Color, 0x808080
 Gui, Menu:Font, s18, Verdana
-Gui, Menu:Add, Tab2, AltSubmit vTabNum gLoadTabIndex x15 y15 h1000 w2560, Auto Synthesis  |Auto Gather |Auto Fishing  |Eulmore  |Profit Helper  
+Gui, Menu:Add, Tab2, AltSubmit vTabNum gLoadTabIndex x15 y15 h500 w2500, Auto Synthesis  |Auto Gather |Auto Fishing  |Eulmore  |Profit Helper  
 Gui, Menu:Font, s10, Verdana
 Gui, Menu:Font, bold
 
@@ -58,8 +49,6 @@ Gui, Menu:Tab, 1 ;switching tab for Gui Add
 function:=menuData[1].function
 value:=menuData[1].value
 label:=menuData[1].label
-
-Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
 
 for key, field in menuData[1].subOptions{ ;subBox options(parameters)
 	
@@ -129,12 +118,12 @@ Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; 
 
 
 Gui, Menu:Tab ; exiting tab edit
-Gui, Menu:Add, Button, x15 y1020 w500 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+Gui, Menu:Add, Button, x15 y463 w300 h50 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+Gui, Menu:Add, Text, x400 y463 vStatusTitle Hidden, Status
+Gui, Menu:Add, Text, x400 y480 vStatusText Hidden w800, 0
+Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
+Gui, Menu:Add, Edit, Readonly x15 y510 w2500 h800 vLogWindow
 
-Gui, Menu:Add, Text, vStatusTitle Hidden, Status
-Gui, Menu:Add, Text, vStatusText Hidden w800, 0
-
-Gui, Menu:Add, Progress, w450 h20 cGreen vMyProgress Hidden, 75
 
 Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
@@ -144,6 +133,7 @@ return
 LoadTabIndex:
 Gui, Menu:Submit, NoHide
 selectedTabIndex:=TabNum
+log("selectedTabIndex : " + selectedTabIndex)
 return
 
 MenuButtonCancel:
@@ -184,6 +174,22 @@ if(selectedTabIndex="1") {
 	Run "C:\Users\teosh\Desktop\ahk\profitHelper\profitHelper.ahk"
 }
 return
+
+assignDataIntoEulmoreSubOptions(){
+	FileRead, var, items.json
+	obj := JSON.load(var)
+	;log(obj)
+	
+	for i, items in obj.items{ ;mainBox mainscript boxes
+		DebugWindow("----------------------------------------------------------------------------------------------------------------------------------------------------",0,1,0,0)		
+		i:=A_Index
+		DebugWindow("itemID:" obj.items[i].itemID " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
+		nameWithSpace:=obj.items[i].name:=StrReplace(obj.items[i].name, "_", " ")
+		log("nameWithSpace : " + nameWithSpace)
+		menuData[4].subOptions[i]:= {itemID: obj.items[i].itemID, label: nameWithSpace, description: obj.items[i].description, price: "N/A", numberOfSalesPast1Day: "N/A", numberOfSalesPast2Day: "N/A", numberOfSalesPast3Day: "N/A", value: "Disabled vMainScript5_SubItem1"}
+		log("subOptions[i].label : " + menuData[4].subOptions[i].label)
+	}
+}
 
 updateStatusText(scriptName) {
 	log("scriptName : " + scriptName)
@@ -282,7 +288,7 @@ global response:=""
 getPriceList(){
 	log("getPriceList()")
 	for i, subOptions in menuData[5].subOptions{
-		response:=getPriceForItemApi(menuData[5].subOptions[i].itemID)
+		;response:=getPriceForItemApi(menuData[5].subOptions[i].itemID)
 		obj := JSON.load(response)	
 		getLastKnownPrice(obj)
 	}

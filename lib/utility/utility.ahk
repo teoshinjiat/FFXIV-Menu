@@ -1,7 +1,49 @@
+SetWorkingDir %A_ScriptDir%
+#include CLogTailer.ahk
+
 global log:=true
-log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0){
+global lineNumber:=1
+ ; default log is verbose log, should log as much as i can about events
+log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0, tag:="Verbose"){
 	if(log){
-		DebugWindow(text,clear,lineBreak,sleep,autoHide, msgBox)
+		DebugWindow(text,clear,lineBreak,sleep,autoHide)
+	}
+	;logToFile(text, tag) ;logToFile regardless of logFlag	
+}
+
+; important log is unhideable log such as ERROR and DEBUG, therefore no checking like the base log()
+logTag(text, tag){
+	DebugWindow(text)
+	;logToFile(text, tag)
+}
+
+logToFile(text, tag){
+	file := FileOpen("C:\ahk\FFXIV\ffxiv.log","a") ; https://www.autohotkey.com/docs/commands/FileOpen.htm#Access_modes
+	file.write("[")		
+	file.write(currentTimestamp())
+	file.write("] (")	
+	file.write(tag)
+	file.write(")  ")	
+	file.write(text)
+	file.write("`r`n") ;CR+LF
+	file.close()
+	lineNumber++
+}
+
+archieveLogFile(){ ;used when terminating a script
+	FileMove, C:\ahk\FFXIV\ffxiv.log, C:\ahk\FFXIV\ffxiv.log.old, 1
+}
+
+readFile(filePath){
+	
+}
+
+readFromTail(filePath){
+	lt := new CLogTailer(filePath, Func("NewLine"))
+	return
+	
+	NewLine(text){
+		log("New line added @ " A_TickCount ": " text)
 	}
 }
 
@@ -11,13 +53,13 @@ searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, Game
 	token := Gdip_Startup()
 	if !pBitmap := Gdip_BitmapFromHWND(GameID)
 	{
-		log("Gdip_BitmapFromHWND fail")
+		logTag("Gdip_BitmapFromHWND fail", "ERROR")
 		ExitApp
 	}
 	
 	if Gdip_SaveBitmapToFile(pBitmap, img := A_ScriptDir "\screen.png")
 	{
-		log("Gdip_SaveBitmapToFile fail")
+		logTag("Gdip_SaveBitmapToFile fail", "ERROR")
 		ExitApp
 	}
 	haystack:=Gdip_CreateBitmapFromFile("screen.png")
@@ -136,4 +178,10 @@ getFirstListingPrice(obj){
 
 thousandsSeparator(x, s=",") {
 	return RegExReplace(x, "\G\d+?(?=(\d{3})+(?:\D|$))", "$0" s)
+}
+
+; https://www.autohotkey.com/docs/commands/FormatTime.htm#Date_Formats
+currentTimestamp(){
+	FormatTime, TimeString, %A_Now%, hh:mm:ss tt
+	return TimeString
 }
