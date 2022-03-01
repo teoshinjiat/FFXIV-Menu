@@ -5,17 +5,17 @@ Gui, Margin, 20, 20
 Gui, Add, ListView, w600 r15 Grid -ReadOnly vVLV hwndHLV
    , Column 1|Column 2|Column 3|Column 4|Column 5|Column6
 Loop, 256
-   LV_Add("", "Value " . A_Index, "Value " . A_Index, "Value " . A_Index, "Value " . A_Index, "Value "
+	LV_Add("", "Value " . A_Index, "Value " . A_Index, "Value " . A_Index, "Value " . A_Index, "Value "
         . A_Index, "Value " . A_Index)
 Loop, % LV_GetCount("Column")
-   LV_ModifyCol(A_Index, 95)
+	LV_ModifyCol(A_Index, 95)
 ; Create a new instance of LV_Colors
 CLV := New LV_Colors(HLV)
 ; Set the colors for selected rows
 CLV.SelectionColors(0xF0F0F0)
 If !IsObject(CLV) {
-   MsgBox, 0, ERROR, Couldn't create a new LV_Colors object!
-   ExitApp
+	MsgBox, 0, ERROR, Couldn't create a new LV_Colors object!
+	ExitApp
 }
 Gui, Add, CheckBox, w120 vColorsOn gSubShowColors Checked, Colors On
 Gui, Add, Radio, x+120 yp wp vColors gSubColors, Colors
@@ -29,13 +29,28 @@ Return
 GuiClose:
 GuiEscape:
 ExitApp
+
+SetColors: ;Colors, first option
+Loop, % LV_GetCount() {
+	If (A_Index & 1) {
+		CLV.Cell(A_Index, 1, 0x808080, 0xFFFFFF)
+		CLV.Cell(A_Index, 3, 0x808080, 0xFFFFFF)
+		CLV.Cell(A_Index, 5, 0x808080, 0xFFFFFF)
+	}
+	Else {
+		CLV.Cell(A_Index, 2, 0x808080, 0xFFFFFF)
+		CLV.Cell(A_Index, 4, 0x808080, 0xFFFFFF)
+		CLV.Cell(A_Index, 6, 0x808080, 0xFFFFFF)
+	}
+}
+
 ; ----------------------------------------------------------------------------------------------------------------------
 SubShowColors:
 Gui, Submit, NoHide
 If (ColorsOn)
-   CLV.OnMessage()
+	CLV.OnMessage()
 Else
-   CLV.OnMessage(False)
+	CLV.OnMessage(False)
 GuiControl, Focus, %HLV%
 Return
 ; ----------------------------------------------------------------------------------------------------------------------
@@ -44,25 +59,13 @@ Gui, Submit, NoHide
 GuiControl, -Redraw, %HLV%
 CLV.Clear(1, 1)
 If (Colors)
-   GoSub, SetColors
+	GoSub, SetColors
 If (AltRows)
-   CLV.AlternateRows(0x808080, 0xFFFFFF)
+	CLV.AlternateRows(0x808080, 0xFFFFFF)
 If (AltCols)
-   CLV.AlternateCols(0x808080, 0xFFFFFF)
+	CLV.AlternateCols(0x808080, 0xFFFFFF)
 GuiControl, +Redraw, %HLV%
 Return
 ; ----------------------------------------------------------------------------------------------------------------------
-SetColors:
-Loop, % LV_GetCount() {
-   If (A_Index & 1) {
-      CLV.Cell(A_Index, 1, 0x808080, 0xFFFFFF)
-      CLV.Cell(A_Index, 3, 0x808080, 0xFFFFFF)
-      CLV.Cell(A_Index, 5, 0x808080, 0xFFFFFF)
-   }
-   Else {
-      CLV.Cell(A_Index, 2, 0x808080, 0xFFFFFF)
-      CLV.Cell(A_Index, 4, 0x808080, 0xFFFFFF)
-      CLV.Cell(A_Index, 6, 0x808080, 0xFFFFFF)
-   }
-}
+
 Return

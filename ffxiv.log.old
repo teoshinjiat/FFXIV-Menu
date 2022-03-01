@@ -1,26 +1,43 @@
-[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[06:59:35 AM]|(Verbose)|getPriceList()
-[06:59:36 AM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[06:59:47 AM]|(Verbose)|Started Auto Synthesis
-[06:59:47 AM]|(Verbose)|Param, eatFoodFlag : 1
-[06:59:47 AM]|(Verbose)|Param, eatMedicineFlag : 1
-[06:59:48 AM]|(Verbose)|detectDurability()
-[06:59:48 AM]|(Verbose)|searchImage() Result for filename, 35.png : 0
-[06:59:48 AM]|(Verbose)|searchImage() Result for filename, 40.png : 0
-[06:59:49 AM]|(Verbose)|searchImage() Result for filename, 70.png : 1
-[06:59:49 AM]|(Verbose)|durability detected : "70"
-[06:59:49 AM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
-[06:59:49 AM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
-[06:59:50 AM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
-[06:59:50 AM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
-[06:59:50 AM]|(Verbose)|preHealthCheck() buttonToPress:
-[06:59:52 AM]|(Verbose)|it's still crafting
-[06:59:52 AM]|(Verbose)|it's still crafting
-[07:00:52 AM]|(Verbose)|Terminated Auto Synthesis
+[03:37:01 PM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
+[03:37:01 PM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
+[03:37:01 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
+[03:37:01 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
+[03:37:01 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
+[03:37:01 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
+[03:37:01 PM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
+[03:37:01 PM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
+[03:37:02 PM]|(Verbose)|getPriceList()
+[03:37:02 PM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[03:37:07 PM]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
+[03:37:07 PM]|(Verbose)|LogState is checked
+[03:37:07 PM]|(Verbose)|drawProfitHelper()
+[03:37:07 PM]|(Verbose)|drawDatabaseManagement()
+[03:37:07 PM]|(Verbose)|LoadTabIndex:
+[03:37:07 PM]|(Verbose)|selectedTabIndex : 1
+[03:37:09 PM]|(Verbose)|foodRefresh : 1
+[03:37:09 PM]|(Verbose)|medicineRefresh : 1
+[03:37:09 PM]|(Verbose)|Started Auto Synthesis
+[03:37:09 PM]|(Verbose)|Param, eatFoodFlag : 1
+[03:37:09 PM]|(Verbose)|Param, eatMedicineFlag : 1
+[03:37:10 PM]|(Verbose)|detectDurability()
+[03:37:10 PM]|(Verbose)|searchImage() Result for filename, 35.png : U+274C
+[03:37:10 PM]|(Verbose)|searchImage() Result for filename, 40.png : U+274C
+[03:37:11 PM]|(Verbose)|searchImage() Result for filename, 70.png : U+274C
+[03:37:11 PM]|(Verbose)|searchImage() Result for filename, 80.png : U+274C
+[03:37:11 PM]|(Verbose)|searchImage() Result for filename, 35.png : U+274C
+[03:37:12 PM]|(Verbose)|searchImage() Result for filename, 40.png : U+274C
+[03:37:12 PM]|(Verbose)|searchImage() Result for filename, 70.png : U+274C
+[03:37:12 PM]|(Verbose)|searchImage() Result for filename, 80.png : U+274C
+[03:37:13 PM]|(Verbose)|searchImage() Result for filename, 35.png : U+274C
+[03:37:13 PM]|(Verbose)|searchImage() Result for filename, 40.png : U+274C
+[03:37:13 PM]|(Verbose)|searchImage() Result for filename, 70.png : U+274C
+[03:37:14 PM]|(Verbose)|searchImage() Result for filename, 80.png : U+274C
+[03:37:14 PM]|(Verbose)|searchImage() Result for filename, 35.png : U+274C
+[03:37:15 PM]|(Verbose)|searchImage() Result for filename, 40.png : U+274C
+[03:37:15 PM]|(Verbose)|searchImage() Result for filename, 70.png : U+274C
+[03:37:15 PM]|(Verbose)|searchImage() Result for filename, 80.png : U+274C
+[03:37:16 PM]|(Verbose)|searchImage() Result for filename, 35.png : U+274C
+[03:37:16 PM]|(Verbose)|searchImage() Result for filename, 40.png : U+274C
+[03:37:16 PM]|(Verbose)|searchImage() Result for filename, 70.png : U+274C
+[03:37:17 PM]|(Verbose)|searchImage() Result for filename, 80.png : U+274C
+[03:37:17 PM]|(Verbose)|Terminated Auto Synthesis

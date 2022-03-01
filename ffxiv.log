@@ -1,69 +1,139 @@
-[11:34:46 AM]|(Verbose)|Finished crafting, craft count is 215
-[11:34:46 AM]|(Verbose)|Time taken for the craft is 65 seconds
-[11:34:47 AM]|(Verbose)|autoSynthesis()
-[11:34:48 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:34:48 AM]|(Verbose)|looping to send `
-[11:34:48 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:34:48 AM]|(Verbose)|looping to send `
-[11:34:49 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:34:49 AM]|(Verbose)|looping to send `
-[11:34:49 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:34:49 AM]|(Verbose)|looping to send `
-[11:34:49 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:34:50 AM]|(Verbose)|looping to send `
-[11:34:50 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:34:50 AM]|(Verbose)|looping to send `
-[11:34:50 AM]|(Verbose)|checkForFullInventory()
-[11:34:50 AM]|(Verbose)|searchImage() Result for filename, inventory_full.png : 0
-[11:34:51 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:34:51 AM]|(Verbose)|breaking while loop
-[11:34:51 AM]|(Verbose)|autoSynthesisFallback()
-[11:34:51 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:34:52 AM]|(Verbose)|autoSynthesis()
-[11:34:53 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:34:53 AM]|(Verbose)|breaking while loop
-[11:34:53 AM]|(Verbose)|autoSynthesisFallback()
-[11:34:53 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:34:54 AM]|(Verbose)|detectDurability()
-[11:34:54 AM]|(Verbose)|searchImage() Result for filename, 35.png : 0
-[11:34:54 AM]|(Verbose)|searchImage() Result for filename, 40.png : 0
-[11:34:55 AM]|(Verbose)|searchImage() Result for filename, 70.png : 1
-[11:34:55 AM]|(Verbose)|durability detected : "70"
-[11:34:55 AM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
-[11:34:55 AM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
-[11:34:56 AM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
-[11:34:56 AM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
-[11:34:56 AM]|(Verbose)|preHealthCheck() buttonToPress:
-[11:34:58 AM]|(Verbose)|it's still crafting
-[11:34:58 AM]|(Verbose)|it's still crafting
-[11:35:59 AM]|(Verbose)|Finished crafting, craft count is 216
-[11:35:59 AM]|(Verbose)|Time taken for the craft is 65 seconds
-[11:36:00 AM]|(Verbose)|autoSynthesis()
-[11:36:01 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:36:01 AM]|(Verbose)|looping to send `
-[11:36:01 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:36:01 AM]|(Verbose)|looping to send `
-[11:36:02 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:36:02 AM]|(Verbose)|looping to send `
-[11:36:02 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[11:36:02 AM]|(Verbose)|looping to send `
-[11:36:02 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:36:02 AM]|(Verbose)|breaking while loop
-[11:36:02 AM]|(Verbose)|autoSynthesisFallback()
-[11:36:03 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:36:04 AM]|(Verbose)|autoSynthesis()
-[11:36:04 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:36:04 AM]|(Verbose)|breaking while loop
-[11:36:04 AM]|(Verbose)|autoSynthesisFallback()
-[11:36:05 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[11:36:05 AM]|(Verbose)|detectDurability()
-[11:36:06 AM]|(Verbose)|searchImage() Result for filename, 35.png : 0
-[11:36:06 AM]|(Verbose)|searchImage() Result for filename, 40.png : 0
-[11:36:06 AM]|(Verbose)|searchImage() Result for filename, 70.png : 1
-[11:36:06 AM]|(Verbose)|durability detected : "70"
-[11:36:07 AM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
-[11:36:07 AM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
-[11:36:07 AM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
-[11:36:08 AM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
-[11:36:08 AM]|(Verbose)|preHealthCheck() buttonToPress:
-[11:36:10 AM]|(Verbose)|it's still crafting
+[03:39:31 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:31 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:32 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:32 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:32 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:33 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:33 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:34 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:34 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:34 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:35 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:35 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:35 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:36 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:36 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:36 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:37 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:37 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:37 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:38 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:38 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:38 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:39 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:39 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:39 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:40 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:40 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:40 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:41 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:41 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:41 PM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
+[03:39:41 PM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
+[03:39:41 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
+[03:39:41 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
+[03:39:41 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:41 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
+[03:39:41 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
+[03:39:41 PM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
+[03:39:41 PM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
+[03:39:41 PM]|(Verbose)|getPriceList()
+[03:39:41 PM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[03:39:42 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:42 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:42 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:43 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:43 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:43 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:44 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:44 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:44 PM]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
+[03:39:44 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:44 PM]|(Verbose)|LogState is checked
+[03:39:44 PM]|(Verbose)|drawProfitHelper()
+[03:39:44 PM]|(Verbose)|drawDatabaseManagement()
+[03:39:44 PM]|(Verbose)|LoadTabIndex:
+[03:39:44 PM]|(Verbose)|selectedTabIndex : 1
+[03:39:45 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:45 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:45 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:46 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:46 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:46 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:47 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:47 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:47 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:48 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:48 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:48 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:49 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:49 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:49 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:50 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:50 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:50 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:51 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:51 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:51 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:52 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:52 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:52 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:53 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:53 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:54 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:54 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:54 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:55 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:55 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:55 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:56 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:56 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:56 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:57 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:57 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:57 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:58 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:58 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:39:58 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:39:59 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:39:59 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:39:59 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:00 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:00 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:00 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:01 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:01 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:01 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:02 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:02 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:02 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:03 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:03 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:03 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:04 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:04 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:04 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:05 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:05 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:05 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:06 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:06 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:06 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:07 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:07 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:07 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:08 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:08 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:08 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:09 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:09 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:10 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:10 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:10 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:11 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:11 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:11 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?
+[03:40:12 PM]|(Verbose)|searchImage() Result for filename, 40.png : ?
+[03:40:12 PM]|(Verbose)|searchImage() Result for filename, 70.png : ?
+[03:40:12 PM]|(Verbose)|searchImage() Result for filename, 80.png : ?
+[03:40:13 PM]|(Verbose)|searchImage() Result for filename, 35.png : ?

@@ -185,6 +185,7 @@ spiritbondCheck(){
 			sleep, 1000
 			log("extracted one spiritbond")
 		} 
+		sleep, 2000 ;animation locked and window redisplay delay
 	}
 	
 	log("FINISHED EXTRACTING SPIRITBOND")
@@ -275,7 +276,6 @@ detectDurability(){
 			}
 		}
 	}
-	log("durability detected : " durability)
 	return durability
 }
 
@@ -292,5 +292,6 @@ KillGDIP() {
 
 ^F4::
 log("Terminated Auto Synthesis",0,1)
+sleep, 1000
 archieveLogFile()
 ExitApp 

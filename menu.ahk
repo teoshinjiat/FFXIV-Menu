@@ -143,19 +143,22 @@ Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
 Gui, Menu:Add, Tab2, AltSubmit vLogNum gLoadLogTabIndex x15 y550 h800 w2500, Verbose  |Debug |Error  
 
 Gui, Menu:Tab, Verbose
-Gui, Menu:Add, ListView, y580 xp h750 w2500 vLogVerbose LVS_REPORT, Timestamp        | Type         | Log |
+Gui, Menu:Add, ListView, y580 xp h750 w2500 vLogVerbose gDisableListViewFocus LVS_REPORT, Timestamp        | Type         | Log |
 Gui, Menu:Tab, Debug
-Gui, Menu:Add, ListView, yp xp w2500 h750 vLogDebug LVS_REPORT, Timestamp           | Type         | Log
+Gui, Menu:Add, ListView, yp xp w2500 h750 vLogDebug gDisableListViewFocus, Timestamp           | Type         | Log
 Gui, Menu:Tab, Error
-Gui, Menu:Add, ListView, yp xp w2500 h750 vLogError LVS_REPORT, Timestamp           | Type         | Log
-
-LV_ModifyCol()
+Gui, Menu:Add, ListView, yp xp w2500 h750 vLogError gDisableListViewFocus, Timestamp           | Type         | Log
 
 Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
 Gui, Menu:Show, Maximize
 
 return
+
+
+DisableListViewFocus:
+LV_Modify(A_EventInfo, "-Focus -Select") ;index of the selected row
+Return
 
 ToggleLogging:
 GuiControlGet, LogState,, LoggingTogglingFlag
@@ -166,7 +169,7 @@ if(LogState=1){
 	log("LogState is checked")
 	SetTimer, LoggingTask, 500 ; loop to get new logs, this is a workaround because multithreading does not support AHK_L
 } else {
-	
+	; clear log
 }
 
 DrawProfitHelper:
@@ -236,7 +239,7 @@ assignDataIntoEulmoreSubOptions(){
 	for i, items in obj.items{ ;mainBox mainscript boxes
 		DebugWindow("----------------------------------------------------------------------------------------------------------------------------------------------------",0,1,0,0)		
 		i:=A_Index
-		DebugWindow("itemID:" obj.items[i].itemID " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
+		DebugWindow("itemID:" obj.itLoggingTaskems[i].itemID " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
 		nameWithSpace:=obj.items[i].name:=StrReplace(obj.items[i].name, "_", " ")
 		log("nameWithSpace : " + nameWithSpace)
 		menuData[4].subOptions[i]:= {itemID: obj.items[i].itemID, label: nameWithSpace, description: obj.items[i].description, price: "N/A", numberOfSalesPast1Day: "N/A", numberOfSalesPast2Day: "N/A", numberOfSalesPast3Day: "N/A", value: "Disabled vMainScript5_SubItem1"}
@@ -245,7 +248,6 @@ assignDataIntoEulmoreSubOptions(){
 }
 
 updateStatusText(scriptName) {
-	log("scriptName : " + scriptName)
 	GuiControl,,StatusText, Currently running %scriptname%.ahk
 }
 
@@ -427,7 +429,6 @@ detectNewLogs()
 return
 
 detectNewLogs() {
-	log("detectNewLogs()")
 	currentFileSize:=getCurrentLogFileSize()
 	if(previousFileSize < currentFileSize){
 		lineArray:=[]
@@ -459,7 +460,6 @@ loadNewLogs(){
 			lineArray.push(line)
 		}
 		currentLineNumber++
-		log("currentLineNumber  : " + currentLineNumber)
 	}
 	processLines(lineArray)
 }
