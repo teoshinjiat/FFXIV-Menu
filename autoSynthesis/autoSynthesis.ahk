@@ -51,7 +51,7 @@ Loop{
 		}
 		sleep, 1000
 		autoSynthesis()
-		sleep, 1000		
+		sleep, 1000
 		autoSynthesis()
 		;sleep, 2000
 		;autoSynthesisFallback()

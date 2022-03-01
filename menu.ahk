@@ -42,7 +42,7 @@ Gui, Menu:Destroy
 ;Gui, Menu:Add,Picture, x0 y0 w720 h188,gui.png
 Gui, Menu:Color, 0x808080
 Gui, Menu:Font, s18, Verdana
-Gui, Menu:Add, Tab2, AltSubmit vTabNum gLoadTabIndex x15 y15 h500 w2500, Auto Synthesis  |Auto Gather |Auto Fishing  |Eulmore  |Profit Helper  
+Gui, Menu:Add, Tab2, AltSubmit vTabNum gLoadTabIndex x15 y15 h500 w2500, Auto Synthesis  |Auto Gather |Auto Fishing  |Eulmore  | Tools
 Gui, Menu:Font, s10, Verdana
 Gui, Menu:Font, bold
 
@@ -122,13 +122,19 @@ for i, obj in listBoxOptions {
 }
 Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height	
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawTools
+Gui, Menu:Tab, 5 ;switching tab for Gui Add
 
+Gui, Menu:Add, Button, x40 y65 w400 gDrawDatabaseManagement, Database Management  ; todo: disabled attribute	
+Gui, Menu:Add, Button, xp yp+40 w400 gDrawProfitHelper, Profit Helper  ; todo: disabled attribute	
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 Gui, Menu:Tab ; exiting tab edit
 Gui, Menu:Add, Button, x18 y450 w300 h50 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
-Gui, Menu:Add, Checkbox, x350 y460 w300 vLog gLog, Enable Logging  ; The label ButtonOK (if it exists) will be run when the button is pressed.
-
+Gui, Menu:Add, Checkbox, x350 y460 w300 vLoggingTogglingFlag gToggleLogging, Toggle Logging  ; The label ButtonOK (if it exists) will be run when the button is pressed.
 
 Gui, Menu:Add, Text, x400 y463 vStatusTitle Hidden, Status
 Gui, Menu:Add, Text, x400 y480 vStatusText Hidden w800, 0
@@ -149,10 +155,25 @@ Gui, Menu:Show, w2560 h1440, FFXIV Menu
 Gui, Menu:+Resize
 Gui, Menu:Show, Maximize
 
-loadInitialLog()
-
-Settimer, LoggingTask, 500 ; remember to delete
 return
+
+ToggleLogging:
+GuiControlGet, LogState,, LoggingTogglingFlag
+log("LogState LogStateLogStateLogStateLogState : " + LogState)
+if(LogState=1){
+	loadInitialLog()
+	previousFileSize:=getCurrentLogFileSize() ; initialize the log file size
+	log("LogState is checked")
+	SetTimer, LoggingTask, 500 ; loop to get new logs, this is a workaround because multithreading does not support AHK_L
+} else {
+	
+}
+
+DrawProfitHelper:
+log("drawProfitHelper()")
+
+DrawDatabaseManagement:
+log("drawDatabaseManagement()")
 
 LoadTabIndex:
 log("LoadTabIndex:")
@@ -204,16 +225,6 @@ if(selectedTabIndex="1") {
 } else if(selectedTabIndex="5") {
 	updateStatusText("profitHelper")
 	Run "C:\Users\teosh\Desktop\ahk\profitHelper\profitHelper.ahk"
-	
-	GuiControlGet, LogState,, Log
-	
-	
-	if(LogState=1){
-		; loop to get new logs, this is a workaround because multithreading does not support AHK_L
-		log("LogState is checked")
-		previousFileSize:=getCurrentLogFileSize() ; initialize the log file size
-		SetTimer, LoggingTask, 5000
-	}
 }
 return
 
@@ -416,6 +427,7 @@ detectNewLogs()
 return
 
 detectNewLogs() {
+	log("detectNewLogs()")
 	currentFileSize:=getCurrentLogFileSize()
 	if(previousFileSize < currentFileSize){
 		lineArray:=[]
@@ -447,6 +459,7 @@ loadNewLogs(){
 			lineArray.push(line)
 		}
 		currentLineNumber++
+		log("currentLineNumber  : " + currentLineNumber)
 	}
 	processLines(lineArray)
 }

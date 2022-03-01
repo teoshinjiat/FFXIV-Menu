@@ -1,26 +1,26 @@
-[08:56:56 PM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[08:56:56 PM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[08:56:57 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[08:56:57 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[08:56:57 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[08:56:57 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[08:56:57 PM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[08:56:57 PM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[08:56:57 PM]|(Verbose)|getPriceList()
-[08:56:57 PM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[08:56:59 PM]|(Verbose)|Started Auto Synthesis
-[08:57:00 PM]|(Verbose)|Param, eatFoodFlag : 1
-[08:57:00 PM]|(Verbose)|Param, eatMedicineFlag : 1
-[08:57:00 PM]|(Verbose)|detectDurability()
-[08:57:00 PM]|(Verbose)|searchImage() Result for filename, 35.png : 0
-[08:57:01 PM]|(Verbose)|searchImage() Result for filename, 40.png : 0
-[08:57:01 PM]|(Verbose)|searchImage() Result for filename, 70.png : 1
-[08:57:01 PM]|(Verbose)|durability detected : "70"
-[08:57:01 PM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
-[08:57:02 PM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
-[08:57:02 PM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
-[08:57:02 PM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 1
-[08:57:02 PM]|(Verbose)|will eat medicine next
-[08:57:02 PM]|(Verbose)|preHealthCheck() buttonToPress:6
-[08:57:04 PM]|(Verbose)|it's still crafting
-[08:57:06 PM]|(Verbose)|Terminated Auto Synthesis
+[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
+[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
+[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
+[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
+[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
+[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
+[06:59:35 AM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
+[06:59:35 AM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
+[06:59:35 AM]|(Verbose)|getPriceList()
+[06:59:36 AM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[06:59:47 AM]|(Verbose)|Started Auto Synthesis
+[06:59:47 AM]|(Verbose)|Param, eatFoodFlag : 1
+[06:59:47 AM]|(Verbose)|Param, eatMedicineFlag : 1
+[06:59:48 AM]|(Verbose)|detectDurability()
+[06:59:48 AM]|(Verbose)|searchImage() Result for filename, 35.png : 0
+[06:59:48 AM]|(Verbose)|searchImage() Result for filename, 40.png : 0
+[06:59:49 AM]|(Verbose)|searchImage() Result for filename, 70.png : 1
+[06:59:49 AM]|(Verbose)|durability detected : "70"
+[06:59:49 AM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
+[06:59:49 AM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
+[06:59:50 AM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
+[06:59:50 AM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
+[06:59:50 AM]|(Verbose)|preHealthCheck() buttonToPress:
+[06:59:52 AM]|(Verbose)|it's still crafting
+[06:59:52 AM]|(Verbose)|it's still crafting
+[07:00:52 AM]|(Verbose)|Terminated Auto Synthesis

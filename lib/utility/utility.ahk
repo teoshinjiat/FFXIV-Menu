@@ -7,7 +7,7 @@ global lineNumber:=1
 log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0, tag:="Verbose"){
 	if(log){
 		DebugWindow(text,clear,lineBreak,sleep,autoHide)
-		logToFile(text, tag) ;logToFile regardless of logFlag			
+		;logToFile(text, tag) ;logToFile regardless of logFlag			
 	}
 }
 
@@ -65,7 +65,7 @@ searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, Game
 	; log true if found, otherwise its original error value, shown below
 	
 	if(log) {
-		log("searchImage() Result for filename, " pathAndFilename ".png : " result) 		
+		booleanizedLog(log)
 	}
 ; ++ RETURN VALUES ++
 ;
@@ -77,6 +77,10 @@ searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, Game
 ; any non-negative value ==> the number of instances found
 ;
 	return result > 0 ? true : false ; remap results for better readability, but will still log result here because the original return values are useful
+}
+
+booleanizedLog(log){
+	log("searchImage() Result for filename, " pathAndFilename ".png : " result) 	
 }
 
 Rnd(a=0.0,b=1) {

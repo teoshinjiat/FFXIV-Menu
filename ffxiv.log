@@ -1,76 +1,69 @@
-[08:57:17 PM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[08:57:17 PM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[08:57:17 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[08:57:17 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[08:57:17 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[08:57:17 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[08:57:17 PM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[08:57:17 PM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[08:57:17 PM]|(Verbose)|getPriceList()
-[08:57:17 PM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[08:57:20 PM]|(Verbose)|Started Auto Synthesis
-[08:57:20 PM]|(Verbose)|Param, eatFoodFlag : 1
-[08:57:20 PM]|(Verbose)|Param, eatMedicineFlag : 1
-[08:57:20 PM]|(Verbose)|detectDurability()
-[08:57:21 PM]|(Verbose)|searchImage() Result for filename, 35.png : 0
-[08:57:21 PM]|(Verbose)|searchImage() Result for filename, 40.png : 0
-[08:57:21 PM]|(Verbose)|searchImage() Result for filename, 70.png : 1
-[08:57:21 PM]|(Verbose)|durability detected : "70"
-[08:57:22 PM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
-[08:57:22 PM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
-[08:57:22 PM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
-[08:57:23 PM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
-[08:57:23 PM]|(Verbose)|preHealthCheck() buttonToPress:
-[08:57:25 PM]|(Verbose)|it's still crafting
-[08:57:56 PM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[08:57:56 PM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[08:57:56 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[08:57:56 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[08:57:56 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[08:57:56 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[08:57:56 PM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[08:57:56 PM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[08:57:56 PM]|(Verbose)|getPriceList()
-[08:57:56 PM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[08:58:21 PM]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[08:58:21 PM]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[08:58:21 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[08:58:21 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[08:58:21 PM]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[08:58:21 PM]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[08:58:21 PM]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[08:58:21 PM]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[08:58:21 PM]|(Verbose)|getPriceList()
-[08:58:21 PM]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[08:58:26 PM]|(Verbose)|Finished crafting, craft count is 1
-[08:58:26 PM]|(Verbose)|Time taken for the craft is 65 seconds
-[08:58:27 PM]|(Verbose)|autoSynthesis()
-[08:58:27 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[08:58:27 PM]|(Verbose)|looping to send `
-[08:58:28 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[08:58:28 PM]|(Verbose)|looping to send `
-[08:58:28 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[08:58:28 PM]|(Verbose)|looping to send `
-[08:58:29 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
-[08:58:29 PM]|(Verbose)|looping to send `
-[08:58:29 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[08:58:29 PM]|(Verbose)|breaking while loop
-[08:58:29 PM]|(Verbose)|autoSynthesisFallback()
-[08:58:29 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[08:58:30 PM]|(Verbose)|autoSynthesis()
-[08:58:31 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[08:58:31 PM]|(Verbose)|breaking while loop
-[08:58:31 PM]|(Verbose)|autoSynthesisFallback()
-[08:58:31 PM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
-[08:58:32 PM]|(Verbose)|detectDurability()
-[08:58:32 PM]|(Verbose)|searchImage() Result for filename, 35.png : 0
-[08:58:32 PM]|(Verbose)|searchImage() Result for filename, 40.png : 0
-[08:58:33 PM]|(Verbose)|searchImage() Result for filename, 70.png : 1
-[08:58:33 PM]|(Verbose)|durability detected : "70"
-[08:58:33 PM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
-[08:58:33 PM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
-[08:58:34 PM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
-[08:58:34 PM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
-[08:58:34 PM]|(Verbose)|preHealthCheck() buttonToPress:
-[08:58:36 PM]|(Verbose)|it's still crafting
-[08:58:40 PM]|(Verbose)|LoadLogTabIndex:
+[11:34:46 AM]|(Verbose)|Finished crafting, craft count is 215
+[11:34:46 AM]|(Verbose)|Time taken for the craft is 65 seconds
+[11:34:47 AM]|(Verbose)|autoSynthesis()
+[11:34:48 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:34:48 AM]|(Verbose)|looping to send `
+[11:34:48 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:34:48 AM]|(Verbose)|looping to send `
+[11:34:49 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:34:49 AM]|(Verbose)|looping to send `
+[11:34:49 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:34:49 AM]|(Verbose)|looping to send `
+[11:34:49 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:34:50 AM]|(Verbose)|looping to send `
+[11:34:50 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:34:50 AM]|(Verbose)|looping to send `
+[11:34:50 AM]|(Verbose)|checkForFullInventory()
+[11:34:50 AM]|(Verbose)|searchImage() Result for filename, inventory_full.png : 0
+[11:34:51 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:34:51 AM]|(Verbose)|breaking while loop
+[11:34:51 AM]|(Verbose)|autoSynthesisFallback()
+[11:34:51 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:34:52 AM]|(Verbose)|autoSynthesis()
+[11:34:53 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:34:53 AM]|(Verbose)|breaking while loop
+[11:34:53 AM]|(Verbose)|autoSynthesisFallback()
+[11:34:53 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:34:54 AM]|(Verbose)|detectDurability()
+[11:34:54 AM]|(Verbose)|searchImage() Result for filename, 35.png : 0
+[11:34:54 AM]|(Verbose)|searchImage() Result for filename, 40.png : 0
+[11:34:55 AM]|(Verbose)|searchImage() Result for filename, 70.png : 1
+[11:34:55 AM]|(Verbose)|durability detected : "70"
+[11:34:55 AM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
+[11:34:55 AM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
+[11:34:56 AM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
+[11:34:56 AM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
+[11:34:56 AM]|(Verbose)|preHealthCheck() buttonToPress:
+[11:34:58 AM]|(Verbose)|it's still crafting
+[11:34:58 AM]|(Verbose)|it's still crafting
+[11:35:59 AM]|(Verbose)|Finished crafting, craft count is 216
+[11:35:59 AM]|(Verbose)|Time taken for the craft is 65 seconds
+[11:36:00 AM]|(Verbose)|autoSynthesis()
+[11:36:01 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:36:01 AM]|(Verbose)|looping to send `
+[11:36:01 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:36:01 AM]|(Verbose)|looping to send `
+[11:36:02 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:36:02 AM]|(Verbose)|looping to send `
+[11:36:02 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 1
+[11:36:02 AM]|(Verbose)|looping to send `
+[11:36:02 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:36:02 AM]|(Verbose)|breaking while loop
+[11:36:02 AM]|(Verbose)|autoSynthesisFallback()
+[11:36:03 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:36:04 AM]|(Verbose)|autoSynthesis()
+[11:36:04 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:36:04 AM]|(Verbose)|breaking while loop
+[11:36:04 AM]|(Verbose)|autoSynthesisFallback()
+[11:36:05 AM]|(Verbose)|searchImage() Result for filename, synthesis_button.png : 0
+[11:36:05 AM]|(Verbose)|detectDurability()
+[11:36:06 AM]|(Verbose)|searchImage() Result for filename, 35.png : 0
+[11:36:06 AM]|(Verbose)|searchImage() Result for filename, 40.png : 0
+[11:36:06 AM]|(Verbose)|searchImage() Result for filename, 70.png : 1
+[11:36:06 AM]|(Verbose)|durability detected : "70"
+[11:36:07 AM]|(Verbose)|searchImage() Result for filename, spritbond_full.png : 0
+[11:36:07 AM]|(Verbose)|searchImage() Result for filename, durability_yellow.png : 0
+[11:36:07 AM]|(Verbose)|searchImage() Result for filename, food_refresh.png : 0
+[11:36:08 AM]|(Verbose)|searchImage() Result for filename, medicine_refresh.png : 0
+[11:36:08 AM]|(Verbose)|preHealthCheck() buttonToPress:
+[11:36:10 AM]|(Verbose)|it's still crafting
