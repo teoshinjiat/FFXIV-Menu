@@ -18,12 +18,12 @@ logTag(text, tag){
 }
 
 logToFile(text, tag){
-	file := FileOpen("C:\ahk\FFXIV\ffxiv.log","a") ; https://www.autohotkey.com/docs/commands/FileOpen.htm#Access_modes
+	file := FileOpen("C:\ahk\FFXIV\ffxiv.log","a", "UTF-8") ; https://www.autohotkey.com/docs/commands/FileOpen.htm#Access_modes
 	file.write("[")		
 	file.write(currentTimestamp())
 	file.write("]|(")	
 	file.write(tag)
-	file.write(")|")	
+	file.write(")|")
 	file.write(text)
 	file.write("`r`n") ;CR+LF
 	file.close()
@@ -65,7 +65,7 @@ searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, Game
 	; log true if found, otherwise its original error value, shown below
 	
 	if(log) {
-		booleanizedLog(log, result, pathAndFilename)
+		beautifyLog(log, result, pathAndFilename)
 	}
 ; ++ RETURN VALUES ++
 ;
@@ -79,10 +79,10 @@ searchImage(pathAndFilename, x1:=0, x2:=0, y1:=2560, y2:=1440, variance:=1, Game
 	return result > 0 ? true : false ; remap results for better readability, but will still log result here because the original return values are useful
 }
 
-booleanizedLog(log, result, pathAndFilename){
+beautifyLog(log, result, pathAndFilename){
 	beautifiedResult:=""
 	if (result>0){
-		beautifiedResult:="✔"
+		beautifiedResult:="✔️"
 	}
 	else if (result=0){
 		beautifiedResult:="❌"
@@ -185,6 +185,6 @@ thousandsSeparator(x, s=",") {
 
 ; https://www.autohotkey.com/docs/commands/FormatTime.htm#Date_Formats
 currentTimestamp(){
-	FormatTime, TimeString, %A_Now%, hh:mm:ss tt
+	FormatTime, TimeString, %A_Now%, dd/MM/yyyy hh:mm:ss
 	return TimeString
 }
