@@ -9,6 +9,9 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/eulmoreTurnin">Eulmore Turnin</a> 
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/profitHelper">Profit Helper</a> 
 
+## 1/Mar/2022 Added log
+
+
 
 ## 27/Feb/2022 Barebone rework of the layout
 ![2](https://user-images.githubusercontent.com/21898084/155870681-6ace85e1-9a3c-4f7f-b109-a44d0f846692.gif)
