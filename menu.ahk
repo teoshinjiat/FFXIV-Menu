@@ -471,7 +471,7 @@ processLines(lines){
 		updateGuiLog(obj)
 		log.verbose.push(obj)
 	}
-	currentLineNumber:= log.verbose.length() + log.error.length() + log.error.length() ; will be used in index file read for resuming at new changes
+	currentLineNumber:= log.verbose.length() + log.error.length() + log.error.length() ; will be used in index file read for res	uming at new changes
 	;log("currentLineNumber : " +currentLineNumber)
 }
 

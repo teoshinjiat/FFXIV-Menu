@@ -1,230 +1,25 @@
-﻿[02/03/2022 02:05:29]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[02/03/2022 02:05:29]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[02/03/2022 02:05:29]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[02/03/2022 02:05:29]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[02/03/2022 02:05:29]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[02/03/2022 02:05:30]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[02/03/2022 02:05:30]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[02/03/2022 02:05:30]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[02/03/2022 02:05:30]|(Verbose)|getPriceList()
-[02/03/2022 02:05:30]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[02/03/2022 02:05:31]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
-[02/03/2022 02:05:31]|(Verbose)|LogState is checked
-[02/03/2022 02:05:31]|(Verbose)|drawProfitHelper()
-[02/03/2022 02:05:31]|(Verbose)|drawDatabaseManagement()
-[02/03/2022 02:05:31]|(Verbose)|LoadTabIndex:
-[02/03/2022 02:05:31]|(Verbose)|selectedTabIndex : 1
-[02/03/2022 02:05:34]|(Verbose)|LogState LogStateLogStateLogStateLogState : 0
-[02/03/2022 02:05:34]|(Verbose)|drawProfitHelper()
-[02/03/2022 02:05:34]|(Verbose)|drawDatabaseManagement()
-[02/03/2022 02:05:34]|(Verbose)|LoadTabIndex:
-[02/03/2022 02:05:34]|(Verbose)|selectedTabIndex : 1
-[02/03/2022 02:05:41]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[02/03/2022 02:05:41]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[02/03/2022 02:05:41]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[02/03/2022 02:05:41]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[02/03/2022 02:05:41]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[02/03/2022 02:05:41]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[02/03/2022 02:05:41]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[02/03/2022 02:05:41]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[02/03/2022 02:05:41]|(Verbose)|getPriceList()
-[02/03/2022 02:05:41]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[02/03/2022 02:05:43]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
-[02/03/2022 02:05:44]|(Verbose)|LogState is checked
-[02/03/2022 02:05:44]|(Verbose)|drawProfitHelper()
-[02/03/2022 02:05:44]|(Verbose)|drawDatabaseManagement()
-[02/03/2022 02:05:44]|(Verbose)|LoadTabIndex:
-[02/03/2022 02:05:44]|(Verbose)|selectedTabIndex : 1
-[02/03/2022 02:05:30]|(Debug)|selectedTabIndex : 1
-[02/03/2022 01:05:30]|(Error)|drawDatabaseManagement()
-[02/03/2022 02:17:44]|(Debug)|LoadTabIndex:[02/03/2022 02:18:54]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[02/03/2022 02:18:54]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[02/03/2022 02:18:54]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[02/03/2022 02:18:54]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[02/03/2022 02:18:54]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[02/03/2022 02:18:54]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[02/03/2022 02:18:54]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[02/03/2022 02:18:54]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[02/03/2022 02:18:54]|(Verbose)|getPriceList()
-[02/03/2022 02:18:54]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[02/03/2022 02:18:56]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
-[02/03/2022 02:18:57]|(Verbose)|LogState is checked
-[02/03/2022 02:18:57]|(Verbose)|drawProfitHelper()
-[02/03/2022 02:18:57]|(Verbose)|drawDatabaseManagement()
-[02/03/2022 02:18:57]|(Verbose)|LoadTabIndex:
-[02/03/2022 02:18:57]|(Verbose)|selectedTabIndex : 1
-[02/03/2022 02:18:58]|(Verbose)|foodRefresh : 1
-[02/03/2022 02:18:58]|(Verbose)|medicineRefresh : 0
-[02/03/2022 02:18:58]|(Verbose)|Started Auto Synthesis
-[02/03/2022 02:18:58]|(Verbose)|Param, eatFoodFlag : 1
-[02/03/2022 02:18:58]|(Verbose)|Param, eatMedicineFlag : 0
-[02/03/2022 02:18:58]|(Verbose)|detectDurability()
-[02/03/2022 02:18:59]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:18:59]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:18:59]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:00]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:00]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:00]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:01]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:01]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:01]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:02]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:02]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:02]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:02]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:03]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:03]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:03]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:04]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:04]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:04]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:05]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:05]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:05]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:06]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:06]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:06]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:06]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:07]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:07]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:07]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:08]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:08]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:08]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:09]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:09]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:09]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:09]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:10]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:10]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:10]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:11]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:11]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:11]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:12]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:12]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:12]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:12]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:13]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:13]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:13]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:14]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:14]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:14]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:15]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:15]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:15]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:15]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:16]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:16]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:16]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:17]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:17]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:17]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:17]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:18]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:18]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:18]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:19]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:19]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:19]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:20]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:20]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:20]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:20]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:21]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:21]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:21]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:22]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:22]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:22]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:22]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:23]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:23]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:23]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:24]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:24]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:24]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:25]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:25]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:25]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:26]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:26]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:26]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:27]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:27]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:27]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:28]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:28]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:28]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:28]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:29]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:29]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:29]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:30]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:30]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:30]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:31]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:31]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:31]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:31]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:32]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:32]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:32]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:33]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:33]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:33]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:34]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:34]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:34]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:35]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:35]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:35]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:35]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:36]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:36]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:36]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:37]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:37]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:37]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:37]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:38]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:05:30]|(Debug)|selectedTabIndex : 1
-[02/03/2022 01:05:30]|(Error)|drawDatabaseManagement()[02/03/2022 02:19:50]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:50]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:50]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:51]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:51]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:51]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:52]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:52]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:52]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:52]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:53]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:53]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:53]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:54]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:54]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:54]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:55]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:55]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:55]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:55]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:56]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:56]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:56]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:57]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:57]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:57]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:58]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:58]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:58]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:19:58]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:19:59]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:19:59]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:19:59]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:20:00]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[02/03/2022 02:20:00]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[02/03/2022 02:20:00]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[02/03/2022 02:20:01]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[02/03/2022 02:20:01]|(Verbose)|Terminated Auto Synthesis
+﻿[02/03/2022 09:28:48]|(Verbose)|Started Retainer Helper
+[02/03/2022 09:28:49]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ❌
+[02/03/2022 09:28:49]|(Verbose)|attemptToRegainFocus()
+[02/03/2022 09:28:49]|(Verbose)|before()
+[02/03/2022 09:28:49]|(Verbose)|after()
+[02/03/2022 09:28:49]|(Verbose)|ErrorLevel:0
+[02/03/2022 09:28:49]|(Verbose)|foundX : 1031
+[02/03/2022 09:28:49]|(Verbose)|foundY : 615
+[02/03/2022 09:28:50]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:50]|(Verbose)|it's on focus now
+[02/03/2022 09:28:51]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:51]|(Verbose)|it's on focus now
+[02/03/2022 09:28:51]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:51]|(Verbose)|it's on focus now
+[02/03/2022 09:28:51]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:51]|(Verbose)|it's on focus now
+[02/03/2022 09:28:52]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:52]|(Verbose)|it's on focus now
+[02/03/2022 09:28:52]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:52]|(Verbose)|it's on focus now
+[02/03/2022 09:28:53]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:53]|(Verbose)|it's on focus now
+[02/03/2022 09:28:53]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[02/03/2022 09:28:53]|(Verbose)|it's on focus now
+[02/03/2022 09:28:53]|(Verbose)|Terminated Retainer Helper
