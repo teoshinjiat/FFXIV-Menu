@@ -136,9 +136,9 @@ Gui, Menu:Tab ; exiting tab edit
 Gui, Menu:Add, Button, x18 y450 w300 h50 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
 Gui, Menu:Add, Checkbox, x350 y460 w300 vLoggingTogglingFlag gToggleLogging, Toggle Logging  ; The label ButtonOK (if it exists) will be run when the button is pressed.
 
-Gui, Menu:Add, Text, x400 y463 vStatusTitle Hidden, Status
-Gui, Menu:Add, Text, x400 y480 vStatusText Hidden w800, 0
-Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
+;Gui, Menu:Add, Text, x400 y463 vStatusTitle Hidden, Status
+;Gui, Menu:Add, Text, x400 y480 vStatusText Hidden w800, 0
+;Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
 
 Gui, Menu:Add, Tab2, AltSubmit vLogNum gLoadLogTabIndex x15 y550 h800 w2500, Verbose  |Debug |Error  
 
