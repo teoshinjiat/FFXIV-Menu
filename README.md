@@ -11,20 +11,27 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 
 # Timeline
 <details>
-  <summary>1-Mar-2022 Added logging functionalit </summary>
- 
- ![image](https://user-images.githubusercontent.com/21898084/156228260-897ab36c-3ef4-40b4-b47b-05ceeaba5977.png)
- 
- <summary>test-Mar-2022 Added logging functionality </summary>
-  ![image](https://user-images.githubusercontent.com/21898084/156228260-897ab36c-3ef4-40b4-b47b-05ceeaba5977.png)
- 
- </details>
 
-## 27/Feb/2022 Barebone rework of the layout
+<summary>1/Mar/2022 Added logging functionalit </summary>
+
+![image](https://user-images.githubusercontent.com/21898084/156228260-897ab36c-3ef4-40b4-b47b-05ceeaba5977.png)
+
+</details>
+  
+<details>
+
+ <summary>27/Feb/2022 Barebone rework of the layout </summary>
+
 ![2](https://user-images.githubusercontent.com/21898084/155870681-6ace85e1-9a3c-4f7f-b109-a44d0f846692.gif)
 
-## 22/Feb/2022
+</details>
+
+<details>
+
+ <summary>22/Feb/2022 Initial release </summary>
+
 ![image](https://user-images.githubusercontent.com/21898084/155863876-83188728-8f9f-44eb-b7b4-4ee93c9970ab.png)
+
 </details>
 
 
