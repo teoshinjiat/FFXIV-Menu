@@ -9,6 +9,9 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/eulmoreTurnin">Eulmore Turnin</a> 
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/profitHelper">Profit Helper</a> 
 
+# Timeline
+<details>
+  <summary>Click to expand!</summary>
 ## 1/Mar/2022 Added logging functionality
 ![image](https://user-images.githubusercontent.com/21898084/156228260-897ab36c-3ef4-40b4-b47b-05ceeaba5977.png)
 
@@ -17,6 +20,8 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 
 ## 22/Feb/2022
 ![image](https://user-images.githubusercontent.com/21898084/155863876-83188728-8f9f-44eb-b7b4-4ee93c9970ab.png)
+</details>
+
 
 
 
