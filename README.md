@@ -13,6 +13,7 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 <details>
   <summary>Click to expand!</summary>
 ## 1/Mar/2022 Added logging functionality
+ 
 ![image](https://user-images.githubusercontent.com/21898084/156228260-897ab36c-3ef4-40b4-b47b-05ceeaba5977.png)
 
 ## 27/Feb/2022 Barebone rework of the layout
