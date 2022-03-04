@@ -1,280 +1,64 @@
-﻿[03/03/2022 08:03:57]|(Verbose)|Started Retainer Helper
-[03/03/2022 08:03:57]|(Verbose)|
-[03/03/2022 08:03:57]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
-[03/03/2022 08:03:58]|(Verbose)|i : 1
-[03/03/2022 08:03:59]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[03/03/2022 08:04:00]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[03/03/2022 08:04:01]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[03/03/2022 08:04:01]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[03/03/2022 08:04:02]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ✔️
-[03/03/2022 08:04:02]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:04:02]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:02]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:03]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:03]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:04]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:04:04]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:04:06]|(Verbose)|myPrice : 59998
-[03/03/2022 08:04:06]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:04:07]|(Verbose)|send `
-[03/03/2022 08:04:08]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:04:09]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:04:09]|(Verbose)|latestPrice : 19999
-[03/03/2022 08:04:10]|(Verbose)|latestPrice-myPrice : 39999
-[03/03/2022 08:04:10]|(Verbose)|myPrice * undercutThreshold : 2999.900000
-[03/03/2022 08:04:10]|(Verbose)|1
-[03/03/2022 08:04:10]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:04:10]|(Verbose)|cancelUndercut()
-[03/03/2022 08:04:11]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:04:11]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:11]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:12]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:12]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:13]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:04:13]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:04:14]|(Verbose)|myPrice : 59999
-[03/03/2022 08:04:14]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:04:16]|(Verbose)|send `
-[03/03/2022 08:04:17]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:04:18]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:04:18]|(Verbose)|latestPrice : 19999
-[03/03/2022 08:04:18]|(Verbose)|latestPrice-myPrice : 40000
-[03/03/2022 08:04:18]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:04:18]|(Verbose)|1
-[03/03/2022 08:04:18]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:04:18]|(Verbose)|cancelUndercut()
-[03/03/2022 08:04:19]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:04:20]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:20]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:20]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:21]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:21]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:04:21]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:04:23]|(Verbose)|myPrice : 59999
-[03/03/2022 08:04:23]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:04:25]|(Verbose)|send `
-[03/03/2022 08:04:25]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:04:26]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:04:26]|(Verbose)|latestPrice : 20097
-[03/03/2022 08:04:27]|(Verbose)|latestPrice-myPrice : 39902
-[03/03/2022 08:04:27]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:04:27]|(Verbose)|1
-[03/03/2022 08:04:27]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:04:27]|(Verbose)|cancelUndercut()
-[03/03/2022 08:04:28]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:04:28]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:29]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:29]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:29]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:30]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:04:30]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:04:32]|(Verbose)|myPrice : 59999
-[03/03/2022 08:04:32]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:04:33]|(Verbose)|send `
-[03/03/2022 08:04:34]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:04:35]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:04:35]|(Verbose)|latestPrice : 20897
-[03/03/2022 08:04:36]|(Verbose)|latestPrice-myPrice : 39102
-[03/03/2022 08:04:36]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:04:36]|(Verbose)|1
-[03/03/2022 08:04:36]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:04:36]|(Verbose)|cancelUndercut()
-[03/03/2022 08:04:37]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:04:37]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:37]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:38]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:38]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:39]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:04:39]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:04:40]|(Verbose)|myPrice : 59999
-[03/03/2022 08:04:40]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:04:42]|(Verbose)|send `
-[03/03/2022 08:04:43]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:04:44]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:04:44]|(Verbose)|latestPrice : 22994
-[03/03/2022 08:04:44]|(Verbose)|latestPrice-myPrice : 37005
-[03/03/2022 08:04:44]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:04:44]|(Verbose)|1
-[03/03/2022 08:04:44]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:04:44]|(Verbose)|cancelUndercut()
-[03/03/2022 08:04:45]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:04:46]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:46]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:46]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:47]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:47]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:04:47]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:04:49]|(Verbose)|myPrice : 59999
-[03/03/2022 08:04:49]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:04:51]|(Verbose)|send `
-[03/03/2022 08:04:51]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:04:52]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:04:52]|(Verbose)|latestPrice : 22668
-[03/03/2022 08:04:53]|(Verbose)|latestPrice-myPrice : 37331
-[03/03/2022 08:04:53]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:04:53]|(Verbose)|1
-[03/03/2022 08:04:53]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:04:53]|(Verbose)|cancelUndercut()
-[03/03/2022 08:04:54]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:04:54]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:55]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:55]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:04:55]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:04:56]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:04:56]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:04:58]|(Verbose)|myPrice : 59999
-[03/03/2022 08:04:58]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:04:59]|(Verbose)|send `
-[03/03/2022 08:05:00]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:05:01]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:05:01]|(Verbose)|latestPrice : 20997
-[03/03/2022 08:05:02]|(Verbose)|latestPrice-myPrice : 39002
-[03/03/2022 08:05:02]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:05:02]|(Verbose)|1
-[03/03/2022 08:05:02]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:05:02]|(Verbose)|cancelUndercut()
-[03/03/2022 08:05:03]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:05:03]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:03]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:04]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:04]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:05]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:05:05]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:05:06]|(Verbose)|myPrice : 49999
-[03/03/2022 08:05:06]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:05:08]|(Verbose)|send `
-[03/03/2022 08:05:09]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:05:10]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:05:10]|(Verbose)|latestPrice : 37999
-[03/03/2022 08:05:10]|(Verbose)|latestPrice-myPrice : 12000
-[03/03/2022 08:05:10]|(Verbose)|myPrice * undercutThreshold : 2499.950000
-[03/03/2022 08:05:10]|(Verbose)|1
-[03/03/2022 08:05:10]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:05:10]|(Verbose)|cancelUndercut()
-[03/03/2022 08:05:11]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:05:12]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:12]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:12]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:13]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:13]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:05:13]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:05:15]|(Verbose)|myPrice : 59995
-[03/03/2022 08:05:15]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:05:17]|(Verbose)|send `
-[03/03/2022 08:05:17]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:05:18]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:05:18]|(Verbose)|latestPrice : 24999
-[03/03/2022 08:05:19]|(Verbose)|latestPrice-myPrice : 34996
-[03/03/2022 08:05:19]|(Verbose)|myPrice * undercutThreshold : 2999.750000
-[03/03/2022 08:05:19]|(Verbose)|1
-[03/03/2022 08:05:19]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:05:19]|(Verbose)|cancelUndercut()
-[03/03/2022 08:05:20]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:05:20]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:21]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:21]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:21]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:22]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:05:22]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:05:24]|(Verbose)|myPrice : 59999
-[03/03/2022 08:05:24]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:05:25]|(Verbose)|send `
-[03/03/2022 08:05:26]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:05:27]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:05:27]|(Verbose)|latestPrice : 24997
-[03/03/2022 08:05:28]|(Verbose)|latestPrice-myPrice : 35002
-[03/03/2022 08:05:28]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:05:28]|(Verbose)|1
-[03/03/2022 08:05:28]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:05:28]|(Verbose)|cancelUndercut()
-[03/03/2022 08:05:29]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:05:29]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:29]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:30]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:30]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:31]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:05:31]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:05:32]|(Verbose)|myPrice : 59999
-[03/03/2022 08:05:32]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:05:34]|(Verbose)|send `
-[03/03/2022 08:05:35]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:05:36]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:05:36]|(Verbose)|latestPrice : 20985
-[03/03/2022 08:05:36]|(Verbose)|latestPrice-myPrice : 39014
-[03/03/2022 08:05:36]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:05:36]|(Verbose)|1
-[03/03/2022 08:05:36]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:05:36]|(Verbose)|cancelUndercut()
-[03/03/2022 08:05:37]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:05:38]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:38]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:39]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:39]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:39]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:05:40]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:05:41]|(Verbose)|myPrice : 59999
-[03/03/2022 08:05:41]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:05:43]|(Verbose)|send `
-[03/03/2022 08:05:44]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:05:45]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:05:45]|(Verbose)|latestPrice : 20185
-[03/03/2022 08:05:45]|(Verbose)|latestPrice-myPrice : 39814
-[03/03/2022 08:05:45]|(Verbose)|myPrice * undercutThreshold : 2999.950000
-[03/03/2022 08:05:45]|(Verbose)|1
-[03/03/2022 08:05:45]|(Verbose)|current seller is selling way too low, not worth to undercut
-[03/03/2022 08:05:45]|(Verbose)|cancelUndercut()
-[03/03/2022 08:05:46]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:05:47]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:47]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:47]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[03/03/2022 08:05:47]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[03/03/2022 08:05:48]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:05:48]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:05:50]|(Verbose)|myPrice : 1859
-[03/03/2022 08:05:50]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:05:51]|(Verbose)|send `
-[03/03/2022 08:05:52]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ❌
-[03/03/2022 08:05:53]|(Verbose)|isHitsFound : 0
-[03/03/2022 08:05:54]|(Verbose)|send `
-[03/03/2022 08:05:55]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ❌
-[03/03/2022 08:05:56]|(Verbose)|isHitsFound : 0
-[03/03/2022 08:05:56]|(Verbose)|send `
-[03/03/2022 08:05:57]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:05:58]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:05:58]|(Verbose)|latestPrice : 1859
-[03/03/2022 08:05:58]|(Verbose)|latestPrice-myPrice : 0
-[03/03/2022 08:05:58]|(Verbose)|myPrice * undercutThreshold : 92.950000
-[03/03/2022 08:05:59]|(Verbose)|1
-[03/03/2022 08:05:59]|(Verbose)|current seller is listed price is below my undercutting threshold which is 5%
-[03/03/2022 08:05:59]|(Verbose)|proceedUndercutWithThreshold()
-[03/03/2022 08:06:01]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:06:01]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:06:01]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:06:03]|(Verbose)|myPrice : 1859
-[03/03/2022 08:06:03]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:06:04]|(Verbose)|send `
-[03/03/2022 08:06:05]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:06:06]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:06:06]|(Verbose)|latestPrice : 1859
-[03/03/2022 08:06:07]|(Verbose)|latestPrice-myPrice : 0
-[03/03/2022 08:06:07]|(Verbose)|myPrice * undercutThreshold : 92.950000
-[03/03/2022 08:06:07]|(Verbose)|1
-[03/03/2022 08:06:07]|(Verbose)|current seller is listed price is below my undercutting threshold which is 5%
-[03/03/2022 08:06:07]|(Verbose)|proceedUndercutWithThreshold()
-[03/03/2022 08:06:09]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:06:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:06:09]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[03/03/2022 08:06:11]|(Verbose)|myPrice : 1859
-[03/03/2022 08:06:11]|(Verbose)|getFirstListingPrice1()
-[03/03/2022 08:06:13]|(Verbose)|send `
-[03/03/2022 08:06:13]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[03/03/2022 08:06:14]|(Verbose)|isHitsFound : 1
-[03/03/2022 08:06:14]|(Verbose)|latestPrice : 1859
-[03/03/2022 08:06:15]|(Verbose)|latestPrice-myPrice : 0
-[03/03/2022 08:06:15]|(Verbose)|myPrice * undercutThreshold : 92.950000
-[03/03/2022 08:06:15]|(Verbose)|1
-[03/03/2022 08:06:15]|(Verbose)|current seller is listed price is below my undercutting threshold which is 5%
-[03/03/2022 08:06:15]|(Verbose)|proceedUndercutWithThreshold()
-[03/03/2022 08:06:17]|(Verbose)|handleAdjustPrice()
-[03/03/2022 08:06:17]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[03/03/2022 08:06:18]|(Verbose)|Terminated Retainer Helper
+﻿[04/03/2022 19:30:44]|(Verbose)|Started Retainer Helper
+[04/03/2022 19:30:44]|(Verbose)|
+[04/03/2022 19:30:45]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[04/03/2022 19:30:45]|(Verbose)|Current retainer index : 1
+[04/03/2022 19:30:47]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:48]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:48]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:49]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:49]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:50]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:51]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:51]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:52]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:52]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:53]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:54]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:54]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:55]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:55]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:56]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[04/03/2022 19:30:57]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ✔️
+[04/03/2022 19:30:57]|(Verbose)|getCurrentNumberOfListedItem()
+[04/03/2022 19:30:57]|(Verbose)|searchImage() Result for filename, images/number/20.png : ❌
+[04/03/2022 19:30:58]|(Verbose)|searchImage() Result for filename, images/number/19.png : ✔️
+[04/03/2022 19:30:58]|(Verbose)|currentNumberOfListedItem : 19
+[04/03/2022 19:30:58]|(Verbose)|handleAdjustPrice()
+[04/03/2022 19:30:59]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[04/03/2022 19:30:59]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[04/03/2022 19:30:59]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[04/03/2022 19:31:00]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[04/03/2022 19:31:00]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:31:00]|(Verbose)|isAdjustPriceWindowHighlighted : 1
+[04/03/2022 19:31:02]|(Verbose)|myPrice : 59999
+[04/03/2022 19:31:02]|(Verbose)|getFirstListingPrice1()
+[04/03/2022 19:31:04]|(Verbose)|send `
+[04/03/2022 19:31:05]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
+[04/03/2022 19:31:06]|(Verbose)|isHitsFound : 1
+[04/03/2022 19:31:06]|(Verbose)|searchImage() Result for filename, images/retainer/firstRetainer.png : ❌
+[04/03/2022 19:31:07]|(Verbose)|searchImage() Result for filename, images/retainer/secondRetainer.png : ❌
+[04/03/2022 19:31:07]|(Verbose)|searchImage() Result for filename, images/retainer/fourthRetainer.png : ❌
+[04/03/2022 19:31:08]|(Verbose)|searchImage() Result for filename, images/retainer/fifthRetainer.png : ❌
+[04/03/2022 19:31:09]|(Verbose)|searchImage() Result for filename, images/retainer/sixthRetainer.png : ❌
+[04/03/2022 19:31:09]|(Verbose)|isMyRetainers : 0
+[04/03/2022 19:31:09]|(Verbose)|latestPrice : 21495
+[04/03/2022 19:31:09]|(Verbose)|priceDiff : 38504
+[04/03/2022 19:31:09]|(Verbose)|myPriceUndercutThreshold : 3000
+[04/03/2022 19:31:09]|(Verbose)|isMyRetainers : 0
+[04/03/2022 19:31:09]|(Retainer)|Current seller is selling way too low, not worth to undercut
+[04/03/2022 19:31:09]|(Verbose)|cancelUndercut()
+[04/03/2022 19:31:11]|(Verbose)|handleAdjustPrice()
+[04/03/2022 19:31:11]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[04/03/2022 19:31:11]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[04/03/2022 19:31:12]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[04/03/2022 19:31:12]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[04/03/2022 19:31:13]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:31:13]|(Verbose)|isAdjustPriceWindowHighlighted : 1
+[04/03/2022 19:31:15]|(Verbose)|myPrice : 59999
+[04/03/2022 19:31:15]|(Verbose)|getFirstListingPrice1()
+[04/03/2022 19:31:16]|(Verbose)|send `
+[04/03/2022 19:31:17]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
+[04/03/2022 19:31:18]|(Verbose)|isHitsFound : 1
+[04/03/2022 19:31:19]|(Verbose)|searchImage() Result for filename, images/retainer/firstRetainer.png : ❌
+[04/03/2022 19:31:19]|(Verbose)|searchImage() Result for filename, images/retainer/secondRetainer.png : ❌
+[04/03/2022 19:31:20]|(Verbose)|Terminated Retainer Helper

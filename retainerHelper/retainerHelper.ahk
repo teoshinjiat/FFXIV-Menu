@@ -14,31 +14,58 @@ CoordMode, Mouse, Screen
 log("Started Retainer Helper", 1)
 global GameID:=GameID
 global undercutThreshold=0.05 ;if first listed price is undercut more than 5% of my asking price
-
 global myPrice:=""
 global latestPrice:=""
-
+global RETAINER_TAG:="Retainer"
+global RETAINER_UNDERCUT_TAG:="Retainer Undercut"
 ;retainerIndex := Array(1, 2, 3, 4, 5, 6)
-retainerIndex := Array(1)
-
+global retainerIndex := Array(6)
+global currentRetainerIndex:=""
+global isMyRetainers:=false
 log(retainerIndex.size)
-for i in retainerIndex{
-	if(isRetainerWindowCurrentlyOnFocus()){
-		log("i : " + i)
-		undercut()
+
+Loop{
+	for i in retainerIndex{
+		if(isRetainerWindowCurrentlyOnFocus()){
+			currentRetainerIndex:=3
+			log("Current retainer index : " i)
+			undercut()
+			goNextRetainer(currentRetainerIndex)
+			logTag(RETAINER_TAG, "Done with number " currentRetainerIndex " retainer, going next..")			
+		}
 	}
+}
+
+goNextRetainer(currentRetainerIndex){
+	Loop, % currentRetainerIndex{
+		ControlSend, , {Down}, ahk_class FFXIVGAME
+		sleep, 500
+	}
+	ControlSend, , ``, ahk_class FFXIVGAME
+	sleep, 500
 }
 
 undercut(){
 	enterRetainer()
 	openMarketWindow()
 	handleUndercutProcess()
+	goBackRetainerList()
+}
+
+goBackRetainerList(){
+	ControlSend, , {Esc}, ahk_class FFXIVGAME
+	sleep, 500
+	ControlSend, , {Esc}, ahk_class FFXIVGAME
+	sleep, 500
 }
 
 handleUndercutProcess(){
-	loop, 20 { ; 20 is the maximum number of listed item, need to handle if it's not 20
+	currentNumberOfListedItem:=getCurrentNumberOfListedItem()
+	currentNumberOfListedItem:=currentNumberOfListedItem+0
+	log("currentNumberOfListedItem : " currentNumberOfListedItem)
+	Loop, % currentNumberOfListedItem { ; 20 is the maximum number of listed item, need to handle if it's not 20
 		ClipSaved = ; free previous clipboard
-		
+		sleep, 500
 		handleAdjustPrice()
 		getMyPrice()
 		getFirstListingPrice1()
@@ -56,15 +83,24 @@ goNextItem(){
 }
 
 checkThreshold(){	
-	log("latestPrice-myPrice : " (myPrice-latestPrice))
-	log("myPrice * undercutThreshold : " (myPrice * undercutThreshold))
-	log("latestPrice-myPrice > myPrice * undercutThreshold : "  (myPrice-latestPrice) > (myPrice * undercutThreshold))
-	if((myPrice-latestPrice) > (myPrice * undercutThreshold)){
-		log("current seller is selling way too low, not worth to undercut")
+	priceDiff:=myPrice-latestPrice
+	myPriceUndercutThreshold:=Ceil(myPrice*undercutThreshold) ;always up rounded
+	
+	log("priceDiff : " priceDiff)
+	log("myPriceUndercutThreshold : " myPriceUndercutThreshold)
+	log("isMyRetainers : " isMyRetainers)
+	if(!isMyRetainers && priceDiff >= 0){ ; if same price or someone undercuts me, proceed checking to see if it's worth the undercut, my threshold is 0.5% of my current price
+		if(priceDiff > myPriceUndercutThreshold){
+			logTag(RETAINER_TAG, "Current seller is selling way too low, not worth to undercut")
+			cancelUndercut()
+		} else {
+			logTag(RETAINER_TAG, "First listed item price is " latestPrice " gils, and the difference our listed price is just " priceDiff " gils - which falls below the undercut threshold of " myPriceUndercutThreshold " gils, so we should undercut this!")		
+			proceedUndercutWithThreshold()
+		}
+	}
+	else {
+		logTag(RETAINER_TAG, "Item is already the first listed item or first listed item is from my retainers")
 		cancelUndercut()
-	} else {
-		log("current seller is listed price is below my undercutting threshold which is " Ceil(undercutThreshold*100) "%")		
-		proceedUndercutWithThreshold()
 	}
 }
 
@@ -77,25 +113,34 @@ cancelUndercut(){ ; from adjust price window to Markets window
 proceedUndercutWithThreshold(){
 	log("proceedUndercutWithThreshold()")
 	clickMyPrice()
+	sleep, 500
+	undercutPrice:=latestPrice-1  ; undercut the seller with just 1 gil	
+	Clipboard:=undercutPrice
 	; workaround: if no price is copied(because there is no HQ item), proceed pasting with the original clipboard(which is my original price)
 	ControlSend, , ^v, ahk_class FFXIVGAME 
 	sleep, 500
 	ControlSend, , {Enter}, ahk_class FFXIVGAME 
 	sleep, 500
+	logTag(RETAINER_UNDERCUT_TAG, "Successfully undercut an item from seller, my listed item price from " myPrice " gils to below current selling price " latestPrice " gils. Final undercut price is " undercutPrice " gils")
+	handleConfirmButton()
 }
 
 handleConfirmButton(){
+	log("handleConfirmButton()")
+	
 	isConfirmButtonHighlighted:=false
-	if(!isConfirmButtonHighlighted){
-		isConfirmButtonHighlighted:=searchImage("images/button/confirm_button_highlighted",,,,,5, GameID)	
-		if(isConfirmButtonHighlighted){ ; if highlighted then send ` to press
-			ControlSend, , {Down}, ahk_class FFXIVGAME 
+	while(!isConfirmButtonHighlighted){
+		isConfirmButtonHighlighted:=searchImage("images/button/confirm_button_highlighted",,,,,1, GameID)	
+		log("imagesearch isConfirmButtonHighlighted : " + isConfirmButtonHighlighted)
+		if(isConfirmButtonHighlighted){ ; if highlighted then send ` to press			
+			ControlSend, , ``, ahk_class FFXIVGAME 
+			log("Send confirm button")
 		} else { ; keep navigating down
+			ToolTip, , 1280, 720 ; center of the screen			
 			ControlSend, , {Down}, ahk_class FFXIVGAME 
 		}
 		sleep, 500
 	}
-	
 }
 
 
@@ -134,7 +179,6 @@ getFirstListingPrice1(){
 }
 
 isLatestPriceCopied(){
-	cancelFlag:=0
 	while(latestPrice=""){
 		isHitsFound:=false
 		while(!isHitsFound){
@@ -148,16 +192,37 @@ isLatestPriceCopied(){
 			if(!isHitsFound){ ; if not found, escape to close search results window, reenter to look for hits indicator again
 				ControlSend, , {Esc}, ahk_class FFXIVGAME
 			} else{
-				latestPrice:=clipboard
-				log("latestPrice : " + latestPrice)
+				latestPrice:=clipboard+1
+				isMyRetainers:=isMyRetainers()
+				log("isMyRetainers : " + isMyRetainers)
+				log("latestPrice : " + latestPrice)			
 				clipboard:=""	
 				break
 			}
 			sleep, 500		
-			cancelFlag++
 		}
 	}	
 	ControlSend, , {Esc}, ahk_class FFXIVGAME	
+}
+
+isMyRetainers(){
+	; check if first listed item is from my retainer, if it is my retainer then dont undercut
+	; aim is to not make my retainers suspicious because it will be undercutting other players constantly
+	if(currentRetainerIndex!=1 && searchImage("images/retainer/firstRetainer",,,,,10, GameID)){
+		return true
+	} else if(currentRetainerIndex!=2 && searchImage("images/retainer/secondRetainer",,,,,10, GameID)){
+		return true
+	} else if(currentRetainerIndex!=3 && searchImage("images/retainer/thirdRetainer",,,,,10, GameID)){
+		return true
+	} else if(currentRetainerIndex!=4 && searchImage("images/retainer/fourthRetainer",,,,,10, GameID)){
+		return true
+	} else if(currentRetainerIndex!=5 && searchImage("images/retainer/fifthRetainer",,,,,10, GameID)){
+		return true
+	} else if(currentRetainerIndex!=6 && searchImage("images/retainer/sixthRetainer",,,,,10, GameID)){
+		return true		
+	} else {
+		return false
+	}
 }
 
 closeWindow(){
@@ -190,7 +255,6 @@ handleAdjustPrice(){
 			sleep, 200
 		}
 	}
-	
 }
 
 
@@ -237,17 +301,10 @@ isRetainerWindowCurrentlyOnFocus(){
 
 ; fallback
 attemptToRegainFocus(){ ; this will force mousemovement to the game because controlclick does not work for the game, worth the downside
+	log("attemptToRegainFocus()")	
 	isFocused:=1
 	while(isFocused=1){
-		log("attemptToRegainFocus()")
-		;imageSearch, x, y, 0, 164, 490, 641, *30, *TransBlack, elderNutmeg.png
-		
-		;Run % "images/window/retainer_window_click_position.png"
-		log("before()")
-		
 		ImageSearch, foundX, foundY,0,0,2560,1440, *1 images\window\retainer_window_click_position.png
-		log("after()")
-		
 		isFocused:=ErrorLevel
 		if(isFocused=0){
 			log("ErrorLevel:" ErrorLevel)
@@ -260,6 +317,54 @@ attemptToRegainFocus(){ ; this will force mousemovement to the game because cont
 	}
 }
 
+getCurrentNumberOfListedItem(){ ; search in reverse, because it's common to have higher number of selling item
+	log("getCurrentNumberOfListedItem()")
+	currentNumberOfListedItem:=""
+	while(currentNumberOfListedItem=""){
+		if(searchImage("images/number/20",,,,,5, GameID)){
+			currentNumberOfListedItem:=20
+		} else if(searchImage("images/number/19",,,,,5, GameID)){
+			currentNumberOfListedItem:=19
+		} else if(searchImage("images/number/18",,,,,5, GameID)){
+			currentNumberOfListedItem:=18
+		} else if(searchImage("images/number/17",,,,,5, GameID)){
+			currentNumberOfListedItem:=17
+		} else if(searchImage("images/number/16",,,,,5, GameID)){
+			currentNumberOfListedItem:=16
+		} else if(searchImage("images/number/15",,,,,5, GameID)){
+			currentNumberOfListedItem:=15
+		} else if(searchImage("images/number/14",,,,,5, GameID)){
+			currentNumberOfListedItem:=14
+		} else if(searchImage("images/number/13",,,,,5, GameID)){
+			currentNumberOfListedItem:=13
+		} else if(searchImage("images/number/12",,,,,5, GameID)){
+			currentNumberOfListedItem:=12
+		} else if(searchImage("images/number/11",,,,,5, GameID)){
+			currentNumberOfListedItem:=11
+		} else if(searchImage("images/number/10",,,,,5, GameID)){
+			currentNumberOfListedItem:=10
+		} else if(searchImage("images/number/9",,,,,5, GameID)){
+			currentNumberOfListedItem:=9
+		} else if(searchImage("images/number/8",,,,,5, GameID)){
+			currentNumberOfListedItem:=8
+		} else if(searchImage("images/number/7",,,,,5, GameID)){
+			currentNumberOfListedItem:=7
+		} else if(searchImage("images/number/6",,,,,5, GameID)){
+			currentNumberOfListedItem:=6
+		} else if(searchImage("images/number/5",,,,,5, GameID)){
+			currentNumberOfListedItem:=5
+		} else if(searchImage("images/number/4",,,,,5, GameID)){
+			currentNumberOfListedItem:=4
+		} else if(searchImage("images/number/3",,,,,5, GameID)){
+			currentNumberOfListedItem:=3
+		} else if(searchImage("images/number/2",,,,,5, GameID)){
+			currentNumberOfListedItem:=2
+		} else if(searchImage("images/number/1",,,,,5, GameID)){
+			currentNumberOfListedItem:=1
+		}
+	}
+	return currentNumberOfListedItem	
+}
 
 ^F4::
 log("Terminated Retainer Helper",0,1)

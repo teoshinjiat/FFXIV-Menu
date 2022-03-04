@@ -12,7 +12,8 @@ log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0, tag:="Verbos
 }
 
 ; important log is unhideable log such as ERROR and DEBUG, therefore no checking like the base log()
-logTag(text, tag){
+; optional function, this is because named arguments is not supported, so using the function above is a hassle because i need to include many ,,,, to get to tag
+logTag(tag, text){
 	DebugWindow(text)
 	logToFile(text, tag)
 }
@@ -34,7 +35,10 @@ archieveLogFile(){ ;used when terminating a script
 	FileMove, C:\ahk\FFXIV\ffxiv.log, C:\ahk\FFXIV\ffxiv.log.old, 1
 }
 
-
+tooltip(msg, x:=1260, y:=720){
+	; default to center of the screen
+	ToolTip, msg, x, y ; center of the screen	
+}
 
 ; TODO split non dependent functions, otherwise menu will have to import stuff that it dont needle
 ; for example searchImage
@@ -159,10 +163,10 @@ getFirstListingPriceForItemFromDC(itemID){
 }
 
 ; when selling item, should look for the first item price on listing instead of history
-getFirstListingPriceForHQItemFromRavana(itemID){
+getFirstListingPriceForHQItemFromRavana(itemID, hqFlag:=true){
 	;log("getPriceForItemApi()")
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-	endpoint:="https://universalis.app/api/ravana/" itemID "?listings=1&entries=0&noGst=1&hq=true"
+	endpoint:="https://universalis.app/api/ravana/" itemID "?listings=1&entries=0&noGst=1&hq=" hqFlag
 	;log("")	
 	;log("endpoint: " endpoint)
 	oWhr.Open("GET", endpoint, false)
@@ -185,6 +189,6 @@ thousandsSeparator(x, s=",") {
 
 ; https://www.autohotkey.com/docs/commands/FormatTime.htm#Date_Formats
 currentTimestamp(){
-	FormatTime, TimeString, %A_Now%, dd/MM/yyyy hh:mm:ss
+	FormatTime, TimeString, %A_Now%, dd/MM/yyyy HH:mm:ss
 	return TimeString
 }

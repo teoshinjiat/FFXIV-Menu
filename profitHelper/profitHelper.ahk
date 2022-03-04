@@ -14,6 +14,7 @@ log("Eulmore Turnin", clear:=1)
 ;global items:=[{"itemID":"", "itemCraftable":"", "itemName":"", "itemLastKnownPrice":"", "materials":[]}] ;materials to store all itemId including parent id and child id
 global itemsStruct:=[] ;materials to store all itemId including parent id and child id
 global medicineStruct:=[]
+global miscStruct:=[]
 
 ;a, b, c(craftable)(show final product price, and show total craft cost), d , total cost, total craft cost including c
 
@@ -27,7 +28,7 @@ readItemsFromDB(){
 	for i, items in obj.items{ ;mainBox mainscript boxes
 		log("----------------------------------------------------------------------------------------------------------------------------------------------------")		
 		i:=A_Index
-		log("itemID:" obj.items[i].itemID  " | isCraftable:" obj.items[i].isCraftable " | name:" obj.items[i].name " | description:" obj.items[i].description)
+		log("itemID:" obj.items[i].itemID  " | isCraftable:" obj.items[i].isCraftable " | name:" obj.items[i].name " | description:" obj.items[i].description " | showCurrentSellingPriceOnly : " obj.items[i].showCurrentSellingPriceOnly " | hqFlag : " obj.items[i].hqFlag)
 		itemsStruct[i]:= {category: obj.items[i].category, itemID: obj.items[i].itemID, name: obj.items[i].name, itemCraftable: obj.items[i].isCraftable, mainRecipeMaterials:[], subRecipeMaterials:[], currentSellingPrice:"", totalCraftingCostMainOnly:"", totalCraftingCostIncludingSub:"", profitExpectedPerCraft:""}
 		;log("size of array recipeMaterials: " + obj.items[i].recipeMaterials.length())
 		
@@ -69,7 +70,8 @@ readItemsFromDB(){
 getSellingPriceFromRavana(){
 	for i in itemsStruct{ 
 		i:=A_Index
-		currentSellingPrice:=getFirstListingPriceForHQItemFromRavana(itemsStruct[i].itemID)
+		currentSellingPrice:=getFirstListingPriceForHQItemFromRavana(itemsStruct[i].itemID, itemsStruct[i].hqFlag)
+		log("currentSellingPrice : " + currentSellingPrice)
 		itemsStruct[i].currentSellingPrice:=currentSellingPrice
 		if(itemsStruct[i].category="Medicine"){
 			itemsStruct[i].profitExpectedPerCraft:=currentSellingPrice*3			
@@ -77,7 +79,7 @@ getSellingPriceFromRavana(){
 			itemsStruct[i].profitExpectedPerCraft:=currentSellingPrice			
 		}
 		
-		log("profitExpectedPerCraft(): Ravana profitExpectedPerCraft * 3 : " + itemsStruct[i].profitExpectedPerCraft " gils")
+		log("profitExpectedPerCraft() for " itemsStruct[i].name " : "  itemsStruct[i].profitExpectedPerCraft " gils")
 	}
 }
 
@@ -132,6 +134,8 @@ splitDataIntoCategories(){
 		i:=A_Index
 		if(itemsStruct[i].category="Medicine"){
 			medicineStruct.push(itemsStruct[i])
+		} else if(itemsStruct[i].category="Misc"){			
+			miscStruct.push(itemsStruct[i])
 		}
 	}
 }
@@ -169,7 +173,8 @@ drawGui() {
 	for i in itemsStruct{
 		if(itemsStruct[i].category="Medicine"){
 			LV_Add("", itemsStruct[i].category, itemsStruct[i].name, "x1 "itemsStruct[i].currentSellingPrice " gils :: x3 " Floor(itemsStruct[i].currentSellingPrice*3) " gils :: x99 " thousandsSeparator(Floor(itemsStruct[i].currentSellingPrice*99)) " gils", "x1 " Floor(itemsStruct[i].totalCraftingCostMainOnly) " gils : x99 " thousandsSeparator(Floor((itemsStruct[i].currentSellingPrice*99)-(itemsStruct[i].totalCraftingCostMainOnly*33))) " gils", Floor(itemsStruct[i].totalCraftingCostIncludingSub) " gils : x99 " thousandsSeparator(Floor((itemsStruct[i].currentSellingPrice*99)-(itemsStruct[i].totalCraftingCostIncludingSub*33))) " gils")
-			
+		} else {
+			LV_Add("", itemsStruct[i].category, itemsStruct[i].name, "x1 "itemsStruct[i].currentSellingPrice " gils")			
 		}
 	}
 	

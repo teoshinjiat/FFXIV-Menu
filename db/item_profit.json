@@ -5,6 +5,7 @@
       "itemID": "36060",
       "name": "Tsai tou Vounou",
       "description": "CP+26%",
+      "showCurrentSellingPriceOnly": false,
       "mainRecipeMaterials": [
         {
           "itemID": "36094",
@@ -56,6 +57,7 @@
       "itemID": "36109",
       "name": "Grade 6 Tincture of Strength",
       "description": "Strength +8% for NQ, 10% for HQ",
+      "showCurrentSellingPriceOnly": false,
       "mainRecipeMaterials": [
         {
           "itemID": "36215",
@@ -112,6 +114,7 @@
       "itemID": "36110",
       "name": "Grade 6 Tincture of Dexterity",
       "description": "Dexterity +8% for NQ, 10% for HQ",
+      "showCurrentSellingPriceOnly": false,
       "mainRecipeMaterials": [
         {
           "itemID": "36215",
@@ -162,6 +165,24 @@
           "name": "Lightning Cluster"
         }
       ]
+    },
+    {
+      "category": "Misc",
+      "itemID": "12108",
+      "name": "Star Sapphire Music Box",
+      "description": "%",
+      "hqFlag": false,
+      "showCurrentSellingPriceOnly": true,
+      "mainRecipeMaterials": []
+    },
+    {
+      "category": "Misc",
+      "itemID": "12109",
+      "name": "Star Sapphire Music Box",
+      "description": "%",
+      "hqFlag": false,
+      "showCurrentSellingPriceOnly": true,
+      "mainRecipeMaterials": []
     }
   ]
 }
