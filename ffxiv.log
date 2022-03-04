@@ -1,0 +1,67 @@
+﻿[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[04/03/2022 19:10:09]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
+[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
+[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
+[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
+[04/03/2022 21:15:27]|(Verbose)|getPriceList()
+[04/03/2022 21:15:27]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[04/03/2022 21:15:29]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
+[04/03/2022 21:15:29]|(Verbose)|LogState is checked
+[04/03/2022 21:15:29]|(Verbose)|drawProfitHelper()
+[04/03/2022 21:15:29]|(Verbose)|drawDatabaseManagement()
+[04/03/2022 21:15:30]|(Verbose)|LoadTabIndex:
+[04/03/2022 21:15:30]|(Verbose)|selectedTabIndex : 1
+[04/03/2022 21:15:30]|(Verbose)|foodRefresh : 1
+[04/03/2022 21:15:30]|(Verbose)|medicineRefresh : 1
+[04/03/2022 21:15:30]|(Verbose)|Started Auto Synthesis
+[04/03/2022 21:15:30]|(Verbose)|Param, eatFoodFlag : 1
+[04/03/2022 21:15:30]|(Verbose)|Param, eatMedicineFlag : 1
+[04/03/2022 21:15:31]|(Verbose)|detectDurability()
+[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 70.png : ❌
+[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 80.png : ❌
+[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 70.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 80.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[04/03/2022 21:15:34]|(Verbose)|Terminated Auto Synthesis
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[04/03/2022 21:15:34]|(Verbose)|Terminated Auto Synthesis
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxx
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxx
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxx
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxx
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxx
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxx
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxx
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️xxxxasdasddas
+[04/03/2022 19:10:09]|(Retainer Undercut)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️asasdasdads

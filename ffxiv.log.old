@@ -1,64 +1,37 @@
-﻿[04/03/2022 19:30:44]|(Verbose)|Started Retainer Helper
-[04/03/2022 19:30:44]|(Verbose)|
-[04/03/2022 19:30:45]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
-[04/03/2022 19:30:45]|(Verbose)|Current retainer index : 1
-[04/03/2022 19:30:47]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:48]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:48]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:49]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:49]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:50]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:51]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:51]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:52]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:52]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:53]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:54]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:54]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:55]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:55]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:56]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
-[04/03/2022 19:30:57]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ✔️
-[04/03/2022 19:30:57]|(Verbose)|getCurrentNumberOfListedItem()
-[04/03/2022 19:30:57]|(Verbose)|searchImage() Result for filename, images/number/20.png : ❌
-[04/03/2022 19:30:58]|(Verbose)|searchImage() Result for filename, images/number/19.png : ✔️
-[04/03/2022 19:30:58]|(Verbose)|currentNumberOfListedItem : 19
-[04/03/2022 19:30:58]|(Verbose)|handleAdjustPrice()
-[04/03/2022 19:30:59]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[04/03/2022 19:30:59]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[04/03/2022 19:30:59]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[04/03/2022 19:31:00]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[04/03/2022 19:31:00]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[04/03/2022 19:31:00]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[04/03/2022 19:31:02]|(Verbose)|myPrice : 59999
-[04/03/2022 19:31:02]|(Verbose)|getFirstListingPrice1()
-[04/03/2022 19:31:04]|(Verbose)|send `
-[04/03/2022 19:31:05]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[04/03/2022 19:31:06]|(Verbose)|isHitsFound : 1
-[04/03/2022 19:31:06]|(Verbose)|searchImage() Result for filename, images/retainer/firstRetainer.png : ❌
-[04/03/2022 19:31:07]|(Verbose)|searchImage() Result for filename, images/retainer/secondRetainer.png : ❌
-[04/03/2022 19:31:07]|(Verbose)|searchImage() Result for filename, images/retainer/fourthRetainer.png : ❌
-[04/03/2022 19:31:08]|(Verbose)|searchImage() Result for filename, images/retainer/fifthRetainer.png : ❌
-[04/03/2022 19:31:09]|(Verbose)|searchImage() Result for filename, images/retainer/sixthRetainer.png : ❌
-[04/03/2022 19:31:09]|(Verbose)|isMyRetainers : 0
-[04/03/2022 19:31:09]|(Verbose)|latestPrice : 21495
-[04/03/2022 19:31:09]|(Verbose)|priceDiff : 38504
-[04/03/2022 19:31:09]|(Verbose)|myPriceUndercutThreshold : 3000
-[04/03/2022 19:31:09]|(Verbose)|isMyRetainers : 0
-[04/03/2022 19:31:09]|(Retainer)|Current seller is selling way too low, not worth to undercut
-[04/03/2022 19:31:09]|(Verbose)|cancelUndercut()
-[04/03/2022 19:31:11]|(Verbose)|handleAdjustPrice()
-[04/03/2022 19:31:11]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[04/03/2022 19:31:11]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[04/03/2022 19:31:12]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[04/03/2022 19:31:12]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[04/03/2022 19:31:13]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[04/03/2022 19:31:13]|(Verbose)|isAdjustPriceWindowHighlighted : 1
-[04/03/2022 19:31:15]|(Verbose)|myPrice : 59999
-[04/03/2022 19:31:15]|(Verbose)|getFirstListingPrice1()
-[04/03/2022 19:31:16]|(Verbose)|send `
-[04/03/2022 19:31:17]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
-[04/03/2022 19:31:18]|(Verbose)|isHitsFound : 1
-[04/03/2022 19:31:19]|(Verbose)|searchImage() Result for filename, images/retainer/firstRetainer.png : ❌
-[04/03/2022 19:31:19]|(Verbose)|searchImage() Result for filename, images/retainer/secondRetainer.png : ❌
-[04/03/2022 19:31:20]|(Verbose)|Terminated Retainer Helper
+﻿[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[04/03/2022 19:10:09]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
+[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
+[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
+[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
+[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
+[04/03/2022 21:15:27]|(Verbose)|getPriceList()
+[04/03/2022 21:15:27]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[04/03/2022 21:15:29]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
+[04/03/2022 21:15:29]|(Verbose)|LogState is checked
+[04/03/2022 21:15:29]|(Verbose)|drawProfitHelper()
+[04/03/2022 21:15:29]|(Verbose)|drawDatabaseManagement()
+[04/03/2022 21:15:30]|(Verbose)|LoadTabIndex:
+[04/03/2022 21:15:30]|(Verbose)|selectedTabIndex : 1
+[04/03/2022 21:15:30]|(Verbose)|foodRefresh : 1
+[04/03/2022 21:15:30]|(Verbose)|medicineRefresh : 1
+[04/03/2022 21:15:30]|(Verbose)|Started Auto Synthesis
+[04/03/2022 21:15:30]|(Verbose)|Param, eatFoodFlag : 1
+[04/03/2022 21:15:30]|(Verbose)|Param, eatMedicineFlag : 1
+[04/03/2022 21:15:31]|(Verbose)|detectDurability()
+[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 70.png : ❌
+[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 80.png : ❌
+[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 70.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 80.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[04/03/2022 21:15:33]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[04/03/2022 21:15:34]|(Verbose)|Terminated Auto Synthesis

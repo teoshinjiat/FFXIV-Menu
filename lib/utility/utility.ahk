@@ -14,7 +14,7 @@ log(text, clear:=0, lineBreak:=1, sleep:=0, autoHide:=0, msgBox:=0, tag:="Verbos
 ; important log is unhideable log such as ERROR and DEBUG, therefore no checking like the base log()
 ; optional function, this is because named arguments is not supported, so using the function above is a hassle because i need to include many ,,,, to get to tag
 logTag(tag, text){
-	DebugWindow(text)
+	DebugWindow(text,0,1)
 	logToFile(text, tag)
 }
 
