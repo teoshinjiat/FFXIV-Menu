@@ -192,25 +192,21 @@ isLatestPriceCopied(){
 				isUndercutValid:=isUndercutValid()
 				if(isUndercutValid){ ; if we should undercut, is it our retainer?
 					if(!isMyRetainers()){
-					proceedUndercutWithThreshold()
+						proceedUndercutWithThreshold()
 					} else {
-						logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Although should undercut, but cancel because first listed item is from my retainer.")								
+						logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Cancel undercut because first listed item is from my retainer.") ; to reduce botting suspiciousness							
 						cancelUndercut()
+						Goto, SkipLabel						
 					}
 				} else {
 					cancelUndercut()
-					log("im here 1")
 					Goto, SkipLabel
-					
 					break
 				}
-				log("im here 2")
 				break
 			}
-			log("im here 3")
 			sleep, 500		
 		}
-		log("im here 4")
 	}	
 	SkipLabel:
 	Sleep, 500
@@ -235,7 +231,7 @@ isUndercutValid(){
 		}
 	}
 	else {
-		logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Item is already the first listed item or first listed item is from my retainers")
+		logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Item is already the first listed item")
 		;cancelUndercut()
 		return false		
 	}
@@ -293,6 +289,12 @@ proceedUndercutWithThreshold(){
 	; workaround: if no price is copied(because there is no HQ item), proceed pasting with the original clipboard(which is my original price)
 	;ControlSend, , {Control down}v{Control up}, ahk_class FFXIVGAME 
 	log("clipboard : " clipboard)
+	
+	ControlSend, , {Control down}, ahk_class FFXIVGAME 	
+	ControlSend, , a, ahk_class FFXIVGAME 	
+	ControlSend, , {Control up}, ahk_class FFXIVGAME 	
+	sleep, 500
+	
 	ControlSend, , {Control down}, ahk_class FFXIVGAME 	
 	ControlSend, , v, ahk_class FFXIVGAME 	
 	ControlSend, , {Control up}, ahk_class FFXIVGAME 	
