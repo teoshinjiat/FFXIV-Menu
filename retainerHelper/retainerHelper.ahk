@@ -13,7 +13,7 @@ CoordMode, Pixel, Screen
 CoordMode, Mouse, Screen
 log("Started Retainer Helper", 1)
 global GameID:=GameID
-global undercutThreshold=0.05 ;if first listed price is undercut more than 5% of my asking price
+global undercutThreshold=0.10 ;if first listed price is undercut more than 10% of my asking price
 global myPrice:=""
 global latestPrice:=""
 global RETAINER_TAG:="Retainer"
@@ -22,18 +22,40 @@ global RETAINER_UNDERCUT_TAG:="Retainer Undercut"
 global retainerIndex := Array(1,2,3,4,5,6)
 global currentRetainerIndex:=""
 global isMyRetainers:=false
-log("retainerIndex size : " + retainerIndex.MaxIndex())
+global fixedAfkTimer:=60000 ; 4 minutes
 
-Loop{
+Loop{	
 	for i in retainerIndex{
-		index:=A_Index
+		currentRetainerIndex:=A_Index
 		if(isRetainerWindowCurrentlyOnFocus()){
-			log("Current retainer index : " i)
+			log("Current retainer index : " currentRetainerIndex)
 			undercut()
-			logTag(RETAINER_TAG, "Done with number " index " retainer, going next..")		
-			goNextRetainer(index)
+			logTag(RETAINER_UNDERCUT_TAG, "Done with Retainer number " currentRetainerIndex " retainer, going next..")		
+			goNextRetainer(currentRetainerIndex)
 		}
 	}
+	; every single time all the retainers have finished the undercutting process, sleep for a fixed 8 minutes on top of a randomized timer between 0 to 300 seconds
+	randomizedTimer:=Ceil(Rnd(0,300000))
+	afkTimer:=fixedAfkTimer+randomizedTimer
+	afk()
+	logTag(RETAINER, "Finished undercutting for all six retainers.")			
+	logTag(RETAINER, "AFK for " (afkTimer/1000) " seconds, resume at " calculateResumeTime((afkTimer/1000)))		
+	Sleep afkTimer
+}
+
+afk(){ ; update afk status in game
+	SetKeyDelay, 0, 50
+	ControlSend, , {Enter}, ahk_class FFXIVGAME
+	sleep, 500
+	ControlSend, , /afk, ahk_class FFXIVGAME
+	sleep, 500
+	ControlSend, , {Enter}, ahk_class FFXIVGAME
+}
+
+calculateResumeTime(afkTimer){
+	currentTimestamp:=A_Now
+	currentTimestamp += 60, seconds	
+	return convertStringToTimestamp(currentTimestamp)
 }
 
 goNextRetainer(currentRetainerIndex){
@@ -53,11 +75,19 @@ undercut(){
 	goBackRetainerList()
 }
 
-goBackRetainerList(){
-	ControlSend, , {Esc}, ahk_class FFXIVGAME
-	sleep, 500
-	ControlSend, , {Esc}, ahk_class FFXIVGAME
-	sleep, 500
+goBackRetainerList(){ ; sometimes didnt exit properly, due to internet delay? implemented verifyCurrentScreen() to fix this
+	
+	while(searchImage("images/window/markets_window",,,,,1, GameID)){
+		ControlSend, , {Esc}, ahk_class FFXIVGAME
+		sleep, 500
+	}
+	log("market window no longer in sight")
+	
+	while(searchImage("images/window/retainer_option_list",,,,,1, GameID)){
+		ControlSend, , {Esc}, ahk_class FFXIVGAME
+		sleep, 500
+	}
+	log("retainer option window no longer in sight")
 }
 
 handleUndercutProcess(){
@@ -114,9 +144,31 @@ clickMyPrice(){
 
 getFirstListingPrice1(){
 	log("getFirstListingPrice1()")
+	exitEditingPrice()
 	navigateToComparePriceButton()
 	isLatestPriceCopied()
 	sleep, 500
+}
+
+exitEditingPrice(){
+	log("exitEditingPrice()")
+	while(searchImage("images/indicator/still_editing_price",,,,,1, GameID)){
+		ControlSend, , {Esc}, ahk_class FFXIVGAME ; exit edit asking price
+		sleep, 500
+		log("editing price indicator still found...")
+	}
+	log("editing price indicator NOT found, move to compare price button next...")	
+}
+
+navigateToComparePriceButton(){
+	log("navigateToComparePriceButton()")
+	
+	while(!searchImage("images/button/compare_price_button_highlighted",,,,,5, GameID)){
+		ControlSend, , {Up}, ahk_class FFXIVGAME ; reach compare price button
+		sleep, 500
+		log("compare_price_button_highlighted indicator still NOT found...")		
+	}
+	log("compare_price_button_highlighted indicator found!!!!")			
 }
 
 isLatestPriceCopied(){
@@ -127,7 +179,7 @@ isLatestPriceCopied(){
 			ControlSend, , ``, ahk_class FFXIVGAME ; entering compare price
 			sleep, 500
 			
-			isHitsFound:=searchImage("images/indicator/hits_found",,,,,5, GameID)	
+			isHitsFound:=searchImage("images/indicator/hits_found",,,,,30, GameID)	
 			sleep, 1000	
 			log("isHitsFound : " + isHitsFound)
 			if(!isHitsFound){ ; if not found, escape to close search results window, reenter to look for hits indicator again
@@ -140,18 +192,28 @@ isLatestPriceCopied(){
 				isUndercutValid:=isUndercutValid()
 				if(isUndercutValid){ ; if we should undercut, is it our retainer?
 					if(!isMyRetainers()){
-						proceedUndercutWithThreshold()
+					proceedUndercutWithThreshold()
 					} else {
+						logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Although should undercut, but cancel because first listed item is from my retainer.")								
 						cancelUndercut()
 					}
 				} else {
 					cancelUndercut()
+					log("im here 1")
+					Goto, SkipLabel
+					
+					break
 				}
+				log("im here 2")
 				break
 			}
+			log("im here 3")
 			sleep, 500		
 		}
+		log("im here 4")
 	}	
+	SkipLabel:
+	Sleep, 500
 }
 
 isUndercutValid(){	
@@ -161,19 +223,19 @@ isUndercutValid(){
 	log("priceDiff : " priceDiff)
 	log("myPriceUndercutThreshold : " myPriceUndercutThreshold)
 	log("isMyRetainers : " isMyRetainers)
-	if(!isMyRetainers && priceDiff >= 0){ ; if same price or someone undercuts me, proceed checking to see if it's worth the undercut, my threshold is 0.5% of my current price
+	if(priceDiff >= 0){ ; if same price or someone undercuts me, proceed checking to see if it's worth the undercut, my threshold is 0.5% of my current price
 		if(priceDiff > myPriceUndercutThreshold){
-			logTag(RETAINER_TAG, "Current seller is selling way too low, not worth to undercut")
+			logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Current seller is selling way too low, not worth to undercut")
 			;cancelUndercut()
 			return false
 		} else {
-			logTag(RETAINER_TAG, "First listed item price is " latestPrice " gils, and the difference our listed price is just " priceDiff " gils - which falls below the undercut threshold of " myPriceUndercutThreshold " gils, so we should undercut this!")		
+			logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") First listed item price is " latestPrice " gils, and the difference our listed price is just " priceDiff " gils - which falls below the undercut threshold of " myPriceUndercutThreshold " gils, so we should undercut this!")		
 			;proceedUndercutWithThreshold()
 			return true
 		}
 	}
 	else {
-		logTag(RETAINER_TAG, "Item is already the first listed item or first listed item is from my retainers")
+		logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Item is already the first listed item or first listed item is from my retainers")
 		;cancelUndercut()
 		return false		
 	}
@@ -181,26 +243,66 @@ isUndercutValid(){
 
 cancelUndercut(){ ; from adjust price window to Markets window
 	log("cancelUndercut()")
-	ControlSend, , {Esc}, ahk_class FFXIVGAME	
-	sleep, 500
-	ControlSend, , {Esc}, ahk_class FFXIVGAME	
-	sleep, 500
+	exitSearchResults()
+	ensureAdjustPrice()
+	exitAdjustPrice()
+}
+
+exitSearchResults(){
+	log("search result window is still open")
+	while(searchImage("images/window/search_result_window",,,,,1, GameID)){
+		ControlSend, , {Esc}, ahk_class FFXIVGAME
+		sleep, 500
+	}
+	log("market window no longer in sight")
+}
+
+ensureAdjustPrice(){ ; to make sure internet delay does not screw the script up
+	log("adjust price details window not found")
+	while(searchImage("images/window/adjust_price_window_fallback",,,,,1, GameID)){
+		ControlSend, , {Esc}, ahk_class FFXIVGAME
+		sleep, 500
+	}
+	log("adjust price details found")
+}
+
+exitAdjustPrice(){
+	log("adjust price window is still open")
+	while(searchImage("images/window/adjust_price_window",,,,,1, GameID)){
+		ControlSend, , {Esc}, ahk_class FFXIVGAME
+		sleep, 500
+	}
+	log("adjust price is no longer in sight")
 }
 
 proceedUndercutWithThreshold(){
 	log("proceedUndercutWithThreshold()")
 	ControlSend, , {Esc}, ahk_class FFXIVGAME 
-	sleep, 500
+	sleep, 1000
 	clickMyPrice()
 	sleep, 500
-	undercutPrice:=latestPrice-1  ; undercut the seller with just 1 gil	
-	Clipboard:=undercutPrice
-	; workaround: if no price is copied(because there is no HQ item), proceed pasting with the original clipboard(which is my original price)
-	ControlSend, , ^v, ahk_class FFXIVGAME 
+	
+	while(!searchImage("images/indicator/still_editing_price",,,,,1, GameID)){
+		log("editing price indicator not found...")
+		clickMyPrice()
+	}
 	sleep, 500
+	
+	undercutPrice:=latestPrice-1  ; undercut the seller with just 1 gil	
+	clipboard:=undercutPrice
+	; workaround: if no price is copied(because there is no HQ item), proceed pasting with the original clipboard(which is my original price)
+	;ControlSend, , {Control down}v{Control up}, ahk_class FFXIVGAME 
+	log("clipboard : " clipboard)
+	ControlSend, , {Control down}, ahk_class FFXIVGAME 	
+	ControlSend, , v, ahk_class FFXIVGAME 	
+	ControlSend, , {Control up}, ahk_class FFXIVGAME 	
+	sleep, 500
+	
+	
 	ControlSend, , {Enter}, ahk_class FFXIVGAME 
 	sleep, 500
-	logTag(RETAINER_UNDERCUT_TAG, "Successfully undercut an item from seller, my listed item price from " myPrice " gils to below current selling price " latestPrice " gils. Final undercut price is " undercutPrice " gils")
+	
+	logTag(RETAINER_UNDERCUT_TAG, "Retainer(" currentRetainerIndex ") Successfully undercut an item from seller, my listed item price from " myPrice " gils to below current selling price " latestPrice " gils. Final undercut price is " undercutPrice " gils")
 	handleConfirmButton()
 }
 
@@ -252,14 +354,7 @@ closeWindow(){
 	}
 }
 
-navigateToComparePriceButton(){
-	ControlSend, , {Esc}, ahk_class FFXIVGAME ; exit edit asking price
-	sleep, 500
-	ControlSend, , {Up}, ahk_class FFXIVGAME ; 
-	sleep, 500
-	ControlSend, , {Up}, ahk_class FFXIVGAME ; reach compare price button
-	sleep, 500
-}
+
 
 handleAdjustPrice(){
 	log("handleAdjustPrice()")
@@ -338,6 +433,7 @@ attemptToRegainFocus(){ ; this will force mousemovement to the game because cont
 getCurrentNumberOfListedItem(){ ; search in reverse, because it's common to have higher number of selling item
 	log("getCurrentNumberOfListedItem()")
 	currentNumberOfListedItem:=""
+	sleep 1000
 	while(currentNumberOfListedItem=""){
 		if(searchImage("images/number/20",,,,,5, GameID)){
 			currentNumberOfListedItem:=20

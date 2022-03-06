@@ -242,7 +242,7 @@ assignDataIntoEulmoreSubOptions(){
 		DebugWindow("itemID:" obj.itLoggingTaskems[i].itemID " | name:" obj.items[i].name " | description:" obj.items[i].description " | category:" obj.items[i].paths.category " | subcategory:" obj.items[i].paths.subcategory " | filename:" obj.items[i].paths.filename,0,1,0,0)
 		nameWithSpace:=obj.items[i].name:=StrReplace(obj.items[i].name, "_", " ")
 		log("nameWithSpace : " + nameWithSpace)
-		menuData[4].subOptions[i]:= {itemID: obj.items[i].itemID, label: nameWithSpace, description: obj.items[i].description, price: "N/A", numberOfSalesPast1Day: "N/A", numberOfSalesPast2Day: "N/A", numberOfSalesPast3Day: "N/A", value: "Disabled vMainScript5_SubItem1"}
+		menuData[4].subOptions[i]:= {itemID: obj.items[i].itemID, label: nameWithSpace, description: obj.items[i].description, price: "N/A", numberOfSalesPast1Day: "N/A", numberOfSalesPast2Day: "N/A", numberOfSalesPast3Day: "N/A", value: "vMainScript5_SubItem1"}
 		log("subOptions[i].label : " + menuData[4].subOptions[i].label)
 	}
 }
@@ -326,35 +326,27 @@ uncheckMainScriptBoxes(selectedIndex){
 global response:=""
 getPriceList(){
 	log("getPriceList()")
-	for i, subOptions in menuData[5].subOptions{
-		;response:=getPriceForItemApi(menuData[5].subOptions[i].itemID)
-		obj := JSON.load(response)	
-		getLastKnownPrice(obj)
+	for i, subOptions in menuData[4].subOptions{
+		lastKnownPrice:=getFirstListingPriceForHQItemFromRavana(menuData[4].subOptions[i].itemID, false)
+		assignKnownPriceIntoEulmoreSubOptions(menuData[4].subOptions[i].itemID, lastKnownPrice, numberOfSales)
+		
+		;obj := JSON.load(response)	
+		;log("obj : " obj)
+		;getLastKnownPrice(obj)
 	}
 }
 
 getLastKnownPrice(obj){
 	log("getLastKnownPrice()")
-	lastPrice:=""
-	itemId:=""
-	numberOfSales:=""
-	for i, entries in obj.entries{ ;mainBox mainscript boxes
-		if(i=1){
-			itemID:= obj.itemID
-			lastPrice:=obj.entries[i].pricePerUnit
-			numberOfSales:=obj.entries.length()
-		}
-	}
 	log("itemID " obj.itemID "'s last known price : " lastPrice " gils")
-	assignKnownPriceIntoEulmoreSubOptions(itemID, lastPrice, numberOfSales)
 }
 
 assignKnownPriceIntoEulmoreSubOptions(itemID, lastPrice, numberOfSales){
 	log("assignKnownPriceIntoEulmoreSubOptions()")
-	for i, subOptions in menuData[5].subOptions{
-		if(menuData[5].subOptions[i].itemID=itemID){
-			menuData[5].subOptions[i].price:=lastPrice
-			menuData[5].subOptions[i].numberOfSalesPast1Day:=numberOfSales
+	for i, subOptions in menuData[4].subOptions{
+		if(menuData[4].subOptions[i].itemID=itemID){
+			menuData[4].subOptions[i].price:=lastPrice
+			menuData[4].subOptions[i].numberOfSalesPast1Day:=numberOfSales
 			break
 		}
 	}
@@ -373,9 +365,9 @@ Gui, PriceListWindow:Font, bold
 Gui, PriceListWindow:Add, ListView, r20 w800 gOnDoubleClick, Item ID | Item Name| Last Known Price | #Sales Past 3 Day
 Gui, PriceListWindow:Add, Button, gGetMoreData, Show number of sales in the past 3 days ; will make 2 more api calls	
 
-for i, subOptions in menuData[5].subOptions{
-	log("priceListWindow menuData[5].subOptions[i].itemID : " + menuData[5].subOptions[i].itemID)
-	LV_Add("", menuData[5].subOptions[i].itemID, menuData[5].subOptions[i].label, menuData[5].subOptions[i].price, menuData[5].subOptions[i].numberOfSalesPast1Day)
+for i, subOptions in menuData[4].subOptions{
+	log("priceListWindow menuData[5].subOptions[i].itemID : " + menuData[4].subOptions[i].itemID)
+	LV_Add("", menuData[4].subOptions[i].itemID, menuData[4].subOptions[i].label, menuData[4].subOptions[i].price, menuData[4].subOptions[i].numberOfSalesPast1Day)
 }
 
 ; https://www.autohotkey.com/docs/commands/ListView.htm#LV_ModifyCol for future reference
@@ -410,10 +402,10 @@ getSelectedRow(selectedItemID){
 }
 
 eulmoreArrayFindById(selectedItemID){ ; find by itemID, return the matched index in the array
-	for i, subOptions in menuData[5].subOptions{
+	for i, subOptions in menuData[4].subOptions{
 		log("selectedItemID : " + selectedItemID)
-		log("menuData[5].subOptions[i].itemID : " + menuData[5].subOptions[i].itemID)
-		if(menuData[5].subOptions[i].itemID=selectedItemID){
+		log("menuData[4].subOptions[i].itemID : " + menuData[4].subOptions[i].itemID)
+		if(menuData[4].subOptions[i].itemID=selectedItemID){
 			log("found matched item i : " i)
 			return i
 		}

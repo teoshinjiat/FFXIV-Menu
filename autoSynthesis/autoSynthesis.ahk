@@ -59,7 +59,7 @@ Loop{
 }
 
 runMacro(durability){
-	ifequal durability,"35", ControlSend, , {Numpad1}, ahk_class FFXIVGAME
+	ifequal durability,"35", ControlSend, , {Numpad3}, ahk_class FFXIVGAME
 	ifequal durability,"40", ControlSend, , {Numpad3}, ahk_class FFXIVGAME
 	ifequal durability,"70", ControlSend, , {Numpad4}, ahk_class FFXIVGAME
 	ifequal durability,"80", ControlSend, , {Numpad7}, ahk_class FFXIVGAME

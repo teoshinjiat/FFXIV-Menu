@@ -1,37 +1,193 @@
-﻿[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
-[04/03/2022 19:10:09]|(Verbose)|isAdjustPriceWindowHighlighted : 0
-[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
-[04/03/2022 19:10:09]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[04/03/2022 21:15:27]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[04/03/2022 21:15:27]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[04/03/2022 21:15:27]|(Verbose)|getPriceList()
-[04/03/2022 21:15:27]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[04/03/2022 21:15:29]|(Verbose)|LogState LogStateLogStateLogStateLogState : 1
-[04/03/2022 21:15:29]|(Verbose)|LogState is checked
-[04/03/2022 21:15:29]|(Verbose)|drawProfitHelper()
-[04/03/2022 21:15:29]|(Verbose)|drawDatabaseManagement()
-[04/03/2022 21:15:30]|(Verbose)|LoadTabIndex:
-[04/03/2022 21:15:30]|(Verbose)|selectedTabIndex : 1
-[04/03/2022 21:15:30]|(Verbose)|foodRefresh : 1
-[04/03/2022 21:15:30]|(Verbose)|medicineRefresh : 1
-[04/03/2022 21:15:30]|(Verbose)|Started Auto Synthesis
-[04/03/2022 21:15:30]|(Verbose)|Param, eatFoodFlag : 1
-[04/03/2022 21:15:30]|(Verbose)|Param, eatMedicineFlag : 1
-[04/03/2022 21:15:31]|(Verbose)|detectDurability()
-[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[04/03/2022 21:15:31]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[04/03/2022 21:15:32]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 80.png : ❌
-[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[04/03/2022 21:15:33]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[04/03/2022 21:15:33]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[04/03/2022 21:15:34]|(Verbose)|Terminated Auto Synthesis
+﻿[07/03/2022 02:12:31]|(Verbose)|Started Retainer Helper
+[07/03/2022 02:12:32]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_window_focus_indicator.png : ✔️
+[07/03/2022 02:12:32]|(Verbose)|Current retainer index : 1
+[07/03/2022 02:12:34]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[07/03/2022 02:12:34]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[07/03/2022 02:12:35]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[07/03/2022 02:12:36]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ❌
+[07/03/2022 02:12:36]|(Verbose)|searchImage() Result for filename, images/indicator/retainer_menu_market_selected.png : ✔️
+[07/03/2022 02:12:36]|(Verbose)|getCurrentNumberOfListedItem()
+[07/03/2022 02:12:38]|(Verbose)|searchImage() Result for filename, images/number/20.png : ✔️
+[07/03/2022 02:12:38]|(Verbose)|currentNumberOfListedItem : 20
+[07/03/2022 02:12:38]|(Verbose)|handleAdjustPrice()
+[07/03/2022 02:12:39]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:12:39]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:12:39]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:12:40]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:12:40]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[07/03/2022 02:12:40]|(Verbose)|isAdjustPriceWindowHighlighted : 1
+[07/03/2022 02:12:42]|(Verbose)|myPrice : 84999
+[07/03/2022 02:12:42]|(Verbose)|getFirstListingPrice1()
+[07/03/2022 02:12:42]|(Verbose)|exitEditingPrice()
+[07/03/2022 02:12:43]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ✔️
+[07/03/2022 02:12:43]|(Verbose)|editing price indicator still found...
+[07/03/2022 02:12:43]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ❌
+[07/03/2022 02:12:43]|(Verbose)|editing price indicator NOT found, move to compare price button next...
+[07/03/2022 02:12:43]|(Verbose)|navigateToComparePriceButton()
+[07/03/2022 02:12:44]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:12:44]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:12:45]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:12:45]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:12:46]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ✔️
+[07/03/2022 02:12:46]|(Verbose)|compare_price_button_highlighted indicator found!!!!
+[07/03/2022 02:12:46]|(Verbose)|send `
+[07/03/2022 02:12:47]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
+[07/03/2022 02:12:48]|(Verbose)|isHitsFound : 1
+[07/03/2022 02:12:48]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:12:48]|(Verbose)|latestPrice : 169898
+[07/03/2022 02:12:48]|(Verbose)|priceDiff : -84899
+[07/03/2022 02:12:48]|(Verbose)|myPriceUndercutThreshold : 8500
+[07/03/2022 02:12:48]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:12:48]|(Retainer)|Retainer(1) Item is already the first listed item or first listed item is from my retainers
+[07/03/2022 02:12:48]|(Verbose)|cancelUndercut()
+[07/03/2022 02:12:48]|(Verbose)|search result window is still open
+[07/03/2022 02:12:48]|(Verbose)|searchImage() Result for filename, images/window/search_result_window.png : ✔️
+[07/03/2022 02:12:49]|(Verbose)|searchImage() Result for filename, images/window/search_result_window.png : ❌
+[07/03/2022 02:12:49]|(Verbose)|market window no longer in sight
+[07/03/2022 02:12:49]|(Verbose)|adjust price details window not found
+[07/03/2022 02:12:49]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window_fallback.png : ✔️
+[07/03/2022 02:12:50]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window_fallback.png : ❌
+[07/03/2022 02:12:50]|(Verbose)|adjust price details found
+[07/03/2022 02:12:50]|(Verbose)|adjust price window is still open
+[07/03/2022 02:12:51]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window.png : ❌
+[07/03/2022 02:12:51]|(Verbose)|adjust price is no longer in sight
+[07/03/2022 02:12:51]|(Verbose)|im here 1
+[07/03/2022 02:12:53]|(Verbose)|handleAdjustPrice()
+[07/03/2022 02:12:53]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:12:53]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:12:54]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:12:54]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:12:55]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[07/03/2022 02:12:55]|(Verbose)|isAdjustPriceWindowHighlighted : 1
+[07/03/2022 02:12:56]|(Verbose)|myPrice : 
+[07/03/2022 02:12:58]|(Verbose)|myPrice : 99765
+[07/03/2022 02:12:58]|(Verbose)|getFirstListingPrice1()
+[07/03/2022 02:12:58]|(Verbose)|exitEditingPrice()
+[07/03/2022 02:12:58]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ✔️
+[07/03/2022 02:12:59]|(Verbose)|editing price indicator still found...
+[07/03/2022 02:12:59]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ❌
+[07/03/2022 02:12:59]|(Verbose)|editing price indicator NOT found, move to compare price button next...
+[07/03/2022 02:12:59]|(Verbose)|navigateToComparePriceButton()
+[07/03/2022 02:13:00]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:13:00]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:13:01]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:13:01]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:13:02]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ✔️
+[07/03/2022 02:13:02]|(Verbose)|compare_price_button_highlighted indicator found!!!!
+[07/03/2022 02:13:02]|(Verbose)|send `
+[07/03/2022 02:13:03]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
+[07/03/2022 02:13:04]|(Verbose)|isHitsFound : 1
+[07/03/2022 02:13:04]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:13:04]|(Verbose)|latestPrice : 99764
+[07/03/2022 02:13:04]|(Verbose)|priceDiff : 1
+[07/03/2022 02:13:04]|(Verbose)|myPriceUndercutThreshold : 9977
+[07/03/2022 02:13:04]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:13:04]|(Retainer)|Retainer(1) First listed item price is 99764 gils, and the difference our listed price is just 1 gils - which falls below the undercut threshold of 9977 gils, so we should undercut this!
+[07/03/2022 02:13:04]|(Verbose)|searchImage() Result for filename, images/retainer/secondRetainer.png : ❌
+[07/03/2022 02:13:05]|(Verbose)|searchImage() Result for filename, images/retainer/thirdRetainer.png : ❌
+[07/03/2022 02:13:05]|(Verbose)|searchImage() Result for filename, images/retainer/fourthRetainer.png : ❌
+[07/03/2022 02:13:06]|(Verbose)|searchImage() Result for filename, images/retainer/fifthRetainer.png : ❌
+[07/03/2022 02:13:07]|(Verbose)|searchImage() Result for filename, images/retainer/sixthRetainer.png : ❌
+[07/03/2022 02:13:07]|(Verbose)|proceedUndercutWithThreshold()
+[07/03/2022 02:13:09]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ✔️
+[07/03/2022 02:13:10]|(Verbose)|clipboard : 99763
+[07/03/2022 02:13:11]|(Retainer Undercut)|Retainer(1) Successfully undercut an item from seller, my listed item price from 99765 gils to below current selling price 99764 gils. Final undercut price is 99763 gils
+[07/03/2022 02:13:11]|(Verbose)|handleConfirmButton()
+[07/03/2022 02:13:11]|(Verbose)|searchImage() Result for filename, images/button/confirm_button_highlighted.png : ❌
+[07/03/2022 02:13:11]|(Verbose)|imagesearch isConfirmButtonHighlighted : 0
+[07/03/2022 02:13:12]|(Verbose)|searchImage() Result for filename, images/button/confirm_button_highlighted.png : ❌
+[07/03/2022 02:13:12]|(Verbose)|imagesearch isConfirmButtonHighlighted : 0
+[07/03/2022 02:13:13]|(Verbose)|searchImage() Result for filename, images/button/confirm_button_highlighted.png : ❌
+[07/03/2022 02:13:13]|(Verbose)|imagesearch isConfirmButtonHighlighted : 0
+[07/03/2022 02:13:14]|(Verbose)|searchImage() Result for filename, images/button/confirm_button_highlighted.png : ✔️
+[07/03/2022 02:13:14]|(Verbose)|imagesearch isConfirmButtonHighlighted : 1
+[07/03/2022 02:13:14]|(Verbose)|Send confirm button
+[07/03/2022 02:13:14]|(Verbose)|im here 2
+[07/03/2022 02:13:14]|(Verbose)|im here 4
+[07/03/2022 02:13:16]|(Verbose)|handleAdjustPrice()
+[07/03/2022 02:13:17]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:13:17]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:13:17]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:13:18]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:13:18]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[07/03/2022 02:13:18]|(Verbose)|isAdjustPriceWindowHighlighted : 1
+[07/03/2022 02:13:20]|(Verbose)|myPrice : 59999
+[07/03/2022 02:13:20]|(Verbose)|getFirstListingPrice1()
+[07/03/2022 02:13:20]|(Verbose)|exitEditingPrice()
+[07/03/2022 02:13:20]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ✔️
+[07/03/2022 02:13:21]|(Verbose)|editing price indicator still found...
+[07/03/2022 02:13:21]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ❌
+[07/03/2022 02:13:21]|(Verbose)|editing price indicator NOT found, move to compare price button next...
+[07/03/2022 02:13:21]|(Verbose)|navigateToComparePriceButton()
+[07/03/2022 02:13:22]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:13:22]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:13:23]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:13:23]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:13:23]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ✔️
+[07/03/2022 02:13:23]|(Verbose)|compare_price_button_highlighted indicator found!!!!
+[07/03/2022 02:13:23]|(Verbose)|send `
+[07/03/2022 02:13:24]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
+[07/03/2022 02:13:25]|(Verbose)|isHitsFound : 1
+[07/03/2022 02:13:25]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:13:25]|(Verbose)|latestPrice : 34998
+[07/03/2022 02:13:25]|(Verbose)|priceDiff : 25001
+[07/03/2022 02:13:25]|(Verbose)|myPriceUndercutThreshold : 6000
+[07/03/2022 02:13:25]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:13:25]|(Retainer)|Retainer(1) Current seller is selling way too low, not worth to undercut
+[07/03/2022 02:13:26]|(Verbose)|cancelUndercut()
+[07/03/2022 02:13:26]|(Verbose)|search result window is still open
+[07/03/2022 02:13:26]|(Verbose)|searchImage() Result for filename, images/window/search_result_window.png : ✔️
+[07/03/2022 02:13:27]|(Verbose)|searchImage() Result for filename, images/window/search_result_window.png : ❌
+[07/03/2022 02:13:27]|(Verbose)|market window no longer in sight
+[07/03/2022 02:13:27]|(Verbose)|adjust price details window not found
+[07/03/2022 02:13:27]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window_fallback.png : ✔️
+[07/03/2022 02:13:28]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window_fallback.png : ❌
+[07/03/2022 02:13:28]|(Verbose)|adjust price details found
+[07/03/2022 02:13:28]|(Verbose)|adjust price window is still open
+[07/03/2022 02:13:28]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window.png : ❌
+[07/03/2022 02:13:28]|(Verbose)|adjust price is no longer in sight
+[07/03/2022 02:13:28]|(Verbose)|im here 1
+[07/03/2022 02:13:30]|(Verbose)|handleAdjustPrice()
+[07/03/2022 02:13:31]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:13:31]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:13:32]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ❌
+[07/03/2022 02:13:32]|(Verbose)|isAdjustPriceWindowHighlighted : 0
+[07/03/2022 02:13:32]|(Verbose)|searchImage() Result for filename, images/indicator/adjust_price_window.png : ✔️
+[07/03/2022 02:13:33]|(Verbose)|isAdjustPriceWindowHighlighted : 1
+[07/03/2022 02:13:34]|(Verbose)|myPrice : 86954
+[07/03/2022 02:13:34]|(Verbose)|getFirstListingPrice1()
+[07/03/2022 02:13:34]|(Verbose)|exitEditingPrice()
+[07/03/2022 02:13:35]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ✔️
+[07/03/2022 02:13:35]|(Verbose)|editing price indicator still found...
+[07/03/2022 02:13:35]|(Verbose)|searchImage() Result for filename, images/indicator/still_editing_price.png : ❌
+[07/03/2022 02:13:35]|(Verbose)|editing price indicator NOT found, move to compare price button next...
+[07/03/2022 02:13:35]|(Verbose)|navigateToComparePriceButton()
+[07/03/2022 02:13:36]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:13:36]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:13:37]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ❌
+[07/03/2022 02:13:37]|(Verbose)|compare_price_button_highlighted indicator still NOT found...
+[07/03/2022 02:13:38]|(Verbose)|searchImage() Result for filename, images/button/compare_price_button_highlighted.png : ✔️
+[07/03/2022 02:13:38]|(Verbose)|compare_price_button_highlighted indicator found!!!!
+[07/03/2022 02:13:38]|(Verbose)|send `
+[07/03/2022 02:13:39]|(Verbose)|searchImage() Result for filename, images/indicator/hits_found.png : ✔️
+[07/03/2022 02:13:40]|(Verbose)|isHitsFound : 1
+[07/03/2022 02:13:40]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:13:40]|(Verbose)|latestPrice : 86955
+[07/03/2022 02:13:40]|(Verbose)|priceDiff : -1
+[07/03/2022 02:13:40]|(Verbose)|myPriceUndercutThreshold : 8696
+[07/03/2022 02:13:40]|(Verbose)|isMyRetainers : 0
+[07/03/2022 02:13:40]|(Retainer)|Retainer(1) Item is already the first listed item or first listed item is from my retainers
+[07/03/2022 02:13:40]|(Verbose)|cancelUndercut()
+[07/03/2022 02:13:40]|(Verbose)|search result window is still open
+[07/03/2022 02:13:40]|(Verbose)|searchImage() Result for filename, images/window/search_result_window.png : ✔️
+[07/03/2022 02:13:41]|(Verbose)|searchImage() Result for filename, images/window/search_result_window.png : ❌
+[07/03/2022 02:13:41]|(Verbose)|market window no longer in sight
+[07/03/2022 02:13:41]|(Verbose)|adjust price details window not found
+[07/03/2022 02:13:41]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window_fallback.png : ✔️
+[07/03/2022 02:13:42]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window_fallback.png : ❌
+[07/03/2022 02:13:42]|(Verbose)|adjust price details found
+[07/03/2022 02:13:42]|(Verbose)|adjust price window is still open
+[07/03/2022 02:13:43]|(Verbose)|searchImage() Result for filename, images/window/adjust_price_window.png : ❌
+[07/03/2022 02:13:43]|(Verbose)|adjust price is no longer in sight
+[07/03/2022 02:13:43]|(Verbose)|im here 1
+[07/03/2022 02:13:44]|(Verbose)|Terminated Retainer Helper

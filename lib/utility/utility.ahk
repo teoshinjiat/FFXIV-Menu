@@ -168,7 +168,7 @@ getFirstListingPriceForHQItemFromRavana(itemID, hqFlag:=true){
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 	endpoint:="https://universalis.app/api/ravana/" itemID "?listings=1&entries=0&noGst=1&hq=" hqFlag
 	;log("")	
-	;log("endpoint: " endpoint)
+	log("endpoint: " endpoint)
 	oWhr.Open("GET", endpoint, false)
 	oWhr.SetRequestHeader("Content-Type", "application/json")
 	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
@@ -190,5 +190,10 @@ thousandsSeparator(x, s=",") {
 ; https://www.autohotkey.com/docs/commands/FormatTime.htm#Date_Formats
 currentTimestamp(){
 	FormatTime, TimeString, %A_Now%, dd/MM/yyyy HH:mm:ss
+	return TimeString
+}
+
+convertStringToTimestamp(stringTimestamp){
+	FormatTime, TimeString, %stringTimestamp%, dd/MM/yyyy HH:mm:ss
 	return TimeString
 }
