@@ -1,3 +1,8 @@
+[comment]: <> (
+for future reference on editing readme
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links
+)
+
 # FFXIV-Menu
 A collection of automated and QOL scripts that I developed from scratch to perform AI tasks that can handle tasks that normally require human intelligence or interference to complete.
 
@@ -39,10 +44,6 @@ A collection of automated and QOL scripts that I developed from scratch to perfo
 
 </details>
 
-[comment]: <> (
-for future reference on editing readme
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links
-)
 
 
 
