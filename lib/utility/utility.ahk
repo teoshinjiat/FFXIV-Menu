@@ -104,10 +104,10 @@ Rnd(a=0.0,b=1) {
 }
 
 getLastHistoryPriceForItemFromRavana(itemID){ ;current world only
-	;log("getPriceForItemApi()")
+	log("getLastHistoryPriceForItemFromRavana()")
+	
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 	endpoint:="https://universalis.app/api/history/ravana/" itemID "?entriesToReturn=800&entriesWithin=300000"
-;	log("")	
 	;log("endpoint: " endpoint)
 	oWhr.Open("GET", endpoint, false)
 	oWhr.SetRequestHeader("Content-Type", "application/json")
@@ -115,14 +115,26 @@ getLastHistoryPriceForItemFromRavana(itemID){ ;current world only
 	oWhr.Send()
 	obj := JSON.load(oWhr.ResponseText)	
 	return getLastHistoryPrice(obj)
+}
+
+getNumberOfSalesForItemFromRavana(itemID){ ;current world only
+	log("getNumberOfSalesForItemFromRavana()")
+	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+	endpoint:="https://universalis.app/api/history/ravana/" itemID "?entriesToReturn=800&entriesWithin=300000"
+	log("endpoint: " endpoint)
+	oWhr.Open("GET", endpoint, false)
+	oWhr.SetRequestHeader("Content-Type", "application/json")
+	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
+	oWhr.Send()
+	obj := JSON.load(oWhr.ResponseText)	
+	return getNumberOfSales(obj)
 }
 
 getLastHistoryPriceForItemFromDC(itemID){ ;DataCenter = all connected worlds
-	;log("getPriceForItemApi()")
+	log("getLastHistoryPriceForItemFromDC()")
 	oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 	endpoint:="https://universalis.app/api/history/materia/" itemID "?entriesWithin=100000"
-	;log("")	
-	;log("endpoint: " endpoint)
+	log("endpoint: " endpoint)
 	oWhr.Open("GET", endpoint, false)
 	oWhr.SetRequestHeader("Content-Type", "application/json")
 	oWhr.SetRequestHeader("Authorization", "Bearer 80b44ea9c302237f9178a137d9e86deb-20083fb12d9579469f24afa80816066b")
@@ -131,6 +143,18 @@ getLastHistoryPriceForItemFromDC(itemID){ ;DataCenter = all connected worlds
 	return getLastHistoryPrice(obj)
 }
 
+
+getNumberOfSales(obj){
+	log("getNumberOfSales()")
+	numberOfSales:=""
+	for i, entries in obj.entries{ ;mainBox mainscript boxes
+		numberOfSales:=obj.entries.length()
+	}
+	log("obj.entries.length()obj.entries.length()obj.entries.length() : " + obj.entries.length())
+	
+	log("numberOfSales : " + numberOfSales)
+	return numberOfSales
+}
 
 getLastHistoryPrice(obj){
 	lastSoldPrice:=""

@@ -23,6 +23,7 @@ global retainerIndex := Array(1,2,3,4,5,6)
 global currentRetainerIndex:=""
 global isMyRetainers:=false
 global fixedAfkTimer:=60000 ; 4 minutes
+global shouldUndercutMyRetainer:=true ; should be on the GUI
 
 Loop{	
 	for i in retainerIndex{
@@ -37,7 +38,7 @@ Loop{
 	; every single time all the retainers have finished the undercutting process, sleep for a fixed 8 minutes on top of a randomized timer between 0 to 300 seconds
 	randomizedTimer:=Ceil(Rnd(0,300000))
 	afkTimer:=fixedAfkTimer+randomizedTimer
-	afk()
+	;afk()
 	logTag(RETAINER, "Finished undercutting for all six retainers.")			
 	logTag(RETAINER, "AFK for " (afkTimer/1000) " seconds, resume at " calculateResumeTime((afkTimer/1000)))		
 	Sleep afkTimer
@@ -191,7 +192,7 @@ isLatestPriceCopied(){
 				clipboard:=""	
 				isUndercutValid:=isUndercutValid()
 				if(isUndercutValid){ ; if we should undercut, is it our retainer?
-					if(!isMyRetainers()){
+					if(shouldUndercutMyRetainer || !isMyRetainers()){
 						proceedUndercutWithThreshold()
 					} else {
 						logTag(RETAINER_TAG, "Retainer(" currentRetainerIndex ") Cancel undercut because first listed item is from my retainer.") ; to reduce botting suspiciousness							

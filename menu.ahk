@@ -11,8 +11,8 @@ SetWorkingDir %A_ScriptDir%
 DebugWindow("Started FFXIV Main Menu",1,1,200,0)
 
 global DND:=false ;this is a flag to prevent the log from disturbing me when im developing other script, used in logging function
-global selectedTabIndex:="1"
-global selectedLogTabIndex:="1"
+global selectedTabIndex:=1
+global selectedLogTabIndex:=1
 global logFilePath:="C:\ahk\FFXIV\ffxiv.log"
 global currentLineNumber:=""
 global previousFileSize:=0
@@ -37,6 +37,7 @@ Goto, ^F3
 
 
 ^F3::
+selectedTabIndex:=1
 Gui, Menu:Destroy
 ;Gui, Menu:+AlwaysOnTop
 ;Gui, Menu:Add,Picture, x0 y0 w720 h188,gui.png
@@ -205,7 +206,7 @@ GuiControl, Show, StatusTitle
 GuiControl, Show, StatusText
 GuiControl, Show, MyProgress
 
-if(selectedTabIndex="1") { 
+if(selectedTabIndex=1) { 
 	updateStatusText("autoSynthesis")
 	foodRefresh:=MainScript1_SubItem1
 	medicineRefresh:=MainScript1_SubItem2
@@ -213,19 +214,19 @@ if(selectedTabIndex="1") {
 	log("foodRefresh : " + foodRefresh)
 	log("medicineRefresh : " + medicineRefresh)
 	Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh%
-} else if(selectedTabIndex="2") {
+} else if(selectedTabIndex=2) {
 	updateStatusText("gather")
 	Run "C:\Users\teosh\Desktop\ahk\gather\gather.ahk"
-} else if(selectedTabIndex="3") {
+} else if(selectedTabIndex=3) {
 	updateStatusText("fish")
 	Run "C:\Users\teosh\Desktop\ahk\fish\fish.ahk"
-} else if(selectedTabIndex="4") {
+} else if(selectedTabIndex=4) {
 	updateStatusText("eulmoreTurnin")
 	selectedItem:=MainScript5_SubItem1
 	selectedItem:=StrReplace(selectedItem, " ", "_") ;replace space in string for easier matching in the subscript
 	Run eulmoreTurnin\eulmoreTurnin.ahk %selectedItem%
 	log("selectedItem : " + selectedItem)
-} else if(selectedTabIndex="5") {
+} else if(selectedTabIndex=5) {
 	updateStatusText("profitHelper")
 	Run "C:\Users\teosh\Desktop\ahk\profitHelper\profitHelper.ahk"
 }
@@ -252,6 +253,7 @@ updateStatusText(scriptName) {
 }
 
 ;hardcoded because g-label doesnt support parameter passing
+; g-label functions start with capital letters
 AutoSynthesis(){ ;1
 	uncheckMainScriptBoxes(1)
 }
@@ -276,7 +278,7 @@ ProfitHelper(){ ;5
 	}
 }
 
-; UIUX enhancement
+; UX enhancement, to deselect other tab's checkboxes when navigating away from current tab
 uncheckMainScriptBoxes(selectedIndex){
 	log("uncheckMainScriptBoxes())")
 	for i, obj in menuData {
@@ -328,11 +330,11 @@ getPriceList(){
 	log("getPriceList()")
 	for i, subOptions in menuData[4].subOptions{
 		lastKnownPrice:=getFirstListingPriceForHQItemFromRavana(menuData[4].subOptions[i].itemID, false)
-		assignKnownPriceIntoEulmoreSubOptions(menuData[4].subOptions[i].itemID, lastKnownPrice, numberOfSales)
+		numberOfSales:=getNumberOfSalesForItemFromRavana(menuData[4].subOptions[i].itemID) ; TODO, get number of sales
+		log("lastKnownPrice : " + lastKnownPrice)
 		
-		;obj := JSON.load(response)	
-		;log("obj : " obj)
-		;getLastKnownPrice(obj)
+		log("numberOfSales : " + numberOfSales)
+		assignKnownPriceIntoEulmoreSubOptions(menuData[4].subOptions[i].itemID, lastKnownPrice, numberOfSales)
 	}
 }
 
