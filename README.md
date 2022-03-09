@@ -15,8 +15,7 @@ A collection of automated and QOL scripts that I developed from scratch to perfo
 <details>
 
  <summary>9/Mar/2022 Added loopcount </summary>
-![image](https://user-images.githubusercontent.com/21898084/157434038-a0abbf84-d465-4387-ad2a-2fc3d9fe046b.png)
-
+https://user-images.githubusercontent.com/21898084/157434038-a0abbf84-d465-4387-ad2a-2fc3d9fe046b.png
 </details>
 
 
