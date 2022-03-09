@@ -11,14 +11,6 @@ A collection of automated and QOL scripts that I developed from scratch to perfo
 3) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/profitHelper">Profit Helper</a> 
 
 # Timeline (Gui Showcase)
-
-<details>
-
- <summary>9/Mar/2022 Added loopcount </summary>
-https://user-images.githubusercontent.com/21898084/157434038-a0abbf84-d465-4387-ad2a-2fc3d9fe046b.png
-</details>
-
-
 <details>
 
 <summary>1/Mar/2022 Added logging functionality </summary>
