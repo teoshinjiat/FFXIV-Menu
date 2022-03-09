@@ -1,15 +1,11 @@
 # FFXIV-Menu
-
-for future reference on editing readme
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links
- 
-A collection of Scripts that I developed from scratch to perform AI tasks that can handle tasks that normally require human intelligence or interference to complete.
+A collection of automated and QOL scripts that I developed from scratch to perform AI tasks that can handle tasks that normally require human intelligence or interference to complete.
 
 1) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/autoSynthesis">Auto Synthesis</a> 
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/eulmoreTurnin">Eulmore Turnin</a> 
-2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/profitHelper">Profit Helper</a> 
+3) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/profitHelper">Profit Helper</a> 
 
-# Timeline
+# Timeline (showcase)
 <details>
 
 <summary>1/Mar/2022 Added logging functionalit </summary>
@@ -34,6 +30,9 @@ A collection of Scripts that I developed from scratch to perform AI tasks that c
 
 </details>
 
+
+for future reference on editing readme
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links
 
 
 
