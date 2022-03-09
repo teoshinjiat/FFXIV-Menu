@@ -18,14 +18,17 @@ global GameID:=GameID
 global haystack:=""
 global needle:=""
 
-global eatFoodFlag:=A_Args[1]
-global eatMedicineFlag:=A_Args[2]
-global craftCount:=0
+global expectedCraftCount:=A_Args[1]
+global eatFoodFlag:=A_Args[2]
+global eatMedicineFlag:=A_Args[3]
+global currentCraftCount:=0
+log("Param, expectedCraftCount : " + expectedCraftCount)
 log("Param, eatFoodFlag : " + eatFoodFlag)
 log("Param, eatMedicineFlag : " + eatMedicineFlag)
 
-Loop{
-	sleep, 500 ;after spamming `, give it some time to rest
+expectedCraftCount:=(expectedCraftCount > 0) ? expectedCraftCount : 2147483647 ; if is positive value means is not an infinite craft loop
+Loop % expectedCraftCount {
+	sleep, 500 ; mini rest time
 	buttonToPress:=""
 	durability:=detectDurability()
 	repairMe:=""
@@ -39,10 +42,9 @@ Loop{
 	{
 		craftingWindow:=searchImage("still-crafting",,,,,1, GameID, false) ; pop, check for window
 	}
-	craftCount++
-	log("Finished crafting, craft count is " craftCount)
+	logTag("Debug", "Finished crafted one item, current craft count is " expectedCraftCount)
 	EndTime := A_TickCount
-	log("Time taken for the craft is " Ceil((EndTime - StartTime)/1000.0) " seconds")
+	logTag("Debug", "Time taken for the craft is " Ceil((EndTime - StartTime)/1000.0) " seconds")
 	if(!craftingWindow){ ; if less than 1, means not found, which means not busy anymore, proceed next
 		if(buttonToPress!=""){
 			sleep, 1000
@@ -56,7 +58,10 @@ Loop{
 		;sleep, 2000
 		;autoSynthesisFallback()
 	}
+	expectedCraftCount++
 }
+log("Auto Synthesis finished.")
+EXITAPP
 
 runMacro(durability){
 	ifequal durability,"35", ControlSend, , {Numpad1}, ahk_class FFXIVGAME

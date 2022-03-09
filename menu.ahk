@@ -31,8 +31,8 @@ menuData[ 5 ] := {function:"gProfitHelper", value:"vMainScript5", label:"Profit 
 ;
 
 
-assignDataIntoEulmoreSubOptions()
-getPriceList()
+assignDataIntoEulmoreSubOptions() ; should be loaded only when sub tab is active to remove redundant load time
+getPriceList() ; should be loaded only when sub tab is active to remove redundant load time
 Goto, ^F3
 
 
@@ -66,8 +66,6 @@ for key, field in menuData[1].subOptions{ ;subBox options(parameters)
 	subOptionGuiType:=menuData[1].subOptionGuiType
 	subOptionGuiStyle:=menuData[1].subOptionGuiStyle
 	if(subOptionGuiType="Checkbox"){
-		subInitialX=initialX+25
-		subInitialY=initialY+25
 		Gui, Menu:Tab, 1
 		Gui, Menu:Add, %subOptionGuiType%, x+subInitialX y+subInitialY %subOptionGuiStyle% %value%, %label%			
 	} else { ; for ListBox, add outside of subLoop
@@ -75,6 +73,9 @@ for key, field in menuData[1].subOptions{ ;subBox options(parameters)
 	}
 }
 
+Gui, Menu:Add, text, xp+20 yp+20, Craft Count (0 as infinite) ; 0 or empty field by accident or anything that is not positive integer will indicate as infinite craft
+Gui, Menu:Add, Edit, xp+20 yp+20 w200 Number
+Gui, Menu:Add, UpDown, xp+50 yp+20 vCraftCount Range0-6, 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawAutoGather
 Gui, Menu:Tab, 2 ;switching tab for Gui Add
 function:=menuData[2].function
@@ -208,12 +209,15 @@ GuiControl, Show, MyProgress
 
 if(selectedTabIndex=1) { 
 	updateStatusText("autoSynthesis")
+	craftCount:=CraftCount
 	foodRefresh:=MainScript1_SubItem1
 	medicineRefresh:=MainScript1_SubItem2
-	collectableFlag:=MainScript1_SubItem3
+	
+	log("craftCount : " + craftCount)
 	log("foodRefresh : " + foodRefresh)
 	log("medicineRefresh : " + medicineRefresh)
-	Run autoSynthesis\autoSynthesis.ahk %foodRefresh% %medicineRefresh%
+	
+	Run autoSynthesis\autoSynthesis.ahk %craftCount% %foodRefresh% %medicineRefresh% 
 } else if(selectedTabIndex=2) {
 	updateStatusText("gather")
 	Run "C:\Users\teosh\Desktop\ahk\gather\gather.ahk"

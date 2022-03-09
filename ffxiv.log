@@ -1,0 +1,92 @@
+﻿[09/03/2022 18:08:00]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
+[09/03/2022 18:08:00]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
+[09/03/2022 18:08:00]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
+[09/03/2022 18:08:00]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
+[09/03/2022 18:08:00]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
+[09/03/2022 18:08:00]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
+[09/03/2022 18:08:00]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
+[09/03/2022 18:08:00]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
+[09/03/2022 18:08:00]|(Verbose)|getPriceList()
+[09/03/2022 18:08:00]|(Verbose)|endpoint: https://universalis.app/api/ravana/33940?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 18:08:00]|(Verbose)|itemID : 33940
+[09/03/2022 18:08:00]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 30600
+[09/03/2022 18:08:00]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 18:08:00]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33940?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 18:08:01]|(Verbose)|getNumberOfSales()
+[09/03/2022 18:08:01]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 59
+[09/03/2022 18:08:01]|(Verbose)|numberOfSales : 59
+[09/03/2022 18:08:01]|(Verbose)|lastKnownPrice : 30600
+[09/03/2022 18:08:01]|(Verbose)|numberOfSales : 59
+[09/03/2022 18:08:01]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 18:08:01]|(Verbose)|endpoint: https://universalis.app/api/ravana/26735?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 18:08:02]|(Verbose)|itemID : 26735
+[09/03/2022 18:08:02]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 1000
+[09/03/2022 18:08:02]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 18:08:02]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/26735?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 18:08:02]|(Verbose)|getNumberOfSales()
+[09/03/2022 18:08:02]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 14
+[09/03/2022 18:08:02]|(Verbose)|numberOfSales : 14
+[09/03/2022 18:08:02]|(Verbose)|lastKnownPrice : 1000
+[09/03/2022 18:08:02]|(Verbose)|numberOfSales : 14
+[09/03/2022 18:08:02]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 18:08:02]|(Verbose)|endpoint: https://universalis.app/api/ravana/33938?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 18:08:03]|(Verbose)|itemID : 33938
+[09/03/2022 18:08:03]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 16913
+[09/03/2022 18:08:03]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 18:08:03]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33938?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 18:08:03]|(Verbose)|getNumberOfSales()
+[09/03/2022 18:08:03]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 28
+[09/03/2022 18:08:03]|(Verbose)|numberOfSales : 28
+[09/03/2022 18:08:03]|(Verbose)|lastKnownPrice : 16913
+[09/03/2022 18:08:03]|(Verbose)|numberOfSales : 28
+[09/03/2022 18:08:03]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 18:08:03]|(Verbose)|endpoint: https://universalis.app/api/ravana/33939?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 18:08:03]|(Verbose)|itemID : 33939
+[09/03/2022 18:08:03]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 11393
+[09/03/2022 18:08:03]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 18:08:03]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33939?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 18:08:04]|(Verbose)|getNumberOfSales()
+[09/03/2022 18:08:04]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 35
+[09/03/2022 18:08:04]|(Verbose)|numberOfSales : 35
+[09/03/2022 18:08:04]|(Verbose)|lastKnownPrice : 11393
+[09/03/2022 18:08:04]|(Verbose)|numberOfSales : 35
+[09/03/2022 18:08:04]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 18:08:04]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[09/03/2022 18:08:06]|(Verbose)|craftCount : 0
+[09/03/2022 18:08:06]|(Verbose)|foodRefresh : 0
+[09/03/2022 18:08:06]|(Verbose)|medicineRefresh : 0
+[09/03/2022 18:08:06]|(Verbose)|Started Auto Synthesis
+[09/03/2022 18:08:06]|(Verbose)|Param, expectedCraftCount : 0
+[09/03/2022 18:08:06]|(Verbose)|Param, eatFoodFlag : 0
+[09/03/2022 18:08:06]|(Verbose)|Param, eatMedicineFlag : 0
+[09/03/2022 18:08:06]|(Verbose)|detectDurability()
+[09/03/2022 18:08:07]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[09/03/2022 18:08:07]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[09/03/2022 18:08:07]|(Verbose)|searchImage() Result for filename, 70.png : ❌
+[09/03/2022 18:08:08]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
+[09/03/2022 18:08:08]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
+[09/03/2022 18:08:08]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
+[09/03/2022 18:08:08]|(Verbose)|preHealthCheck() buttonToPress:
+[09/03/2022 18:08:10]|(Verbose)|it's still crafting
+[09/03/2022 18:08:47]|(Debug)|Finished crafting, current craft count is 2147483647
+[09/03/2022 18:08:47]|(Debug)|Time taken for the craft is 40 seconds
+[09/03/2022 18:08:48]|(Verbose)|autoSynthesis()
+[09/03/2022 18:08:48]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
+[09/03/2022 18:08:48]|(Verbose)|looping to send `
+[09/03/2022 18:08:49]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
+[09/03/2022 18:08:49]|(Verbose)|looping to send `
+[09/03/2022 18:08:49]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
+[09/03/2022 18:08:49]|(Verbose)|looping to send `
+[09/03/2022 18:08:50]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
+[09/03/2022 18:08:50]|(Verbose)|looping to send `
+[09/03/2022 18:08:50]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
+[09/03/2022 18:08:50]|(Verbose)|breaking while loop
+[09/03/2022 18:08:50]|(Verbose)|autoSynthesisFallback()
+[09/03/2022 18:08:51]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
+[09/03/2022 18:08:52]|(Verbose)|autoSynthesis()
+[09/03/2022 18:08:52]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
+[09/03/2022 18:08:52]|(Verbose)|breaking while loop
+[09/03/2022 18:08:52]|(Verbose)|autoSynthesisFallback()
+[09/03/2022 18:08:53]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
+[09/03/2022 18:08:53]|(Verbose)|detectDurability()
+[09/03/2022 18:08:53]|(Verbose)|searchImage() Result for filename, 35.png : ❌
