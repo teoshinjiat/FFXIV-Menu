@@ -5,7 +5,7 @@ A collection of automated and QOL scripts that I developed from scratch to perfo
 2) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/eulmoreTurnin">Eulmore Turnin</a> 
 3) <a href="https://github.com/teoshinjiat/FFXIV-Menu/tree/main/profitHelper">Profit Helper</a> 
 
-# Timeline
+# Timeline (showcase)
 <details>
 
 <summary>1/Mar/2022 Added logging functionalit </summary>
