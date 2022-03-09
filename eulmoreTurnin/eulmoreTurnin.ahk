@@ -4,7 +4,6 @@ SetWorkingDir %A_ScriptDir%
 #include lib\gdip\Gdip_All.ahk
 #include lib\gdip\imageSearch\Gdip_ImageSearch.ahk
 
-
 WinGet, GameID, ID, ahk_class FFXIVGAME
 #NoEnv
 #SingleInstance, Force
@@ -167,6 +166,13 @@ handInItems(){
 	ErrorLevel:=""
 	While (tradeButtonErrorLevel!=0)
 	{
+		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\window\run_out_of_items.png
+		itemMissing:=ErrorLevel
+		if(itemMissing=0){
+			log("Ran out of items to trade. Terminating script.")
+			ExitApp
+		}
+		
 		imageSearch, x, y, 0, 0, 2560, 1440, *1, *TransBlack, images\button\trade.png
 		tradeButtonErrorLevel:=ErrorLevel
 		if(tradeButtonErrorLevel=0){

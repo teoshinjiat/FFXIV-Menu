@@ -34,7 +34,7 @@ Loop % expectedCraftCount {
 	repairMe:=""
 	runMacro(durability)
 	startTime := A_TickCount
-	buttonToPress:=preHealthCheck()
+	buttonToPress:=preHealthCheck() ; check for any maintenance while crafting, will perform after item is crafted if there's any maintenance needed
 	sleep, 2000
 	craftingWindow:=true
 	log("it's still crafting")
@@ -50,14 +50,10 @@ Loop % expectedCraftCount {
 		if(buttonToPress!=""){
 			sleep, 1000
 			healthCheck(buttonToPress)
-			sleep, 4000
+			sleep, 4000 ; animation locked delay
 		}
 		sleep, 1000
 		autoSynthesis()
-		sleep, 1000
-		autoSynthesis()
-		;sleep, 2000
-		;autoSynthesisFallback()
 	}
 	expectedCraftCount++
 }
