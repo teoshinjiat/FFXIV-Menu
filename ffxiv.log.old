@@ -1,347 +1,74 @@
-﻿[09/03/2022 17:59:34]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
-[09/03/2022 17:59:34]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
-[09/03/2022 17:59:34]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
-[09/03/2022 17:59:34]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
-[09/03/2022 17:59:34]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
-[09/03/2022 17:59:34]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
-[09/03/2022 17:59:34]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
-[09/03/2022 17:59:34]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
-[09/03/2022 17:59:34]|(Verbose)|getPriceList()
-[09/03/2022 17:59:34]|(Verbose)|endpoint: https://universalis.app/api/ravana/33940?listings=1&entries=0&noGst=1&hq=0
-[09/03/2022 17:59:35]|(Verbose)|itemID : 33940
-[09/03/2022 17:59:35]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 30600
-[09/03/2022 17:59:35]|(Verbose)|getNumberOfSalesForItemFromRavana()
-[09/03/2022 17:59:35]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33940?entriesToReturn=800&entriesWithin=300000
-[09/03/2022 17:59:35]|(Verbose)|getNumberOfSales()
-[09/03/2022 17:59:35]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 59
-[09/03/2022 17:59:35]|(Verbose)|numberOfSales : 59
-[09/03/2022 17:59:35]|(Verbose)|lastKnownPrice : 30600
-[09/03/2022 17:59:35]|(Verbose)|numberOfSales : 59
-[09/03/2022 17:59:35]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
-[09/03/2022 17:59:35]|(Verbose)|endpoint: https://universalis.app/api/ravana/26735?listings=1&entries=0&noGst=1&hq=0
-[09/03/2022 17:59:35]|(Verbose)|itemID : 26735
-[09/03/2022 17:59:35]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 1000
-[09/03/2022 17:59:35]|(Verbose)|getNumberOfSalesForItemFromRavana()
-[09/03/2022 17:59:35]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/26735?entriesToReturn=800&entriesWithin=300000
-[09/03/2022 17:59:36]|(Verbose)|getNumberOfSales()
-[09/03/2022 17:59:36]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 14
-[09/03/2022 17:59:36]|(Verbose)|numberOfSales : 14
-[09/03/2022 17:59:36]|(Verbose)|lastKnownPrice : 1000
-[09/03/2022 17:59:36]|(Verbose)|numberOfSales : 14
-[09/03/2022 17:59:36]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
-[09/03/2022 17:59:36]|(Verbose)|endpoint: https://universalis.app/api/ravana/33938?listings=1&entries=0&noGst=1&hq=0
-[09/03/2022 17:59:36]|(Verbose)|itemID : 33938
-[09/03/2022 17:59:36]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 16913
-[09/03/2022 17:59:36]|(Verbose)|getNumberOfSalesForItemFromRavana()
-[09/03/2022 17:59:36]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33938?entriesToReturn=800&entriesWithin=300000
-[09/03/2022 17:59:36]|(Verbose)|getNumberOfSales()
-[09/03/2022 17:59:36]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 28
-[09/03/2022 17:59:36]|(Verbose)|numberOfSales : 28
-[09/03/2022 17:59:36]|(Verbose)|lastKnownPrice : 16913
-[09/03/2022 17:59:36]|(Verbose)|numberOfSales : 28
-[09/03/2022 17:59:37]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
-[09/03/2022 17:59:37]|(Verbose)|endpoint: https://universalis.app/api/ravana/33939?listings=1&entries=0&noGst=1&hq=0
-[09/03/2022 17:59:37]|(Verbose)|itemID : 33939
-[09/03/2022 17:59:37]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 11393
-[09/03/2022 17:59:37]|(Verbose)|getNumberOfSalesForItemFromRavana()
-[09/03/2022 17:59:37]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33939?entriesToReturn=800&entriesWithin=300000
-[09/03/2022 17:59:37]|(Verbose)|getNumberOfSales()
-[09/03/2022 17:59:37]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 35
-[09/03/2022 17:59:37]|(Verbose)|numberOfSales : 35
-[09/03/2022 17:59:37]|(Verbose)|lastKnownPrice : 11393
-[09/03/2022 17:59:37]|(Verbose)|numberOfSales : 35
-[09/03/2022 17:59:37]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
-[09/03/2022 17:59:37]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
-[09/03/2022 17:59:39]|(Verbose)|craftCount : 0
-[09/03/2022 17:59:39]|(Verbose)|foodRefresh : 0
-[09/03/2022 17:59:39]|(Verbose)|medicineRefresh : 0
-[09/03/2022 17:59:39]|(Verbose)|Started Auto Synthesis
-[09/03/2022 17:59:39]|(Verbose)|Param, expectedCraftCount : 0
-[09/03/2022 17:59:39]|(Verbose)|Param, eatFoodFlag : 0
-[09/03/2022 17:59:39]|(Verbose)|Param, eatMedicineFlag : 0
-[09/03/2022 17:59:39]|(Verbose)|expectedCraftCount > 0 : 0
-[09/03/2022 17:59:39]|(Verbose)|expectedCraftCount : 2147483647
-[09/03/2022 17:59:40]|(Verbose)|detectDurability()
-[09/03/2022 17:59:40]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 17:59:41]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 17:59:41]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 17:59:41]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 17:59:42]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 17:59:42]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 17:59:42]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 17:59:44]|(Verbose)|it's still crafting
-[09/03/2022 18:00:21]|(Debug)|Finished crafting, current craft count is 2147483647
-[09/03/2022 18:00:21]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:00:22]|(Verbose)|autoSynthesis()
-[09/03/2022 18:00:22]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:00:22]|(Verbose)|looping to send `
-[09/03/2022 18:00:22]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:00:22]|(Verbose)|looping to send `
-[09/03/2022 18:00:23]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:00:23]|(Verbose)|looping to send `
-[09/03/2022 18:00:23]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:00:23]|(Verbose)|looping to send `
-[09/03/2022 18:00:24]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:00:24]|(Verbose)|breaking while loop
-[09/03/2022 18:00:24]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:00:24]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:00:25]|(Verbose)|autoSynthesis()
-[09/03/2022 18:00:25]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:00:25]|(Verbose)|breaking while loop
-[09/03/2022 18:00:25]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:00:26]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:00:26]|(Verbose)|detectDurability()
-[09/03/2022 18:00:26]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:00:27]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:00:27]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:00:27]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:00:28]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ✔️
-[09/03/2022 18:00:28]|(Verbose)|will extract materia next
-[09/03/2022 18:00:28]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:00:28]|(Verbose)|preHealthCheck() buttonToPress:3
-[09/03/2022 18:00:30]|(Verbose)|it's still crafting
-[09/03/2022 18:01:07]|(Debug)|Finished crafting, current craft count is 2147483648
-[09/03/2022 18:01:07]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:01:08]|(Verbose)|healthCheck() buttonToPress:3
-[09/03/2022 18:01:08]|(Verbose)|spiritbondCheck()
-[09/03/2022 18:01:13]|(Verbose)|below while()
-[09/03/2022 18:01:13]|(Verbose)|searchImage() Result for filename, spiritbond_100percent.png : ✔️
-[09/03/2022 18:01:15]|(Verbose)|extracted one spiritbond
-[09/03/2022 18:01:19]|(Verbose)|below while()
-[09/03/2022 18:01:19]|(Verbose)|searchImage() Result for filename, spiritbond_100percent.png : ✔️
-[09/03/2022 18:01:22]|(Verbose)|extracted one spiritbond
-[09/03/2022 18:01:26]|(Verbose)|below while()
-[09/03/2022 18:01:26]|(Verbose)|searchImage() Result for filename, spiritbond_100percent.png : ✔️
-[09/03/2022 18:01:28]|(Verbose)|extracted one spiritbond
-[09/03/2022 18:01:32]|(Verbose)|below while()
-[09/03/2022 18:01:32]|(Verbose)|searchImage() Result for filename, spiritbond_100percent.png : ❌
-[09/03/2022 18:01:34]|(Verbose)|FINISHED EXTRACTING SPIRITBOND
-[09/03/2022 18:01:39]|(Verbose)|opening craft item
-[09/03/2022 18:01:39]|(Verbose)|exiting spiritbond
-[09/03/2022 18:01:44]|(Verbose)|autoSynthesis()
-[09/03/2022 18:01:45]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:01:45]|(Verbose)|looping to send `
-[09/03/2022 18:01:45]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:01:45]|(Verbose)|looping to send `
-[09/03/2022 18:01:45]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:01:45]|(Verbose)|looping to send `
-[09/03/2022 18:01:46]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:01:46]|(Verbose)|looping to send `
-[09/03/2022 18:01:46]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:01:46]|(Verbose)|breaking while loop
-[09/03/2022 18:01:46]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:01:47]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:01:48]|(Verbose)|autoSynthesis()
-[09/03/2022 18:01:48]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:01:48]|(Verbose)|breaking while loop
-[09/03/2022 18:01:48]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:01:48]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:01:49]|(Verbose)|detectDurability()
-[09/03/2022 18:01:49]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:01:49]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:01:50]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:01:50]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:01:50]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:01:51]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:01:51]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:01:53]|(Verbose)|it's still crafting
-[09/03/2022 18:02:30]|(Debug)|Finished crafting, current craft count is 2147483649
-[09/03/2022 18:02:30]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:02:31]|(Verbose)|autoSynthesis()
-[09/03/2022 18:02:31]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:02:31]|(Verbose)|looping to send `
-[09/03/2022 18:02:31]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:02:31]|(Verbose)|looping to send `
-[09/03/2022 18:02:32]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:02:32]|(Verbose)|looping to send `
-[09/03/2022 18:02:32]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:02:32]|(Verbose)|looping to send `
-[09/03/2022 18:02:33]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:02:33]|(Verbose)|breaking while loop
-[09/03/2022 18:02:33]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:02:33]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:02:34]|(Verbose)|autoSynthesis()
-[09/03/2022 18:02:34]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:02:34]|(Verbose)|breaking while loop
-[09/03/2022 18:02:34]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:02:35]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:02:35]|(Verbose)|detectDurability()
-[09/03/2022 18:02:35]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:02:36]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:02:36]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:02:36]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:02:37]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:02:37]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:02:37]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:02:39]|(Verbose)|it's still crafting
-[09/03/2022 18:03:16]|(Debug)|Finished crafting, current craft count is 2147483650
-[09/03/2022 18:03:16]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:03:17]|(Verbose)|autoSynthesis()
-[09/03/2022 18:03:17]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:03:17]|(Verbose)|looping to send `
-[09/03/2022 18:03:18]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:03:18]|(Verbose)|looping to send `
-[09/03/2022 18:03:18]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:03:18]|(Verbose)|looping to send `
-[09/03/2022 18:03:18]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:03:18]|(Verbose)|looping to send `
-[09/03/2022 18:03:19]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:03:19]|(Verbose)|breaking while loop
-[09/03/2022 18:03:19]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:03:19]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:03:20]|(Verbose)|autoSynthesis()
-[09/03/2022 18:03:21]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:03:21]|(Verbose)|breaking while loop
-[09/03/2022 18:03:21]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:03:21]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:03:21]|(Verbose)|detectDurability()
-[09/03/2022 18:03:22]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:03:22]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:03:22]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:03:23]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:03:23]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:03:23]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:03:23]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:03:25]|(Verbose)|it's still crafting
-[09/03/2022 18:04:02]|(Debug)|Finished crafting, current craft count is 2147483651
-[09/03/2022 18:04:02]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:04:03]|(Verbose)|autoSynthesis()
-[09/03/2022 18:04:04]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:04]|(Verbose)|looping to send `
-[09/03/2022 18:04:04]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:04]|(Verbose)|looping to send `
-[09/03/2022 18:04:04]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:04]|(Verbose)|looping to send `
-[09/03/2022 18:04:05]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:05]|(Verbose)|looping to send `
-[09/03/2022 18:04:05]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:05]|(Verbose)|breaking while loop
-[09/03/2022 18:04:05]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:04:05]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:06]|(Verbose)|autoSynthesis()
-[09/03/2022 18:04:07]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:07]|(Verbose)|breaking while loop
-[09/03/2022 18:04:07]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:04:07]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:08]|(Verbose)|detectDurability()
-[09/03/2022 18:04:08]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:04:08]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:04:08]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:04:09]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:04:09]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:04:09]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:04:09]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:04:11]|(Verbose)|it's still crafting
-[09/03/2022 18:04:48]|(Debug)|Finished crafting, current craft count is 2147483652
-[09/03/2022 18:04:48]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:04:49]|(Verbose)|autoSynthesis()
-[09/03/2022 18:04:50]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:50]|(Verbose)|looping to send `
-[09/03/2022 18:04:50]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:50]|(Verbose)|looping to send `
-[09/03/2022 18:04:50]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:50]|(Verbose)|looping to send `
-[09/03/2022 18:04:51]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:04:51]|(Verbose)|looping to send `
-[09/03/2022 18:04:51]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:51]|(Verbose)|breaking while loop
-[09/03/2022 18:04:51]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:04:51]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:52]|(Verbose)|autoSynthesis()
-[09/03/2022 18:04:53]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:53]|(Verbose)|breaking while loop
-[09/03/2022 18:04:53]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:04:53]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:04:54]|(Verbose)|detectDurability()
-[09/03/2022 18:04:54]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:04:54]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:04:55]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:04:55]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:04:55]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:04:56]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:04:56]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:04:58]|(Verbose)|it's still crafting
-[09/03/2022 18:05:34]|(Debug)|Finished crafting, current craft count is 2147483653
-[09/03/2022 18:05:34]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:05:35]|(Verbose)|autoSynthesis()
-[09/03/2022 18:05:36]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:05:36]|(Verbose)|looping to send `
-[09/03/2022 18:05:36]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:05:36]|(Verbose)|looping to send `
-[09/03/2022 18:05:37]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:05:37]|(Verbose)|looping to send `
-[09/03/2022 18:05:37]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:05:37]|(Verbose)|breaking while loop
-[09/03/2022 18:05:37]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:05:37]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:05:38]|(Verbose)|autoSynthesis()
-[09/03/2022 18:05:39]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:05:39]|(Verbose)|breaking while loop
-[09/03/2022 18:05:39]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:05:39]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:05:39]|(Verbose)|detectDurability()
-[09/03/2022 18:05:40]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:05:40]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:05:40]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:05:41]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:05:41]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:05:41]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:05:41]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:05:43]|(Verbose)|it's still crafting
-[09/03/2022 18:06:20]|(Debug)|Finished crafting, current craft count is 2147483654
-[09/03/2022 18:06:20]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:06:21]|(Verbose)|autoSynthesis()
-[09/03/2022 18:06:21]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:06:21]|(Verbose)|looping to send `
-[09/03/2022 18:06:22]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:06:22]|(Verbose)|looping to send `
-[09/03/2022 18:06:22]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:06:22]|(Verbose)|looping to send `
-[09/03/2022 18:06:23]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:06:23]|(Verbose)|looping to send `
-[09/03/2022 18:06:23]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:06:23]|(Verbose)|breaking while loop
-[09/03/2022 18:06:23]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:06:23]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:06:24]|(Verbose)|autoSynthesis()
-[09/03/2022 18:06:25]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:06:25]|(Verbose)|breaking while loop
-[09/03/2022 18:06:25]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:06:25]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:06:26]|(Verbose)|detectDurability()
-[09/03/2022 18:06:26]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:06:26]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:06:26]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:06:27]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:06:27]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:06:27]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:06:27]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:06:29]|(Verbose)|it's still crafting
-[09/03/2022 18:07:06]|(Debug)|Finished crafting, current craft count is 2147483655
-[09/03/2022 18:07:06]|(Debug)|Time taken for the craft is 40 seconds
-[09/03/2022 18:07:07]|(Verbose)|autoSynthesis()
-[09/03/2022 18:07:08]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:07:08]|(Verbose)|looping to send `
-[09/03/2022 18:07:08]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:07:08]|(Verbose)|looping to send `
-[09/03/2022 18:07:08]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ✔️
-[09/03/2022 18:07:08]|(Verbose)|looping to send `
-[09/03/2022 18:07:09]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:07:09]|(Verbose)|breaking while loop
-[09/03/2022 18:07:09]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:07:09]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:07:10]|(Verbose)|autoSynthesis()
-[09/03/2022 18:07:10]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:07:10]|(Verbose)|breaking while loop
-[09/03/2022 18:07:10]|(Verbose)|autoSynthesisFallback()
-[09/03/2022 18:07:11]|(Verbose)|searchImage() Result for filename, synthesis_button.png : ❌
-[09/03/2022 18:07:11]|(Verbose)|detectDurability()
-[09/03/2022 18:07:12]|(Verbose)|searchImage() Result for filename, 35.png : ❌
-[09/03/2022 18:07:12]|(Verbose)|searchImage() Result for filename, 40.png : ❌
-[09/03/2022 18:07:12]|(Verbose)|searchImage() Result for filename, 70.png : ❌
-[09/03/2022 18:07:13]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
-[09/03/2022 18:07:13]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
-[09/03/2022 18:07:13]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
-[09/03/2022 18:07:13]|(Verbose)|preHealthCheck() buttonToPress:
-[09/03/2022 18:07:15]|(Verbose)|it's still crafting
-[09/03/2022 18:07:26]|(Verbose)|Terminated Auto Synthesis
+﻿[09/03/2022 19:27:38]|(Verbose)|nameWithSpace : Craftsmans Command Materia X
+[09/03/2022 19:27:38]|(Verbose)|subOptions[i].label : Craftsmans Command Materia X
+[09/03/2022 19:27:38]|(Verbose)|nameWithSpace : Craftsmans Competence Materia VIII
+[09/03/2022 19:27:38]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia VIII
+[09/03/2022 19:27:38]|(Verbose)|nameWithSpace : Craftsmans Competence Materia X
+[09/03/2022 19:27:38]|(Verbose)|subOptions[i].label : Craftsmans Competence Materia X
+[09/03/2022 19:27:38]|(Verbose)|nameWithSpace : Craftsmans Cunning Materia X
+[09/03/2022 19:27:38]|(Verbose)|subOptions[i].label : Craftsmans Cunning Materia X
+[09/03/2022 19:27:38]|(Verbose)|getPriceList()
+[09/03/2022 19:27:38]|(Verbose)|endpoint: https://universalis.app/api/ravana/33940?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 19:27:39]|(Verbose)|itemID : 33940
+[09/03/2022 19:27:39]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 30596
+[09/03/2022 19:27:39]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 19:27:39]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33940?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 19:27:39]|(Verbose)|getNumberOfSales()
+[09/03/2022 19:27:39]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 59
+[09/03/2022 19:27:39]|(Verbose)|numberOfSales : 59
+[09/03/2022 19:27:39]|(Verbose)|lastKnownPrice : 30596
+[09/03/2022 19:27:39]|(Verbose)|numberOfSales : 59
+[09/03/2022 19:27:39]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 19:27:39]|(Verbose)|endpoint: https://universalis.app/api/ravana/26735?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 19:27:39]|(Verbose)|itemID : 26735
+[09/03/2022 19:27:39]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 999
+[09/03/2022 19:27:39]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 19:27:40]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/26735?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 19:27:40]|(Verbose)|getNumberOfSales()
+[09/03/2022 19:27:40]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 16
+[09/03/2022 19:27:40]|(Verbose)|numberOfSales : 16
+[09/03/2022 19:27:40]|(Verbose)|lastKnownPrice : 999
+[09/03/2022 19:27:40]|(Verbose)|numberOfSales : 16
+[09/03/2022 19:27:40]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 19:27:40]|(Verbose)|endpoint: https://universalis.app/api/ravana/33938?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 19:27:40]|(Verbose)|itemID : 33938
+[09/03/2022 19:27:40]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 16908
+[09/03/2022 19:27:40]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 19:27:40]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33938?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 19:27:41]|(Verbose)|getNumberOfSales()
+[09/03/2022 19:27:41]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 28
+[09/03/2022 19:27:41]|(Verbose)|numberOfSales : 28
+[09/03/2022 19:27:41]|(Verbose)|lastKnownPrice : 16908
+[09/03/2022 19:27:41]|(Verbose)|numberOfSales : 28
+[09/03/2022 19:27:41]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 19:27:41]|(Verbose)|endpoint: https://universalis.app/api/ravana/33939?listings=1&entries=0&noGst=1&hq=0
+[09/03/2022 19:27:41]|(Verbose)|itemID : 33939
+[09/03/2022 19:27:41]|(Verbose)|@@@@@ obj.listings[1].pricePerUnit : 11389
+[09/03/2022 19:27:41]|(Verbose)|getNumberOfSalesForItemFromRavana()
+[09/03/2022 19:27:41]|(Verbose)|endpoint: https://universalis.app/api/history/ravana/33939?entriesToReturn=800&entriesWithin=300000
+[09/03/2022 19:27:41]|(Verbose)|getNumberOfSales()
+[09/03/2022 19:27:41]|(Verbose)|obj.entries.length()obj.entries.length()obj.entries.length() : 35
+[09/03/2022 19:27:41]|(Verbose)|numberOfSales : 35
+[09/03/2022 19:27:41]|(Verbose)|lastKnownPrice : 11389
+[09/03/2022 19:27:41]|(Verbose)|numberOfSales : 35
+[09/03/2022 19:27:41]|(Verbose)|assignKnownPriceIntoEulmoreSubOptions()
+[09/03/2022 19:27:41]|(Verbose)|menuData[4].subOptions[key].label : Craftsmans Command Materia X
+[09/03/2022 19:27:43]|(Verbose)|craftCount : 0
+[09/03/2022 19:27:43]|(Verbose)|foodRefresh : 0
+[09/03/2022 19:27:43]|(Verbose)|medicineRefresh : 0
+[09/03/2022 19:27:44]|(Verbose)|Started Auto Synthesis
+[09/03/2022 19:27:44]|(Verbose)|Param, expectedCraftCount : 0
+[09/03/2022 19:27:44]|(Verbose)|Param, eatFoodFlag : 0
+[09/03/2022 19:27:44]|(Verbose)|Param, eatMedicineFlag : 0
+[09/03/2022 19:27:44]|(Verbose)|detectDurability()
+[09/03/2022 19:27:45]|(Verbose)|searchImage() Result for filename, 35.png : ❌
+[09/03/2022 19:27:45]|(Verbose)|searchImage() Result for filename, 40.png : ❌
+[09/03/2022 19:27:45]|(Verbose)|searchImage() Result for filename, 70.png : ❌
+[09/03/2022 19:27:46]|(Verbose)|searchImage() Result for filename, 80.png : ✔️
+[09/03/2022 19:27:46]|(Verbose)|searchImage() Result for filename, spritbond_full.png : ❌
+[09/03/2022 19:27:46]|(Verbose)|searchImage() Result for filename, durability_yellow.png : ❌
+[09/03/2022 19:27:46]|(Verbose)|preHealthCheck() buttonToPress:
+[09/03/2022 19:27:48]|(Verbose)|it's still crafting
+[09/03/2022 19:28:25]|(Debug)|Finished crafted one item, current craft count is 2147483647
+[09/03/2022 19:28:25]|(Debug)|Time taken for the craft is 40 seconds
+[09/03/2022 19:28:26]|(Verbose)|autoSynthesis()
+[09/03/2022 19:28:26]|(Verbose)|Terminated Auto Synthesis

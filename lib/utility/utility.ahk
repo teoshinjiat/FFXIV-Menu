@@ -1,5 +1,7 @@
 ﻿SetWorkingDir %A_ScriptDir%
-
+CoordMode, Pixel, Screen
+CoordMode, Mouse, Screen
+CoordMode, ToolTip, Screen
 global log:=true ; dont log to AHK Studio Log Window
 global lineNumber:=1
 
@@ -35,9 +37,8 @@ archieveLogFile(){ ;used when terminating a script
 	FileMove, C:\ahk\FFXIV\ffxiv.log, C:\ahk\FFXIV\ffxiv.log.old, 1
 }
 
-tooltip(msg, x:=1260, y:=720){
-	; default to center of the screen
-	ToolTip, msg, x, y ; center of the screen	
+tooltip(msg, x:=1260, y:=720){ ; default to center of the screen
+	ToolTip, %msg%, x, y ; center of the screen if args are not specified
 }
 
 ; TODO split non dependent functions, otherwise menu will have to import stuff that it dont needle
@@ -220,4 +221,41 @@ currentTimestamp(){
 convertStringToTimestamp(stringTimestamp){
 	FormatTime, TimeString, %stringTimestamp%, dd/MM/yyyy HH:mm:ss
 	return TimeString
+}
+
+;Gui
+guiUnderline(guiName){
+	Gui, %guiName%:Font, Underline 	
+}
+
+guiH1Font(guiName){
+	Gui, %guiName%:Font, s18, Verdana	
+}
+
+guiH2Font(guiName){
+	Gui, %guiName%:Font, s16, Verdana	
+}
+
+guiH3Font(guiName){
+	Gui, %guiName%:Font, s14, Verdana	
+}
+
+guiH4Font(guiName){
+	Gui, %guiName%:Font, s12, Verdana	
+}
+
+guiH5Font(guiName){
+	Gui, %guiName%:Font, s10, Verdana	
+}
+
+guiBold(guiName){
+	Gui, %guiName%:Font, bold
+}
+
+guiItalic(guiName){
+	Gui, %guiName%:Font, italic
+}
+
+guiNormal(guiName){
+	Gui, %guiName%:Font, normal
 }

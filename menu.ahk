@@ -28,8 +28,6 @@ menuData[ 3 ] := {function:"gAutoFish", value:"vMainScript3", label:"Auto Fish"}
 menuData[ 4 ] := {function:"gEulmore", value:"vMainScript4", label:"Auto Eulmore Turnin", subOptionGuiType:"ListBox", subOptionGuiStyle:"w350", subOptions:[]}
 menuData[ 5 ] := {function:"gProfitHelper", value:"vMainScript5", label:"Profit Helper"}
 
-;
-
 
 assignDataIntoEulmoreSubOptions() ; should be loaded only when sub tab is active to remove redundant load time
 getPriceList() ; should be loaded only when sub tab is active to remove redundant load time
@@ -42,35 +40,54 @@ Gui, Menu:Destroy
 ;Gui, Menu:+AlwaysOnTop
 ;Gui, Menu:Add,Picture, x0 y0 w720 h188,gui.png
 Gui, Menu:Color, 0x808080
-Gui, Menu:Font, s18, Verdana
+guiH1Font("Menu")
+guiItalic("Menu")
 Gui, Menu:Add, Tab2, AltSubmit vTabNum gLoadTabIndex x15 y15 h500 w2500, Auto Synthesis  |Auto Gather |Auto Fishing  |Eulmore  | Tools
-Gui, Menu:Font, s10, Verdana
-Gui, Menu:Font, bold
 
-;populating GUI menu
-initialX:=40
-initialY:=65
+
 
 ;https://www.autohotkey.com/boards/viewtopic.php?p=273253#p273253
 ; cant use function to draw gui because when function exits, variables are cleared, therefore, this is one big chunk of code to draw the GUI
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawAutoSynthesis
+guiH4Font("Menu")
+guiBold("Menu")
+
+guiUnderline("Menu")
+Gui, Menu:Add, Text, x50 y70, Options
+guiNormal("Menu") ; remove underline
+
+guiH5Font("Menu")
+guiBold("Menu")
 Gui, Menu:Tab, 1 ;switching tab for Gui Add
 function:=menuData[1].function
 value:=menuData[1].value
 label:=menuData[1].label
 
+;populating GUI menu
+initialX:=50
+initialY:=70
+
 for key, field in menuData[1].subOptions{ ;subBox options(parameters)
+	index:=A_Index
+	; reuse the same initial x,y for sub options
+	subInitialY:=initialY
 	
 	value:=menuData[1].subOptions[key].value
 	label:=menuData[1].subOptions[key].label
 	subOptionGuiType:=menuData[1].subOptionGuiType
 	subOptionGuiStyle:=menuData[1].subOptionGuiStyle
-	if(subOptionGuiType="Checkbox"){
-		Gui, Menu:Tab, 1
-		Gui, Menu:Add, %subOptionGuiType%, x+subInitialX y+subInitialY %subOptionGuiStyle% %value%, %label%			
-	} else { ; for ListBox, add outside of subLoop
-		listBoxOptions[key]:=label
-	}
+	subInitialY:=subInitialY+(index*20)
+	Gui, Menu:Add, %subOptionGuiType%, x%initialX% y%subInitialY% %subOptionGuiStyle% %value%, %label%			
+	
+	/*
+		legacy!
+		if(subOptionGuiType="Checkbox"){
+			Gui, Menu:Tab, 1
+			Gui, Menu:Add, %subOptionGuiType%, x%initialX% y+%subInitialY% %subOptionGuiStyle% %value%, %label%			
+		} else { ; for ListBox, add outside of subLoop
+			listBoxOptions[key]:=label
+		}
+	*/
 }
 
 Gui, Menu:Add, text, xp+20 yp+20, Craft Count (0 as infinite) ; 0 or empty field by accident or anything that is not positive integer will indicate as infinite craft
@@ -81,9 +98,9 @@ Gui, Menu:Tab, 2 ;switching tab for Gui Add
 function:=menuData[2].function
 value:=menuData[2].value
 label:=menuData[2].label
-
-Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
-
+guiH4Font("Menu")
+guiBold("Menu")
+guiNormal("Menu")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawAutoFish
 Gui, Menu:Tab, 3 ;switching tab for Gui Add
@@ -91,8 +108,9 @@ function:=menuData[3].function
 value:=menuData[3].value
 label:=menuData[3].label
 
-Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
-
+guiH4Font("Menu")
+guiBold("Menu")
+guiNormal("Menu")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawEulmore
 Gui, Menu:Tab, 4 ;switching tab for Gui Add
@@ -100,8 +118,13 @@ function:=menuData[4].function
 value:=menuData[4].value
 label:=menuData[4].label
 
-Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
-Gui, Menu:Add, Button, yp x+initialX+25 Disabled gPriceListWindow vPriceListWindow, Check Price List  ; todo: disabled attribute	
+subInitialX:=initialX
+subInitialY:=initialY
+
+guiH5Font("Menu")
+guiBold("Menu")
+;Gui, Menu:Add, Checkbox, x%initialX% y%initialY% %function% %value%, %label%
+Gui, Menu:Add, Button, x%initialX% y%initialY% gPriceListWindow vPriceListWindow, Check Price List  ; todo: disabled attribute	
 
 
 listBoxOptions:=[]
@@ -122,7 +145,7 @@ for i, obj in listBoxOptions {
 		options:=options . "|"
 	}
 }
-Gui, Menu:Add, %subOptionGuiType%, h80 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height	
+Gui, Menu:Add, %subOptionGuiType%, h100 %subOptionGuiStyle% %value%, %options%	; auto resize is not supported for listbox, therefore hardcoded height. h20 is per row	
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; drawTools
 Gui, Menu:Tab, 5 ;switching tab for Gui Add
@@ -135,12 +158,14 @@ Gui, Menu:Add, Button, xp yp+40 w400 gDrawProfitHelper, Profit Helper  ; todo: d
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 Gui, Menu:Tab ; exiting tab edit
-Gui, Menu:Add, Button, x18 y450 w300 h50 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
-Gui, Menu:Add, Checkbox, x350 y460 w300 vLoggingTogglingFlag gToggleLogging, Toggle Logging  ; The label ButtonOK (if it exists) will be run when the button is pressed.
-
-;Gui, Menu:Add, Text, x400 y463 vStatusTitle Hidden, Status
-;Gui, Menu:Add, Text, x400 y480 vStatusText Hidden w800, 0
+Gui, Menu:Add, Button, x18 y462 w300 h50 gButtonOK, Execute  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+Gui, Menu:Add, Checkbox, x320 y480 w300 vLoggingTogglingFlag gToggleLogging, Toggle Logging  ; The label ButtonOK (if it exists) will be run when the button is pressed.
+;Gui, Menu:Add, Text, x18 y470 vStatusTitle Hidden, Status
+Gui, Menu:Add, Text, x18 y520 vStatusTitle, Status :
+Gui, Menu:Add, Text, xp+60 y520 vStatusText w800, Idling
 ;Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
+;Gui, Menu:Add, Progress, x150 y500 w450 h20 cGreen vMyProgress Hidden, 75
+
 
 Gui, Menu:Add, Tab2, AltSubmit vLogNum gLoadLogTabIndex x15 y550 h800 w2500, Verbose  |Debug |Error  
 

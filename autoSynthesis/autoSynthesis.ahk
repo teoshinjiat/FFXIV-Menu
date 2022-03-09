@@ -44,6 +44,7 @@ Loop % expectedCraftCount {
 	}
 	logTag("Debug", "Finished crafted one item, current craft count is " expectedCraftCount)
 	EndTime := A_TickCount
+	tooltip("Current craft count : " expectedCraftCount)
 	logTag("Debug", "Time taken for the craft is " Ceil((EndTime - StartTime)/1000.0) " seconds")
 	if(!craftingWindow){ ; if less than 1, means not found, which means not busy anymore, proceed next
 		if(buttonToPress!=""){
@@ -61,6 +62,7 @@ Loop % expectedCraftCount {
 	expectedCraftCount++
 }
 log("Auto Synthesis finished.")
+tooltip("Auto Synthesis finished.")
 EXITAPP
 
 runMacro(durability){
