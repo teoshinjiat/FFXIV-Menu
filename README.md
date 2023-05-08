@@ -13,7 +13,7 @@ A collection of automated and QOL scripts that I developed from scratch to perfo
 # Timeline (Gui Showcase)
 
 
-1/Mar/2022 Added logging functionality
+# 1/Mar/2022 Added logging functionality
 
 ![image](https://user-images.githubusercontent.com/21898084/156228260-897ab36c-3ef4-40b4-b47b-05ceeaba5977.png)
 
