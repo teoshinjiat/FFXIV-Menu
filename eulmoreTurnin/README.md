@@ -5,7 +5,7 @@
 API used - https://universalis.app/docs/index.html?urls.primaryName=Universalis%20v2
 eg: https://universalis.app/api/v2/history/ravana/21823?entriesToReturn=800&entriesWithin=300000 number of entries in the past 3 days
 
-![eulmore](https://user-images.githubusercontent.com/21898084/155671185-3dd9f8b3-f5c4-413c-8f18-85fbfbf951a6.gif)
+![ezgif-3-b9eea988b5](https://github.com/teoshinjiat/FFXIV-Menu/assets/21898084/d8319ee6-6b55-4ebd-9f70-12adb9843008)
 
 Initial
 - Created a Bot to perform repeated tasks, that involves in handing in items to the npc to get currency and buying items with the same currency with another npc.
